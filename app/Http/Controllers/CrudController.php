@@ -832,11 +832,25 @@ class '.$modelFileName.'Controller extends Controller
      * @param  \Illuminate\Http\Request  &#36;request
      * @return \Illuminate\Http\Response
      */
+
+    private function SystemAdminLog(&#36;module_name="",&#36;action="",&#36;details=""){
+        &#36;tab=new AdminLog();
+        &#36;tab->module_name=&#36;module_name;
+        &#36;tab->action=&#36;action;
+        &#36;tab->details=&#36;details;
+        &#36;tab->admin_id=&#36;this->sdc->admin_id();
+        &#36;tab->admin_name=&#36;this->sdc->UserName();
+        &#36;tab->save();
+    }
+
+
     public function store(Request &#36;request)
     {
         &#36;this->validate(&#36;request,[
                 '.$contentValidation.'
         ]);
+
+        &#36;this->SystemAdminLog("'.$request->page_name.'","Save New","Create New");
 
         ';
 
@@ -1201,6 +1215,9 @@ class '.$modelFileName.'Controller extends Controller
         &#36;this->validate(&#36;request,[
                 '.$contentValidation.'
         ]);
+
+        &#36;this->SystemAdminLog("'.$request->page_name.'","Update","Edit / Modify");
+
         ';
 
         $contentSaveString="";
@@ -1268,6 +1285,8 @@ class '.$modelFileName.'Controller extends Controller
      */
     public function destroy('.$modelFileName.' &#36;'.strtolower($modelFileName).',&#36;id=0)
     {
+        &#36;this->SystemAdminLog("'.$request->page_name.'","Destroy","Delete");
+
         &#36;tab='.$modelFileName.'::find(&#36;id);
         &#36;tab->delete();
         ';

@@ -209,3 +209,16 @@ Route::post('/testten/ajax','TesttenController@ajaxSave');
 Route::post('/testten/datatable/ajax','TesttenController@datatable');
 Route::post('/testten/update/{id}','TesttenController@update');
 //======================== Testten Route End ===============================//
+//======================== Testhash Route Start ===============================//
+Route::get('/testhash/list','TesthashController@show');
+Route::get('/testhash/create','TesthashController@create');
+Route::get('/testhash/edit/{id}','TesthashController@edit');
+Route::get('/testhash/delete/{id}','TesthashController@destroy');
+Route::get('/testhash','TesthashController@index');
+Route::get('/testhash/export/excel','TesthashController@ExportExcel');
+Route::get('/testhash/export/pdf','TesthashController@ExportPDF');
+Route::post('/testhash','TesthashController@store');
+Route::post('/testhash/ajax','TesthashController@ajaxSave');
+Route::post('/testhash/datatable/ajax','TesthashController@datatable');
+Route::post('/testhash/update/{id}','TesthashController@update');
+//======================== Testhash Route End ===============================//
