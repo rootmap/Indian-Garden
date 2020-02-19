@@ -150,6 +150,18 @@
                             <input type="file" id="example-file-multiple-input" name="example-file-multiple-input" multiple="">
                         </div>
                     </div>
+                    <div class="form-group">
+                      <label>Disabled Result</label>
+                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="9" tabindex="-1" aria-hidden="true">
+                        <option selected="selected" data-select2-id="11">Alabama</option>
+                        <option data-select2-id="45">Alaska</option>
+                        <option disabled="disabled" data-select2-id="46">California (disabled)</option>
+                        <option data-select2-id="47">Delaware</option>
+                        <option data-select2-id="48">Tennessee</option>
+                        <option data-select2-id="49">Texas</option>
+                        <option data-select2-id="50">Washington</option>
+                      </select><span class="select2 select2-container select2-container--default select2-container--above select2-container--focus" dir="ltr" data-select2-id="10" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-cy0o-container"><span class="select2-selection__rendered" id="select2-cy0o-container" role="textbox" aria-readonly="true" title="Alabama">Alabama</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    </div>
                     <div class="form-group form-actions">
                         <div class="col-md-9 col-md-offset-3">
                             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>

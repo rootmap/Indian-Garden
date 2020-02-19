@@ -5,8 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>@yield('title') | Indian Garden Norrkoping</title>
-  @include('admin.include.headerCss')
   @yield('css')
+  @include('admin.include.headerCss')
+  @yield('extracss')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

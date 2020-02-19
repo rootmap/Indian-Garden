@@ -40,6 +40,11 @@ class CoreCustomController extends Facade {
     public static function UserID() 
     {
         return Auth::user()->id;
+    }
+
+    public static function UserName() 
+    {
+        return 'Admin';
     }    
 
 

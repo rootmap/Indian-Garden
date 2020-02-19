@@ -69,7 +69,7 @@ class CrudController extends Controller
 
                 $content .='
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
                         <label for="'.$this->genarateFieldName($field).'">'.$field.'</label>
@@ -83,7 +83,7 @@ class CrudController extends Controller
            {
                 $content .='
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                       <!-- text input -->
                       <div class="form-group">
                         <label for="'.$this->genarateFieldName($field).'">'.$field.'</label>
@@ -95,11 +95,11 @@ class CrudController extends Controller
            }
            elseif($request->field_type[$key]==3)
            {
-                $content .=$this->genarateStaticCheckbox($this->genarateFieldName($field),$request);
+                $content .=$this->genarateStaticCheckbox($this->genarateFieldName($field),$request,$key);
            }
            elseif($request->field_type[$key]==4)
            {
-                $content .=$this->genarateStaticRadioButton($this->genarateFieldName($field),$request);
+                $content .=$this->genarateStaticRadioButton($this->genarateFieldName($field),$request,$key);
            }
            elseif($request->field_type[$key]==5)
            {
@@ -107,35 +107,28 @@ class CrudController extends Controller
                 if($request->field_table[$key]==1){
 
                     $content .='
-                        <div class="form-row">
-                            <div class="col-md">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <label for="inputGroupSelect01" class="input-group-text" for="'.$this->genarateFieldName($field).'">'.$request->field_name_placeholder[$key].':</label>
-                                        </div>
-                                        <select id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'" class="custom-select" size="1">
-                                            '.$this->genarateStaticDropDown($request->field_option[$key]).'
-                                        </select>
-                                        <i class="fas fa-angle-down"></i>
-                                    </div>
-                            </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';
+                                  <label>'.$request->field_name_placeholder[$key].'</label>
+                                  <select class="form-control select2" style="width: 100%;"  id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
+                                    '.$this->genarateStaticDropDown($request->field_option[$key]).'
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                    ';
                 }
                 else{
 
                     $content .='
-                        <div class="form-row">
-                            <div class="col-md">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <label for="inputGroupSelect07" class="input-group-text" for="'.$this->genarateFieldName($field).'">'.$request->field_name_placeholder[$key].':</label>
-                                        </div>
-                                        <select id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'" class="custom-select" size="1">';
-                                        $content .='
-                                        <option value="">Choose</option>
+                                  <label>'.$request->field_name_placeholder[$key].'</label>
+                                  <select class="form-control select2" style="width: 100%;"  id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">';
+                    $content .='
+                                        <option value="">Please Select</option>
                                         @if(isset(&#36;dataRow_'.$request->field_table[$key].'))    
                                             @if(count(&#36;dataRow_'.$request->field_table[$key].')>0)
                                                 @foreach(&#36;dataRow_'.$request->field_table[$key].' as &#36;'.$request->field_table[$key].')
@@ -148,14 +141,12 @@ class CrudController extends Controller
                                             @endif
                                         @endif 
                                         ';
-
-                                        $content .='
-                                        </select>
-                                        <i class="fas fa-angle-down"></i>
-                                    </div>
-                            </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';                    
+                    $content .='
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                    ';                  
                 }
 
                 
@@ -163,26 +154,36 @@ class CrudController extends Controller
            elseif($request->field_type[$key]==6)
            {
                 $content .='
-                        <div class="form-row">
-                            <div class="col-md">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="inputGroupSelect07" class="" for="'.$this->genarateFieldName($field).'">'.$field.':</label>
-                                <input type="file" id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
-                            </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';
+                                    <label>'.$request->field_name_placeholder[$key].'</label>
+                                    <!-- <label for="customFile">'.$request->field_name_placeholder[$key].'</label> -->
+
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input"  id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
+                                      <label class="custom-file-label" for="customFile">'.$request->field_name_placeholder[$key].'</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>';
            }
            elseif($request->field_type[$key]==7)
            {
                 $content .='
-                        <div class="form-row">
-                            <div class="col-md">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="inputGroupSelect07" class="" for="'.$this->genarateFieldName($field).'">'.$field.':</label>
-                                <input type="file" id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
-                            </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';
+                                    <label>'.$request->field_name_placeholder[$key].'</label>
+                                    <!-- <label for="customFile">'.$request->field_name_placeholder[$key].'</label> -->
+
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input"  id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
+                                      <label class="custom-file-label" for="customFile">'.$request->field_name_placeholder[$key].'</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>';
            }
             
         }
@@ -198,35 +199,40 @@ class CrudController extends Controller
            if($request->field_type[$key]==1)
            {
                 $content .='
-                        <div class="form-row">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="inputGroupSelect07" class="" for="'.$this->genarateFieldName($field).'">'.$field.':</label>
-                                    <input type="text" 
-                                     ';
+                <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label for="'.$this->genarateFieldName($field).'">'.$field.'</label>
+                        <input type="text" 
+                        ';
 
-                                $content .='
-                                <?php 
-                                if(isset(&#36;dataRow->'.$this->genarateFieldName($field).')){
-                                    ?>
-                                    value="{{&#36;dataRow->'.$this->genarateFieldName($field).'}}" 
-                                    <?php 
-                                }
-                                ?>
-                                ';
+                        $content .='    
+                        <?php 
+                        if(isset(&#36;dataRow->'.$this->genarateFieldName($field).')){
+                            ?>
+                            value="{{&#36;dataRow->'.$this->genarateFieldName($field).'}}" 
+                            <?php 
+                        }
+                        ?>
+                        ';
 
-                                $content .=' id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'" class="form-control" placeholder="'.$request->field_name_placeholder[$key].'">
-                                </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';
+                        $content .='
+                        class="form-control" placeholder="'.$request->field_name_placeholder[$key].'" id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
+                      </div>
+                    </div>
+                </div>
+                ';
            }
            elseif($request->field_type[$key]==2)
            {
                 $content .='
-                        <div class="form-group">
-                                <h4>'.$field.'</h4>
-                                <textarea class="form-control textarea text-left p-3 h-100"
-                                        id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'" rows="5" placeholder="'.$request->field_name_placeholder[$key].'">';
+                <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label for="'.$this->genarateFieldName($field).'">'.$field.'</label>
+                        <textarea class="form-control" rows="3"  placeholder="'.$request->field_name_placeholder[$key].'" id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">';
                                     $content .='<?php 
                                 if(isset(&#36;dataRow->'.$this->genarateFieldName($field).')){
                                     
@@ -235,68 +241,47 @@ class CrudController extends Controller
                                 }
                                 ?>';
                                 $content .='</textarea>
-                        </div><!-- end form-group -->';
+                      </div>
+                    </div>
+                </div>
+                ';
            }
            elseif($request->field_type[$key]==3)
            {
-                $content .='
-                        <div class="input-group mb-4">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">
-                              '.$this->genarateStaticCheckbox($this->genarateFieldName($field),$request->field_option[$key],$data).'
-                            </div>
-                          </div>
-                          <input type="text" disabled="disabled"  for="'.$this->genarateFieldName($field).'" class="form-control" value="'.$request->field_name_placeholder[$key].'" />
-                        </div>';
+                $content .=$this->genarateStaticCheckbox($this->genarateFieldName($field),$request,$key,$data);
            }
            elseif($request->field_type[$key]==4)
            {
-                $content .='
-
-                        <div class="input-group mb-4">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">
-                              '.$this->genarateStaticRadioButton($this->genarateFieldName($field),$request->field_option[$key],$data).'
-                            </div>
-                          </div>
-                          <input type="text" disabled="disabled"  for="'.$this->genarateFieldName($field).'" class="form-control" value="'.$request->field_name_placeholder[$key].'" />
-                        </div>';
+                $content .=$this->genarateStaticRadioButton($this->genarateFieldName($field),$request,$key,$data);
            }
            elseif($request->field_type[$key]==5)
            {
 
                 if($request->field_table[$key]==1){
-
                     $content .='
-                        <div class="form-row">
-                            <div class="col-md">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <label for="inputGroupSelect01" class="input-group-text" for="'.$this->genarateFieldName($field).'">'.$request->field_name_placeholder[$key].':</label>
-                                        </div>
-                                        <select id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'" class="custom-select" size="1">
-                                            '.$this->genarateStaticDropDown($request->field_option[$key],$data,$this->genarateFieldName($field)).'
-                                        </select>
-                                        <i class="fas fa-angle-down"></i>
-                                    </div>
-                                </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';
+                                  <label>'.$request->field_name_placeholder[$key].'</label>
+                                  <select class="form-control select2" style="width: 100%;"  id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
+                                    '.$this->genarateStaticDropDown($request->field_option[$key],$data,$this->genarateFieldName($field)).'
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                    ';
                 }
                 else{
 
                     $content .='
-                        <div class="form-row">
-                            <div class="col-md">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <label for="inputGroupSelect07" class="" for="'.$this->genarateFieldName($field).'">'.$request->field_name_placeholder[$key].':</label>
-                                        </div>
-                                        <select id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'" class="custom-select" size="1">';
+                                  <label>'.$request->field_name_placeholder[$key].'</label>
+                                  <select class="form-control select2" style="width: 100%;"  id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
+                                    ';
                                         $content .='
-                                        <option value="">Choose</option>
+                                        <option value="">Please Select</option>
                                         @if(count(&#36;dataRow_'.$request->field_table[$key].')>0)
                                             @foreach(&#36;dataRow_'.$request->field_table[$key].' as &#36;'.$request->field_table[$key].')
                                                 ';
@@ -315,12 +300,11 @@ class CrudController extends Controller
                                         ';
 
                                         $content .='
-                                        </select>
-                                        <i class="fas fa-angle-down"></i>
-                                    </div>
-                            </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';                    
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                    ';                 
                 }
 
                 
@@ -329,41 +313,51 @@ class CrudController extends Controller
            {
                 $imgEncodeURL="'upload/".strtolower($this->genarateModelName($request->page_name))."/'.&#36;dataRow->".$this->genarateFieldName($field);
                 $content .='
-                        <div class="form-row">
-                            <div class="col-md">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
-
-                                    <label for="inputGroupSelect07" class="" for="'.$this->genarateFieldName($field).'">'.$field.':</label>
-                                <input type="file" id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
-                                <input type="hidden" value="{{&#36;dataRow->'.$this->genarateFieldName($field).'}}" name="ex_'.$this->genarateFieldName($field).'" />
+                                    <label>'.$request->field_name_placeholder[$key].'</label>
+                                    <!-- <label for="customFile">'.$request->field_name_placeholder[$key].'</label> -->
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input"  id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
+                                      <input type="hidden" value="{{&#36;dataRow->'.$this->genarateFieldName($field).'}}" name="ex_'.$this->genarateFieldName($field).'" />
+                                      <label class="custom-file-label" for="customFile">'.$request->field_name_placeholder[$key].'</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 @if(isset(&#36;dataRow->'.$this->genarateFieldName($field).'))
                                     @if(!empty(&#36;dataRow->'.$this->genarateFieldName($field).'))
-                                        <img src="{{url('.$imgEncodeURL.')}}" width="150">
+                                        <img class="img-thumbnail" src="{{url('.$imgEncodeURL.')}}" width="150">
                                     @endif
                                 @endif
-                            </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';
+                            </div>
+                        </div>';
+
            }
            elseif($request->field_type[$key]==7)
            {
                 $imgEncodeURL="'upload/".strtolower($this->genarateModelName($request->page_name))."/'.&#36;dataRow->".$this->genarateFieldName($field);
                 $content .='
-
-                        <div class="form-row">
-                            <div class="col-md">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="inputGroupSelect07" class="" for="'.$this->genarateFieldName($field).'">'.$field.':</label>
-                                <input type="file" id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
-                                <input type="hidden" value="{{&#36;dataRow->'.$this->genarateFieldName($field).'}}" name="ex_'.$this->genarateFieldName($field).'" />
-                                @if(isset(&#36;dataRow->'.$this->genarateFieldName($field).'))
-                                    @if(!empty(&#36;dataRow->'.$this->genarateFieldName($field).'))
-                                        <img src="{{url('.$imgEncodeURL.')}}" width="150">
-                                    @endif
-                                @endif
-                            </div><!-- end form-group -->
-                            </div><!-- end column -->
-                        </div><!-- end form-row -->';
+                                    <label>'.$request->field_name_placeholder[$key].'</label>
+                                    <!-- <label for="customFile">'.$request->field_name_placeholder[$key].'</label> -->
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input"  id="'.$this->genarateFieldName($field).'" name="'.$this->genarateFieldName($field).'">
+                                      <input type="hidden" value="{{&#36;dataRow->'.$this->genarateFieldName($field).'}}" name="ex_'.$this->genarateFieldName($field).'" />
+                                      <label class="custom-file-label" for="customFile">'.$request->field_name_placeholder[$key].'</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{url('.$imgEncodeURL.')}}" class="btn btn-primary">
+                                    <i class="fas fa-download"></i> 
+                                    Download / Open File
+                                </a>
+                            </div>
+                        </div>';
            }
             
             
@@ -403,51 +397,93 @@ $content .='
         return $content;
     }
 
-    private function genarateStaticCheckbox($filedName,$param,$datafill=''){
+    private function genarateStaticCheckbox($filedName,$request,$key,$datafill=''){
         $content='';
+
+        $placeholder=$request->field_name_placeholder[$key];
+        $param=$request->field_option[$key];
         $checkBoxArray=explode(",",$param);
+
+        $content.='
+        <div class="row">
+            <div class="col-sm-12">
+              <!-- checkbox -->
+              <div class="form-group">
+              <label>'.$placeholder.'</label>
+        ';
+
         foreach ($checkBoxArray as $key => $value) {
-            $content .='
-                                        &nbsp;<input type="checkbox" ';
-
-                                        if(!empty($datafill)){
-                                            $content .=' <?php 
-                                            if(&#36;dataRow->'.$filedName.'=="'.trim($value).'"){
-                                                ?>
-                                                checked="checked" 
-                                                <?php 
-                                            }
-                                            ?>';
-                                        }
-
-                                       $content .=' id="'.$filedName.'_'.$key.'" name="'.$filedName.'" value="'.trim($value).'">&nbsp;'.$value.'  &nbsp; 
-                                    ';
+                $content .='
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" ';
+                            if(!empty($datafill)){
+                $content .=' 
+                                <?php 
+                                if(&#36;dataRow->'.$filedName.'=="'.trim($value).'"){
+                                    ?>
+                                    checked="checked" 
+                                    <?php 
+                                }
+                                ?>';
+                            }
+                $content .='
+                          id="'.$filedName.'_'.$key.'" name="'.$filedName.'" value="'.trim($value).'">
+                          <label class="form-check-label">'.$value.'</label>
+                        </div>
+                ';
         }
+
+        $content .='
+                    </div>
+                </div>
+            </div>
+            ';
 
         return $content;
     }
 
 
-    private function genarateStaticRadioButton($filedName,$param,$datafill=''){
+    private function genarateStaticRadioButton($filedName,$request,$key,$datafill=''){
         $content='';
+
+        $placeholder=$request->field_name_placeholder[$key];
+        $param=$request->field_option[$key];
         $checkBoxArray=explode(",",$param);
+
+        $content.='
+        <div class="row">
+            <div class="col-sm-12">
+              <!-- radio -->
+              <div class="form-group">
+              <label>'.$placeholder.'</label>
+        ';
+
         foreach ($checkBoxArray as $key => $value) {
-            $content .='
-                                        <input type="radio" ';
-
-                                        if(!empty($datafill)){
-                                            $content .='<?php 
-                                            if(&#36;dataRow->'.$filedName.'=="'.trim($value).'"){
-                                                ?>
-                                                checked="checked" 
-                                                <?php 
-                                            }
-                                            ?>';
-                                        }
-
-                                        $content .='
-                                        id="'.$filedName.'_'.$key.'" name="'.$filedName.'" value="'.trim($value).'">&nbsp;'.$value."&nbsp; ";
+                $content .='
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" ';
+                            if(!empty($datafill)){
+                $content .=' 
+                                <?php 
+                                if(&#36;dataRow->'.$filedName.'=="'.trim($value).'"){
+                                    ?>
+                                    checked="checked" 
+                                    <?php 
+                                }
+                                ?>';
+                            }
+                $content .='
+                          id="'.$filedName.'_'.$key.'" name="'.$filedName.'" value="'.trim($value).'">
+                          <label class="form-check-label">'.$value.'</label>
+                        </div>
+                ';
         }
+
+        $content .='
+                    </div>
+                </div>
+            </div>
+            ';
 
         return $content;
     }
@@ -515,8 +551,7 @@ foreach($request->field_name as $key=>$field){
     if(isset($request->field_type[$key]))
     {
         if($request->field_type[$key]==5){
-            if($request->field_table[$key]==1){}
-            else{
+            if($request->field_table[$key]!=1){
                 //echo 22; die();
                 //echo $request->field_table[$key];
                 $controllerContent .='
@@ -815,7 +850,7 @@ class '.$modelFileName.'Controller extends Controller
                 $controllerContent .="
 
         &#36;filename_".strtolower($modelFileName)."='';
-        if (!empty(&#36;request->file('".$this->genarateFieldName($field)."'))) {
+        if (&#36;request->hasFile('".$this->genarateFieldName($field)."')) {
             &#36;img_".strtolower($modelFileName)." = &#36;request->file('".$this->genarateFieldName($field)."');
             &#36;upload_".strtolower($modelFileName)." = 'upload/".strtolower($modelFileName)."';
             &#36;filename_".strtolower($modelFileName)." = time() . '.' . &#36;img_".strtolower($modelFileName)."->getClientOriginalExtension();
@@ -827,7 +862,27 @@ class '.$modelFileName.'Controller extends Controller
 
                 $contentSaveString .="
         &#36;tab->".$this->genarateFieldName($field)."=&#36;filename_".strtolower($modelFileName).";";
-            }else{
+            }
+            elseif($request->field_type[$key]==5 && $request->field_table[$key]!=1){
+                $controllerContent .="
+        &#36;tab_".$key."_".$request->field_table[$key]."=".$request->field_table[$key]."::where('id',&#36;request->".$this->genarateFieldName($field).")->first();";
+
+                $keyParam=$request->field_option[$key];
+                $dataParam=explode(',',$request->field_option[$key]);
+                if(count($dataParam)>1)
+                {
+                    $keyParam=$dataParam[1];
+                }
+
+                $controllerContent .="
+        &#36;".$this->genarateFieldName($field)."_".$key."_".$request->field_table[$key]."=&#36;tab_".$key."_".$request->field_table[$key]."->".$keyParam.";";
+
+                $contentSaveString .="
+        &#36;tab->".$this->genarateFieldName($field)."_".$keyParam."=&#36;".$this->genarateFieldName($field)."_".$key."_".$request->field_table[$key].";";
+                $contentSaveString .="
+        &#36;tab->".$this->genarateFieldName($field)."=&#36;request->".$this->genarateFieldName($field).";";
+            }
+            else{
                 $contentSaveString .="
         &#36;tab->".$this->genarateFieldName($field)."=&#36;request->".$this->genarateFieldName($field).";";
             }
@@ -1026,7 +1081,7 @@ class '.$modelFileName.'Controller extends Controller
                         <td style='font-size:12px;' class='text-center'>".$dataPullComma.".&#36;voi->".$this->genarateFieldName($field).".".$dataPullComma."</td>";
                         }
                         $controllerContent .="
-                        <td style='font-size:12px;' class='text-right'>".$dataPullComma.".formatDate(&#36;voi->created_at).".$dataPullComma."</td>
+                        <td style='font-size:12px; text-align:center;' class='text-center'>".$dataPullComma.".formatDate(&#36;voi->created_at).".$dataPullComma."</td>
                         </tr>".$dataPullComma.";
 
                     endforeach;
@@ -1156,7 +1211,7 @@ class '.$modelFileName.'Controller extends Controller
                 $controllerContent .="
 
         &#36;filename_".strtolower($modelFileName)."=&#36;request->ex_".$this->genarateFieldName($field).";
-        if (!empty(&#36;request->file('".$this->genarateFieldName($field)."'))) {
+        if (&#36;request->hasFile('".$this->genarateFieldName($field)."')) {
             &#36;img_".strtolower($modelFileName)." = &#36;request->file('".$this->genarateFieldName($field)."');
             &#36;upload_".strtolower($modelFileName)." = 'upload/".strtolower($modelFileName)."';
             &#36;filename_".strtolower($modelFileName)." = time() . '.' . &#36;img_".strtolower($modelFileName)."->getClientOriginalExtension();
@@ -1168,7 +1223,27 @@ class '.$modelFileName.'Controller extends Controller
 
                 $contentSaveString .="
         &#36;tab->".$this->genarateFieldName($field)."=&#36;filename_".strtolower($modelFileName).";";
-            }else{
+            }
+            elseif($request->field_type[$key]==5 && $request->field_table[$key]!=1){
+                $controllerContent .="
+        &#36;tab_".$key."_".$request->field_table[$key]."=".$request->field_table[$key]."::where('id',&#36;request->".$this->genarateFieldName($field).")->first();";
+
+                $keyParam=$request->field_option[$key];
+                $dataParam=explode(',',$request->field_option[$key]);
+                if(count($dataParam)>1)
+                {
+                    $keyParam=$dataParam[1];
+                }
+
+                $controllerContent .="
+        &#36;".$this->genarateFieldName($field)."_".$key."_".$request->field_table[$key]."=&#36;tab_".$key."_".$request->field_table[$key]."->".$keyParam.";";
+
+                $contentSaveString .="
+        &#36;tab->".$this->genarateFieldName($field)."_".$keyParam."=&#36;".$this->genarateFieldName($field)."_".$key."_".$request->field_table[$key].";";
+                $contentSaveString .="
+        &#36;tab->".$this->genarateFieldName($field)."=&#36;request->".$this->genarateFieldName($field).";";
+            }
+            else{
                 $contentSaveString .="
         &#36;tab->".$this->genarateFieldName($field)."=&#36;request->".$this->genarateFieldName($field).";";
             }
@@ -1308,6 +1383,112 @@ $res_create_content .='
 </section>
 @endsection';
 
+
+$selectTwoCssResource="'admin/plugins/select2/css/select2.min.css'";
+$selectTwoJssResource="'admin/plugins/select2/js/select2.full.min.js'";
+$fileUploadShowJssResource="'admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js'";
+
+//$res_create_content .=
+$resourceArray=array(
+    'select_css'=>0,
+    'select_js'=>0,
+    'fileupload'=>0
+);
+
+$pageCSsFooterContent='';
+if(count($request->field_name)>0)
+{
+    foreach($request->field_name as $key=>$field){
+       if($request->field_type[$key]==5){
+            
+            if(empty($pageCSsFooterContent)){
+                    $pageCSsFooterContent .='
+@section("css")
+    ';
+            }
+
+            if($resourceArray['select_css']==0)
+            {
+                    $pageCSsFooterContent .='
+    <link rel="stylesheet" href="{{url('.$selectTwoCssResource.')}}">
+    ';
+                $resourceArray['select_css']=1;
+            }
+            
+       }
+
+    }
+
+    if(!empty($pageCSsFooterContent))
+    {
+        $pageCSsFooterContent .='
+@endsection
+        ';
+    }    
+}
+
+
+$pageJssFooterContent='';
+if(count($request->field_name)>0)
+{
+    foreach($request->field_name as $key=>$field){
+       if($request->field_type[$key]==5){
+            if(empty($pageJssFooterContent)){
+                $pageJssFooterContent .='
+@section("js")
+';
+            }
+
+            if($resourceArray['select_js']==0)
+            {
+                $pageJssFooterContent .='
+    <script src="{{url('.$selectTwoJssResource.')}}"></script>
+    <script>
+    $(document).ready(function(){
+        $(".select2").select2();
+    });
+    </script>
+';
+                $resourceArray['select_js']=1;
+            }
+
+       }
+       elseif(in_array($request->field_type[$key],array(6,7))){
+            if(empty($pageJssFooterContent)){
+                $pageJssFooterContent .='
+@section("js")
+';
+            }
+
+            if($resourceArray['fileupload']==0)
+            {
+                $pageJssFooterContent .='
+    <script src="{{url('.$fileUploadShowJssResource.')}}"></script>
+    <script>
+    $(document).ready(function(){
+        bsCustomFileInput.init();
+    });
+    </script>
+';
+                $resourceArray['fileupload']=1;
+            }
+
+       }
+    }
+   
+
+    if(!empty($pageJssFooterContent))
+    {
+        $pageJssFooterContent .='
+@endsection
+        ';
+    }
+}
+
+$res_create_content .=$pageCSsFooterContent;
+$res_create_content .=$pageJssFooterContent;
+
+
         $this->GenarateWithLink($resourceViewPath_create,$res_create_content);
     }
 
@@ -1322,7 +1503,7 @@ $res_create_content .='
         $excelDataRoute="'".$page_route."/export/excel'";
         $pdfDataRoute="'".$page_route."/export/pdf'";
         $CreateDataRoute="'".$page_route."/create'";
-        $edturl="'".strtolower($modelFileName)."/edit/'.&#36;row->id";
+        $edturl="'".strtolower($modelFileName)."/edit/'.&#36;dataRow->id";
 
         $res_create_content.='
 @extends("admin.layout.master")
@@ -1406,7 +1587,7 @@ $res_create_content .='
           {{csrf_field()}}
           
             <div class="card-body">
-                '.$this->genrateFormField($request,1).'       
+                '.$this->genrateEditFormField($request,1).'       
             </div>
             <!-- /.card-body -->
 
@@ -1431,6 +1612,111 @@ $res_create_content .='
   </div><!-- /.container-fluid -->
 </section>
 @endsection';
+
+
+$selectTwoCssResource="'admin/plugins/select2/css/select2.min.css'";
+$selectTwoJssResource="'admin/plugins/select2/js/select2.full.min.js'";
+$fileUploadShowJssResource="'admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js'";
+
+
+$resourceEditArray=array(
+    'select_css'=>0,
+    'select_js'=>0,
+    'fileupload'=>0
+);
+
+$pageCSsFooterContent='';
+if(count($request->field_name)>0)
+{
+    foreach($request->field_name as $key=>$field){
+       if($request->field_type[$key]==5){
+            
+            if(empty($pageCSsFooterContent)){
+                    $pageCSsFooterContent .='
+@section("css")
+    ';
+            }
+
+            if($resourceEditArray['select_css']==0)
+            {
+                    $pageCSsFooterContent .='
+    <link rel="stylesheet" href="{{url('.$selectTwoCssResource.')}}">
+    ';
+                $resourceEditArray['select_css']=1;
+            }
+            
+       }
+
+    }
+
+    if(!empty($pageCSsFooterContent))
+    {
+        $pageCSsFooterContent .='
+@endsection
+        ';
+    }    
+}
+
+
+$pageJssFooterContent='';
+if(count($request->field_name)>0)
+{
+    foreach($request->field_name as $key=>$field){
+       if($request->field_type[$key]==5){
+            if(empty($pageJssFooterContent)){
+                $pageJssFooterContent .='
+@section("js")
+';
+            }
+
+            if($resourceEditArray['select_js']==0)
+            {
+                $pageJssFooterContent .='
+    <script src="{{url('.$selectTwoJssResource.')}}"></script>
+    <script>
+    $(document).ready(function(){
+        $(".select2").select2();
+    });
+    </script>
+';
+                $resourceEditArray['select_js']=1;
+            }
+
+       }
+       elseif(in_array($request->field_type[$key],array(6,7))){
+            if(empty($pageJssFooterContent)){
+                $pageJssFooterContent .='
+@section("js")
+';
+            }
+
+            if($resourceEditArray['fileupload']==0)
+            {
+                $pageJssFooterContent .='
+    <script src="{{url('.$fileUploadShowJssResource.')}}"></script>
+    <script>
+    $(document).ready(function(){
+        bsCustomFileInput.init();
+    });
+    </script>
+';
+                $resourceEditArray['fileupload']=1;
+            }
+
+       }
+    }
+   
+
+    if(!empty($pageJssFooterContent))
+    {
+        $pageJssFooterContent .='
+@endsection
+        ';
+    }
+}
+
+$res_create_content .=$pageCSsFooterContent;
+$res_create_content .=$pageJssFooterContent;
 
         $this->GenarateWithLink($resourceViewPath_create,$res_create_content);
     }
@@ -1517,8 +1803,29 @@ $res_create_content .='
                                         $fieldCHeckName="field_data_table_".$keyPlus;
                                                 if(isset($_POST[$fieldCHeckName]))
                                                 {
-                    $res_create_content .='
+
+            if($request->field_type[$key]==5 && $request->field_table[$key]!=1){
+
+                $keyParam=$request->field_option[$key];
+                $dataParam=explode(',',$request->field_option[$key]);
+                if(count($dataParam)>1)
+                {
+                    $keyParam=$dataParam[1];
+                }
+
+                $res_create_content .='
+                            <th class="text-center">'.ucfirst($field).' '.ucfirst($keyParam).'</th>';
+
+            }
+            else
+            {
+                $res_create_content .='
                             <th class="text-center">'.$field.'</th>';
+            }
+
+                    
+
+
                                                 }
                                         
 
@@ -1543,7 +1850,22 @@ $res_create_content .='
                                         $fieldCHeckName="field_data_table_".$keyPlus;
                                         if(isset($_POST[$fieldCHeckName]))
                                         {
+            if($request->field_type[$key]==5 && $request->field_table[$key]!=1){
+
+                                            $keyParam=$request->field_option[$key];
+                                            $dataParam=explode(',',$request->field_option[$key]);
+                                            if(count($dataParam)>1)
+                                            {
+                                                $keyParam=$dataParam[1];
+                                            }
+
+                                            $res_create_content .='<td class="text-center">{{&#36;row->'.$this->genarateFieldName($field).'_'.$keyParam.'}}</td>';
+
+            }
+            else
+            {
                                             $res_create_content .='<td class="text-center">{{&#36;row->'.$this->genarateFieldName($field).'}}</td>';
+            }
                                         }
                                         $keyPlus++;
                                     }
@@ -1582,8 +1904,25 @@ $res_create_content .='
                                         $fieldCHeckName="field_data_table_".$keyPlus;
                                                 if(isset($_POST[$fieldCHeckName]))
                                                 {
+
+            if($request->field_type[$key]==5 && $request->field_table[$key]!=1){
+
+                        $keyParam=$request->field_option[$key];
+                        $dataParam=explode(',',$request->field_option[$key]);
+                        if(count($dataParam)>1)
+                        {
+                            $keyParam=$dataParam[1];
+                        }
+
+                        $res_create_content .='
+                        <th class="text-center">'.ucfirst($field).' '.ucfirst($keyParam).'</th>';
+
+            }
+            else
+            {
                         $res_create_content .='
                         <th class="text-center">'.$field.'</th>';
+            }
                                                 }
                                         
 
@@ -1655,9 +1994,28 @@ class Create".$getMigrationTableFileCLass."Table extends Migration
         Schema::create('".$getMigrationTableFile."', function (Blueprint &#36;table) {
             &#36;table->increments('id');";
 
-foreach($request->field_name as $key=>$field){       
+foreach($request->field_name as $key=>$field){     
+    if($request->field_type[$key]==5 && $request->field_table[$key]!=1){
+
+                $keyParam=$request->field_option[$key];
+                $dataParam=explode(',',$request->field_option[$key]);
+                if(count($dataParam)>1)
+                {
+                    $keyParam=$dataParam[1];
+                }
+
+        $migContent .="
+            &#36;table->integer('".$this->genarateFieldName($field)."');";  
+
+        $migContent .="
+            &#36;table->string('".$this->genarateFieldName($field)."_".$keyParam."');";      
+
+    }
+    else
+    {  
         $migContent .="
             &#36;table->string('".$this->genarateFieldName($field)."');";    
+    }
 }
 
 $migContent .="
@@ -1681,15 +2039,35 @@ $migContent .="
     }
 }
 ";
-        \DB::statement("INSERT INTO ecom_page_names (name,db_table,route_link,page_type) values ('".$migFileClassName."','".$getMigrationTableFile."','".$request->page_route."','".$request->page_type."')");
+        \DB::statement("INSERT INTO page_names (name,db_table,route_link,page_type) values ('".$migFileClassName."','".$getMigrationTableFile."','".$request->page_route."','".$request->page_type."')");
         $sqlCheckMax=\DB::table('migrations')->orderBy('batch','DESC')->first();
-        \DB::statement("INSERT INTO ecom_migrations (migration,batch) values ('".$slashes."','".($sqlCheckMax->batch+1)."')");
+        \DB::statement("INSERT INTO migrations (migration,batch) values ('".$slashes."','".($sqlCheckMax->batch+1)."')");
 
-        $laraTableDB="CREATE TABLE `ecom_".$getMigrationTableFile."` (
+        $laraTableDB="CREATE TABLE `".$getMigrationTableFile."` (
             `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,";
-        foreach($request->field_name as $key=>$field){       
+        foreach($request->field_name as $key=>$field){ 
+
+    if($request->field_type[$key]==5 && $request->field_table[$key]!=1){
+
+                $keyParam=$request->field_option[$key];
+                $dataParam=explode(',',$request->field_option[$key]);
+                if(count($dataParam)>1)
+                {
+                    $keyParam=$dataParam[1];
+                }
+
+        $laraTableDB .="
+                `".$this->genarateFieldName($field)."` INT(11) NULL  DEFAULT 0 COLLATE 'utf8mb4_unicode_ci',";
+
+        $laraTableDB .="
+                `".$this->genarateFieldName($field)."_".$keyParam."` VARCHAR(191) NULL  DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',";    
+
+    }
+    else
+    {      
                 $laraTableDB .="
-                `".$this->genarateFieldName($field)."` VARCHAR(191) NULL  DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',";    
+                `".$this->genarateFieldName($field)."` VARCHAR(191) NULL  DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',";
+    }    
         }
             
         $laraTableDB.="    
