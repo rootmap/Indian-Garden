@@ -133,10 +133,12 @@ class IndexController extends Controller
         $setting        = Sitesettings::all();
         $OpeningHour    = OpeningHour::all();
         $gallery        = Gallery::all();
+        $category        = Category::where('category_status','Active')->get();
     	return view('site.pages.gallery',[
             'setting'=>$setting,
             'OpeningHour'=>$OpeningHour,
             'gallery'=>$gallery,
+            'category'=>$category,
         ]);
     }
     public function reservation(){
@@ -171,5 +173,10 @@ class IndexController extends Controller
         
         return redirect()->back()->with('success', 'Your message has been sent successfully.');
 
+    }
+
+
+    public function dashboard(){
+        return view('admin.pages.dashboard.index');
     }
 }

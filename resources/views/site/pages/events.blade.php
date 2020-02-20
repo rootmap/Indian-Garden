@@ -47,7 +47,7 @@
             <p class="mb-40">
               {{ $evn->content }}
             </p>
-              <a href="{{ url('$evn->content_attachment') }}" class="btn btn-default btn-inner">Download Floor Plan</a>
+              <a href="{{ url('upload/eventinfo/'.$evn->content_attachment) }}" class="btn btn-default btn-inner">Download Floor Plan</a>
             </div>
           </div>
           <div class="col-lg-5  nopadd">
@@ -72,7 +72,7 @@
               <p class="mb-40">
                 {{ $evn->content }}
               </p>
-              <a href="{{ url('$evn->content_attachment') }}" class="btn btn-default btn-inner">Download Floor Plan</a>
+              <a href="{{ url('upload/eventinfo/'.$evn->content_attachment) }}" class="btn btn-default btn-inner">Download Floor Plan</a>
             </div>
           </div>
         </div>

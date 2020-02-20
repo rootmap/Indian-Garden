@@ -88,7 +88,7 @@ class GalleryController extends Controller
         $tab->gallery_image=$filename_gallery_2;
         $tab->save();
 
-        return redirect('gallery')->with('status','Added Successfully !');
+        return redirect('galleryphoto')->with('status','Added Successfully !');
 
     }
 
@@ -312,7 +312,7 @@ class GalleryController extends Controller
         $tab->gallery_image=$filename_gallery_2;
         $tab->save();
 
-        return redirect('gallery')->with('status','Updated Successfully !');
+        return redirect('galleryphoto')->with('status','Updated Successfully !');
     }
 
     /**
@@ -327,5 +327,5 @@ class GalleryController extends Controller
 
         $tab=Gallery::find($id);
         $tab->delete();
-        return redirect('gallery')->with('status','Deleted Successfully !');}
+        return redirect('galleryphoto')->with('status','Deleted Successfully !');}
 }

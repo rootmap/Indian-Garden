@@ -10,7 +10,7 @@
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="{{url('gallery/create')}}">Create New </a></li>
+                  <li class="breadcrumb-item"><a href="{{url('galleryphoto/create')}}">Create New </a></li>
                   <li class="breadcrumb-item active">Gallery Data</li>
                 </ol>
               </div>
@@ -35,18 +35,18 @@
                     <div class="card-tools">
                       <ul class="pagination pagination-sm float-right">
                         <li class="page-item">
-                            <a class="page-link bg-primary" href="{{url('gallery/create')}}"> 
+                            <a class="page-link bg-primary" href="{{url('galleryphoto/create')}}"> 
                                 Add New 
                                 <i class="fas fa-plus"></i> 
                             </a>
                         </li>
                         <li class="page-item">
-                          <a class="page-link" target="_blank" href="{{url('gallery/export/pdf')}}">
+                          <a class="page-link" target="_blank" href="{{url('galleryphoto/export/pdf')}}">
                             <i class="fas fa-file-pdf" data-toggle="tooltip" data-html="true"title="Pdf"></i>
                           </a>
                         </li>
                         <li class="page-item">
-                          <a class="page-link" target="_blank" href="{{url('gallery/export/excel')}}">
+                          <a class="page-link" target="_blank" href="{{url('galleryphoto/export/excel')}}">
                             <i class="fas fa-file-excel" data-toggle="tooltip" data-html="true"title="Excel"></i>
                           </a>
                         </li>
@@ -78,11 +78,11 @@
                                     <td>{{formatDate($row->created_at)}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{url('gallery/edit/'.$row->id)}}" type="button" class="btn btn-default">
+                                            <a href="{{url('galleryphoto/edit/'.$row->id)}}" type="button" class="btn btn-default">
                                                 Edit 
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="{{url('gallery/delete/'.$row->id)}}" type="button" class="btn btn-default">
+                                            <a href="{{url('galleryphoto/delete/'.$row->id)}}" type="button" class="btn btn-default">
                                                 Delete 
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>

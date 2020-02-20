@@ -150,27 +150,27 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio"  
                                 <?php 
-                                if($dataRow->contact_status=="Unsean"){
+                                if($dataRow->contact_status=="Unseen"){
                                     ?>
                                     checked="checked" 
                                     <?php 
                                 }
                                 ?>
-                          id="contact_status_0" name="contact_status" value="Unsean">
-                          <label class="form-check-label">Unsean</label>
+                          id="contact_status_0" name="contact_status" value="Unseen">
+                          <label class="form-check-label">Unseen</label>
                         </div>
                 
                         <div class="form-check">
                             <input class="form-check-input" type="radio"  
                                 <?php 
-                                if($dataRow->contact_status=="Sean"){
+                                if($dataRow->contact_status=="Seen"){
                                     ?>
                                     checked="checked" 
                                     <?php 
                                 }
                                 ?>
-                          id="contact_status_1" name="contact_status" value="Sean">
-                          <label class="form-check-label">Sean</label>
+                          id="contact_status_1" name="contact_status" value="Seen">
+                          <label class="form-check-label">Seen</label>
                         </div>
                 
                     </div>

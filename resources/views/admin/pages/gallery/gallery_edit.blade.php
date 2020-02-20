@@ -10,8 +10,8 @@
       </div>
       <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{url('gallery/list')}}">Datatable </a></li>
-              <li class="breadcrumb-item"><a href="{{url('gallery/create')}}">Create New </a></li>
+              <li class="breadcrumb-item"><a href="{{url('galleryphoto/list')}}">Datatable </a></li>
+              <li class="breadcrumb-item"><a href="{{url('galleryphoto/create')}}">Create New </a></li>
               <li class="breadcrumb-item active">Edit / Modify</li>
             </ol>
       </div>
@@ -36,24 +36,24 @@
             <div class="card-tools">
               <ul class="pagination pagination-sm float-right">
                 <li class="page-item">
-                    <a class="page-link bg-primary" href="{{url('gallery/create')}}"> 
+                    <a class="page-link bg-primary" href="{{url('galleryphoto/create')}}"> 
                         Create 
                         <i class="fas fa-plus"></i>
                     </a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link bg-primary" href="{{url('gallery/list')}}"> 
+                    <a class="page-link bg-primary" href="{{url('galleryphoto/list')}}"> 
                         Data 
                         <i class="fas fa-table"></i>
                     </a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link  bg-primary" target="_blank" href="{{url('gallery/export/pdf')}}">
+                  <a class="page-link  bg-primary" target="_blank" href="{{url('galleryphoto/export/pdf')}}">
                     <i class="fas fa-file-pdf" data-toggle="tooltip" data-html="true"title="Pdf"></i>
                   </a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link  bg-primary" target="_blank" href="{{url('gallery/export/excel')}}">
+                  <a class="page-link  bg-primary" target="_blank" href="{{url('galleryphoto/export/excel')}}">
                     <i class="fas fa-file-excel" data-toggle="tooltip" data-html="true"title="Excel"></i>
                   </a>
                 </li>
@@ -138,7 +138,7 @@
                 <i class="fas fa-save"></i> 
                 Update
               </button>
-              <a class="btn btn-danger" href="{{url('gallery/edit/'.$dataRow->id)}}">
+              <a class="btn btn-danger" href="{{url('galleryphoto/edit/'.$dataRow->id)}}">
                 <i class="far fa-times-circle"></i> 
                 Reset
               </a>

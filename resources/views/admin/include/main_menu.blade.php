@@ -1,11 +1,11 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="#" class="brand-link">
       <img src="{{ url('admin/dist/img/AdminLTELogo.png') }}"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Admin Panel</span>
     </a>
 
     <!-- Sidebar -->
@@ -31,41 +31,174 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fab fa-steam-symbol"></i>
-              <p>Site Setting</p>
+          <li class="nav-item has-treeview {{ in_array(Request::path(),array('slider','weareopen','homepagevideo','homeorderdelivery','homedelivery'))?'menu-open':'' }}">
+            <a href="#" class="nav-link {{ in_array(Request::path(),array('slider','weareopen','homepagevideo','homeorderdelivery','homedelivery'))?'active':'' }}">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Home Page
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('slider')}}" class="nav-link {{ Request::path() == 'slider' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Slider</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('weareopen')}}" class="nav-link {{ Request::path() == 'weareopen' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>We are open</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('homepagevideo')}}" class="nav-link {{ Request::path() == 'homepagevideo' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Video</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('homeorderdelivery')}}" class="nav-link {{ Request::path() == 'homeorderdelivery' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Order Delivery</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('homedelivery')}}" class="nav-link {{ Request::path() == 'homedelivery' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Delivery</p>
+                </a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview {{ in_array(Request::path(),array('ourhistorypageinfo','ourhistory'))?'menu-open':'' }}">
+            <a href="#" class="nav-link {{ in_array(Request::path(),array('ourhistorypageinfo','ourhistory'))?'active':'' }}">
               <i class="nav-icon fas fa-book-open"></i>
-              <p>Our History</p>
+              <p>
+                Our History
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('ourhistorypageinfo')}}" class="nav-link {{ Request::path() == 'ourhistorypageinfo' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Our History Info</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('ourhistory')}}" class="nav-link {{ Request::path() == 'ourhistory' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Our History</p>
+                </a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview {{ in_array(Request::path(),array('menupageinfo','category','menuitem'))?'menu-open':'' }}">
+            <a href="#" class="nav-link {{ in_array(Request::path(),array('menupageinfo','category','menuitem'))?'active':'' }}">
               <i class="nav-icon fas fa-utensils"></i>
-              <p>Menu</p>
+              <p>
+                Menu
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('menupageinfo')}}" class="nav-link {{ Request::path() == 'menupageinfo' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Menu Page Info</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('category')}}" class="nav-link {{ Request::path() == 'category' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('menuitem')}}" class="nav-link {{ Request::path() == 'menuitem' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Our Menu</p>
+                </a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview {{ in_array(Request::path(),array('eventpageinfo','eventinfo'))?'menu-open':'' }}">
+            <a href="#" class="nav-link {{ in_array(Request::path(),array('eventpageinfo','eventinfo'))?'active':'' }}">
               <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>Events</p>
+              <p>
+                Events
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('eventpageinfo')}}" class="nav-link {{ Request::path() == 'eventpageinfo' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Event Page Info</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('eventinfo')}}" class="nav-link {{ Request::path() == 'eventinfo' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Events</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{url('galleryphoto')}}" class="nav-link {{ Request::path() == 'galleryphoto' ? 'active' : '' }}">
               <i class="nav-icon fas fa-images"></i>
               <p>Gallery</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{url('reservationsrequest')}}" class="nav-link {{ Request::path() == 'reservationsrequest' ? 'active' : '' }}">
               <i class="nav-icon fas fa-envelope-open"></i>
               <p>Reservation & Contact</p>
             </a>
+          </li>  
+          <li class="nav-item">
+            <a href="{{url('contactusrequest')}}" class="nav-link {{ Request::path() == 'contactusrequest' ? 'active' : '' }}">
+              <i class="nav-icon fas fa-phone-square-alt"></i>
+              <p>Contact</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview {{ in_array(Request::path(),array('sitesettings','openinghour','sociallinkmgt/create','websitesettings/create'))?'menu-open':'' }}">
+            <a href="#" class="nav-link {{ in_array(Request::path(),array('sitesettings','openinghour','sociallinkmgt/create','websitesettings/create'))?'active':'' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Setting
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('sitesettings')}}" class="nav-link {{ Request::path() == 'sitesettings' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Site Setting</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('openinghour')}}" class="nav-link {{ Request::path() == 'openinghour' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Opening Hour</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('sociallinkmgt/create')}}" class="nav-link {{ Request::path() == 'sociallinkmgt/create' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Social Media Link</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('websitesettings/create')}}" class="nav-link {{ Request::path() == 'websitesettings/create' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Seo Setting</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
         </ul>

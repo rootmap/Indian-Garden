@@ -10,7 +10,7 @@
       </div>
       <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{url('gallery/list')}}">Gallery Data</a></li>
+              <li class="breadcrumb-item"><a href="{{url('galleryphoto/list')}}">Gallery Data</a></li>
               <li class="breadcrumb-item active">Create New Gallery</li>
             </ol>
       </div>
@@ -34,14 +34,14 @@
             <h3 class="card-title">Create New Gallery</h3>
             <div class="card-tools">
               <ul class="pagination pagination-sm float-right">
-                <li class="page-item"><a class="page-link bg-primary" href="{{url('gallery/list')}}"> Data <i class="fas fa-table"></i></a></li>
+                <li class="page-item"><a class="page-link bg-primary" href="{{url('galleryphoto/list')}}"> Data <i class="fas fa-table"></i></a></li>
                 <li class="page-item">
-                  <a class="page-link  bg-primary" target="_blank" href="{{url('gallery/export/pdf')}}">
+                  <a class="page-link  bg-primary" target="_blank" href="{{url('galleryphoto/export/pdf')}}">
                     <i class="fas fa-file-pdf" data-toggle="tooltip" data-html="true"title="Pdf"></i>
                   </a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link  bg-primary" target="_blank" href="{{url('gallery/export/excel')}}">
+                  <a class="page-link  bg-primary" target="_blank" href="{{url('galleryphoto/export/excel')}}">
                     <i class="fas fa-file-excel" data-toggle="tooltip" data-html="true"title="Excel"></i>
                   </a>
                 </li>
@@ -50,7 +50,7 @@
         </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="{{url('gallery')}}" method="post" enctype="multipart/form-data">
+          <form action="{{url('galleryphoto')}}" method="post" enctype="multipart/form-data">
           {{csrf_field()}}
           
             <div class="card-body">
@@ -101,7 +101,7 @@
 
             <div class="card-footer">
               <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Submit</button>
-              <a class="btn btn-danger" href="{{url('gallery/create')}}"><i class="far fa-times-circle"></i> Reset</a>
+              <a class="btn btn-danger" href="{{url('galleryphoto/create')}}"><i class="far fa-times-circle"></i> Reset</a>
             </div>
           </form>
         </div>

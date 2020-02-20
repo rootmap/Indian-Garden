@@ -190,10 +190,18 @@ img,
 .section-padding{
     padding       : 100px 0;
 }
+
+.section-gallery-padding{
+    padding       :40px 0;
+}
 textarea{
   resize:none;
 }
 
+.mb-1
+{
+    margin-bottom: 15px;
+}
     
 /*--------------------------------
   Page Wrapper
@@ -1938,7 +1946,7 @@ label.error {
   text-align: center;
 }
 .section-padding.galleri-wrapper{
-  padding-bottom: 70px;
+  padding-bottom: 30px;
 }
 .galleri-wrapper h1{
   font-size: 40px;

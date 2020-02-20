@@ -102,13 +102,13 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" 
                           id="contact_status_0" name="contact_status" value="Unsean">
-                          <label class="form-check-label">Unsean</label>
+                          <label class="form-check-label">Unseen</label>
                         </div>
                 
                         <div class="form-check">
                             <input class="form-check-input" type="radio" 
-                          id="contact_status_1" name="contact_status" value="Sean">
-                          <label class="form-check-label">Sean</label>
+                          id="contact_status_1" name="contact_status" value="Seen">
+                          <label class="form-check-label">Seen</label>
                         </div>
                 
                     </div>

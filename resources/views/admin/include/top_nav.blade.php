@@ -125,8 +125,8 @@
     <div class="p-3 control-sidebar-content">
        <h5>System log</h5>
        <hr class="mb-2">
-       <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>No Navbar border</span></div>
-       <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Body small text</span></div>
+       {{-- <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>No Navbar border</span></div>
+       <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Body small text</span></div> --}}
        
     </div>
   </aside>

@@ -4,204 +4,56 @@
 
 <!--===| Gallery Banner Start|===-->
   <section class="gallery-banner" style="background-image: url({{ url('site/img/custom/our-story-hero.jpg') }});">
-    <div class="banner-wrapper control-overlay">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12">
-              <h1>gallery</h1>
-              <p>fresh and healthy food available</p>
+    <div class="control-overlay">
+      <div class="banner-wrapper control-overlay">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <h1>gallery</h1>
+                <p>fresh and healthy food available</p>
+              </div>
             </div>
           </div>
-        </div>
+      </div>
     </div>
   </section>
   <!--===| Gallery Us Banner End|===-->
 
    <!--====| Shuffle Gallery Style Sta rt|====--> 
-  <section class="galleri-wrapper section-padding">
-    <div class="container"> 
-      <div class="row"> 
-        <div class="col-xs-12"> 
-          <h1>gallery with Shuffle</h1> 
-          <p class="slogan">fresh and healthy food available</p>
-        </div>
-      </div>
-
+  <section class="galleri-wrapper section-gallery-padding">
+    <div class="container">
       <div class="row"> 
       <div class="gallery-trigger">
           <ul id="filter">
              <li><a class="active" href="#" data-group="total">all</a></li> 
-             <li><a href="#" data-group="appetizer">appetizer</a></li> 
-             <li><a href="#" data-group="main-course">main-course</a></li> 
-             <li><a href="#" data-group="desserts">desserts</a></li> 
+             @if(count($category)>0)
+                @foreach($category as $c)
+                  <li><a href="#" data-group="{{ $c->name }}">{{ $c->name }}</a></li> 
+                @endforeach
+             @endif
           </ul> 
       </div>
 
       <div id="grid">
       <!-- portfolio-item -->
-          <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "main-course", "desserts"]'>
-            <div class="portfolio grid">
-            <figure class="effect-cheff gallary-image">
-              <div class="pull-left">
-                <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              </div>
-              <div class="pull-right">
-                <h1>aasdasid</h1>
-              </div>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "main-course", "appetizer"]'>
-            <div class="portfolio grid">
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "appetizer", "desserts"]'>
-            <div class="portfolio grid">
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "main-course", "appetizer"]'>
-            <div class="portfolio grid">
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "appetizer", "desserts"]'>
-            <div class="portfolio grid">
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "appetizer", "desserts"]'>
-            <div class="portfolio grid"> 
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "appetizer", "desserts"]'>
-            <div class="portfolio grid"> 
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "main-course", "appetizer"]'>
-            <div class="portfolio grid"> 
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "appetizer", "desserts"]'>
-            <div class="portfolio grid"> 
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "appetizer", "desserts"]'>
-            <div class="portfolio grid"> 
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-        <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "main-course", "desserts"]'>
-            <div class="portfolio grid"> 
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
-
-        <!-- portfolio-item -->
-          <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "appetizer", "main-course", "desserts"]'>
-            <div class="portfolio grid"> 
-            <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
-              <figcaption>
-                <div class="gallary-hover-text">
-                  <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>
-                  <p>chicken seasoned with herbs</p>
-                </div>
-              </figcaption>     
-            </figure>
-          </div>      
-        </div><!-- col-xs-12 -->
+          @if(count($gallery)>0)
+              @foreach($gallery as $g)
+                  <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "{{ $g->category_name }}"]'>
+                    <div class="portfolio grid">
+                    <figure class="effect-cheff gallary-image">
+                      <img src="{{url('upload/gallery/'.$g->gallery_image)}}" alt="Gallery 01"/>
+                      <figcaption>
+                        <div class="gallary-hover-text">
+                          <a class="yellow-bar fancybox" href="{{url('upload/gallery/'.$g->gallery_image)}}" data-fancybox-group="gallery"><i class="fa fa-search-plus"></i></a>
+                          <p>{{ $g->gallery_content }}</p>
+                        </div>
+                      </figcaption>     
+                    </figure>
+                  </div>      
+                </div><!-- col-xs-12 -->
+            @endforeach
+        @endif
+        
       </div> <!-- grid -->
     </div><!-- row -->
   </div><!-- container -->
