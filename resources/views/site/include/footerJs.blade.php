@@ -30,3 +30,9 @@
 <script type="text/javascript" src="{{url('site/js/preset.js')}}"></script>
 <!-- Custom script --> 
 <script type="text/javascript" src="{{url('site/js/custom.js')}}"></script>
+<script src="{{url('site/js/jquery.timepicker.js')}}"></script>
+<script>
+  $(function() {
+    $('#timepicker,#timepicker2').timepicker();
+  });
+</script>

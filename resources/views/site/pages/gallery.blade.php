@@ -1,15 +1,18 @@
 @extends('site.layout.master')
 @section('title','Gallery')
 @section('content')
+
 <!--===| Gallery Banner Start|===-->
-  <section class="banner-wrapper gallery-banner" style="background-image: url({{ url('site/img/custom/our-story-hero.jpg') }});">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h1>gallery</h1>
-          <p>fresh and healthy food available</p>
+  <section class="gallery-banner" style="background-image: url({{ url('site/img/custom/our-story-hero.jpg') }});">
+    <div class="banner-wrapper control-overlay">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1>gallery</h1>
+              <p>fresh and healthy food available</p>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
   </section>
   <!--===| Gallery Us Banner End|===-->
@@ -39,7 +42,12 @@
           <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "main-course", "desserts"]'>
             <div class="portfolio grid">
             <figure class="effect-cheff gallary-image">
-              <img src="http://placehold.it/300x200" alt="Gallery 01"/>
+              <div class="pull-left">
+                <img src="http://placehold.it/300x200" alt="Gallery 01"/>
+              </div>
+              <div class="pull-right">
+                <h1>aasdasid</h1>
+              </div>
               <figcaption>
                 <div class="gallary-hover-text">
                   <a class="yellow-bar fancybox" href="{{url('site/img/gallery-demo.jpg')}}" data-fancybox-group="gallery"><i class="fa fa-plus"></i></a>

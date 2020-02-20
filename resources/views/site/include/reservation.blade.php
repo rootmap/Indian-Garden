@@ -1,10 +1,12 @@
-<!--===| Right Fixed Booking Form Start|===-->
+<!--===| Right Fixed Booking Form Start|=== id="sidebar_form" name="sidebarForm" id="send-message-sidebar" --> 
+
   <div class="book-now-wrapper">
     <p class="toggle">book a table now</p>
     <div class="book-now ">  
       <div class="book-form">
         <p>free & instant online restaurant reservations</p>
-        <form id="sidebar_form" action="php/reservation.php" method="post" name="sidebarForm">
+        <form  action="{{url('reservation/request')}}" method="post"  enctype="multipart/form-data">
+          {{csrf_field()}}
           <div class="col-xs-12 col-sm-12">
             <input class="form-control" type="text" name="name" placeholder="name">
           </div>
@@ -12,11 +14,24 @@
             <input id="email-sidebar" class="form-control" type="email" name="mail" placeholder="E-mail">
           </div>
           <div class="col-xs-12 col-sm-12">
-            <input id="datepicker-sidebar" class="form-control" type="text" name="date"  placeholder="date">
+            <input id="datepicker-sidebar" class="form-control" type="text" name="reservations_date"  placeholder="date">
           </div>
           <div class="col-xs-12 col-sm-12">
-            <input class="form-control" type="text" name="person-no" placeholder="number of person">
+            <input id="timepicker2" class="form-control" type="text" name="reservations_time"  placeholder="Time">
           </div>
+          <div class="col-xs-12 col-sm-12">
+            {{-- <input class="form-control" type="text" name="person-no" placeholder="number of person"> --}}
+            <select name="person" class="form-control form-control-lg">
+                    <option value="">Select person</option>
+                    <option value="1 person">1 person</option>
+                    <option value="2 person">2 person</option>
+                    <option value="3 person">3 person</option>
+                    <option value="4 person">4 person</option>
+                    <option value="5 person">5 person</option>
+                    <option value="6 person">6 person</option>
+                  </select>
+          </div>
+          <input type="hidden" name="reservations_status" value="Pending">
           <div class="col-xs-12 col-sm-12">
             <textarea class="form-control" rows="3" name="message" placeholder="message &amp; special request"></textarea>
           </div>
@@ -25,7 +40,7 @@
                 <div id="sidebar_mail_fail" class="error" style="display:none;"> Sorry, error occured this time sending your message. </div>
           </div>
           <div class="col-xs-12 col-sm-12">
-            <button id="send-message-sidebar" class="btn" type="submit">make a reservation</button>
+            <button  class="btn" type="submit">make a reservation</button>
           </div>
         </form>
       </div>

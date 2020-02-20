@@ -63,6 +63,8 @@
                         <tr>
                             <th class="text-center">ID</th>
                             <th class="text-center">Name</th>
+                            <th class="text-center">Description</th>
+                            <th class="text-center">Category Status</th>
                             <th class="text-center">Created At</th>
                             <th class="text-center">Actions</th>
 
@@ -72,7 +74,7 @@
                         @if(count($dataRow))
                             @foreach($dataRow as $row)  
                                 <tr>
-                                    <td class="text-center">{{$row->id}}</td><td class="text-center">{{$row->name}}</td>
+                                    <td class="text-center">{{$row->id}}</td><td class="text-center">{{$row->name}}</td><td class="text-center">{{$row->description}}</td><td class="text-center">{{$row->category_status}}</td>
                                     <td>{{formatDate($row->created_at)}}</td>
                                     <td>
                                         <div class="btn-group">
@@ -96,6 +98,8 @@
                     <tr>
                         <th class="text-center">ID</th>
                         <th class="text-center">Name</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Category Status</th>
                         <th class="text-center">Created At</th>
                         <th class="text-center">Actions</th>
 

@@ -4,7 +4,7 @@
          <div class="col-xs-12">
             <div class="logo">
                <a title="digimo" href="{{ url('index') }}">
-               <img id="logo" src="{{ url('site/img/logo.png') }}" alt="digimo Logo">
+               <img id="logo" src="{{URL::asset('upload/sitesettings/'.$setting[0]->site_logo) }}" alt="{{ $setting[0]->site_title }}">
                </a>
             </div>
             <!-- /Logo -->

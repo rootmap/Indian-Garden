@@ -863,19 +863,19 @@ class '.$modelFileName.'Controller extends Controller
 
                 $controllerContent .="
 
-        &#36;filename_".strtolower($modelFileName)."='';
+        &#36;filename_".strtolower($modelFileName)."_".$key."='';
         if (&#36;request->hasFile('".$this->genarateFieldName($field)."')) {
             &#36;img_".strtolower($modelFileName)." = &#36;request->file('".$this->genarateFieldName($field)."');
             &#36;upload_".strtolower($modelFileName)." = 'upload/".strtolower($modelFileName)."';
-            &#36;filename_".strtolower($modelFileName)." = time() . '.' . &#36;img_".strtolower($modelFileName)."->getClientOriginalExtension();
-            &#36;img_".strtolower($modelFileName)."->move(&#36;upload_".strtolower($modelFileName).", &#36;filename_".strtolower($modelFileName).");
+            &#36;filename_".strtolower($modelFileName)."_".$key." = time() . '.' . &#36;img_".strtolower($modelFileName)."->getClientOriginalExtension();
+            &#36;img_".strtolower($modelFileName)."->move(&#36;upload_".strtolower($modelFileName).", &#36;filename_".strtolower($modelFileName)."_".$key.");
         }
 
                 ";
 
 
                 $contentSaveString .="
-        &#36;tab->".$this->genarateFieldName($field)."=&#36;filename_".strtolower($modelFileName).";";
+        &#36;tab->".$this->genarateFieldName($field)."=&#36;filename_".strtolower($modelFileName)."_".$key.";";
             }
             elseif($request->field_type[$key]==5 && $request->field_table[$key]!=1){
                 $controllerContent .="
@@ -1227,19 +1227,19 @@ class '.$modelFileName.'Controller extends Controller
 
                 $controllerContent .="
 
-        &#36;filename_".strtolower($modelFileName)."=&#36;request->ex_".$this->genarateFieldName($field).";
+        &#36;filename_".strtolower($modelFileName)."_".$key."=&#36;request->ex_".$this->genarateFieldName($field).";
         if (&#36;request->hasFile('".$this->genarateFieldName($field)."')) {
             &#36;img_".strtolower($modelFileName)." = &#36;request->file('".$this->genarateFieldName($field)."');
             &#36;upload_".strtolower($modelFileName)." = 'upload/".strtolower($modelFileName)."';
-            &#36;filename_".strtolower($modelFileName)." = time() . '.' . &#36;img_".strtolower($modelFileName)."->getClientOriginalExtension();
-            &#36;img_".strtolower($modelFileName)."->move(&#36;upload_".strtolower($modelFileName).", &#36;filename_".strtolower($modelFileName).");
+            &#36;filename_".strtolower($modelFileName)."_".$key." = time() . '.' . &#36;img_".strtolower($modelFileName)."->getClientOriginalExtension();
+            &#36;img_".strtolower($modelFileName)."->move(&#36;upload_".strtolower($modelFileName).", &#36;filename_".strtolower($modelFileName)."_".$key.");
         }
 
                 ";
 
 
                 $contentSaveString .="
-        &#36;tab->".$this->genarateFieldName($field)."=&#36;filename_".strtolower($modelFileName).";";
+        &#36;tab->".$this->genarateFieldName($field)."=&#36;filename_".strtolower($modelFileName)."_".$key.";";
             }
             elseif($request->field_type[$key]==5 && $request->field_table[$key]!=1){
                 $controllerContent .="
@@ -1358,8 +1358,9 @@ $res_create_content .='
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Create New '.$request->page_name.'</h3>
-
+            <h3 class="card-title">Create New '.$request->page_name.'</h3>';
+if($request->page_type!="Single"){
+$res_create_content.='
             <div class="card-tools">
               <ul class="pagination pagination-sm float-right">
                 <li class="page-item"><a class="page-link bg-primary" href="{{url('.$listRoute.')}}"> Data <i class="fas fa-table"></i></a></li>
@@ -1374,7 +1375,9 @@ $res_create_content .='
                   </a>
                 </li>
               </ul>
-            </div>
+            </div>';
+}
+$res_create_content.='            
         </div>
           <!-- /.card-header -->
           <!-- form start -->
@@ -1571,8 +1574,11 @@ $res_create_content .='
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Edit / Modify '.$request->page_name.'</h3>
+            <h3 class="card-title">Edit / Modify '.$request->page_name.'</h3>';
 
+if($request->page_type!="Single"){
+
+  $res_create_content.='
             <div class="card-tools">
               <ul class="pagination pagination-sm float-right">
                 <li class="page-item">
@@ -1598,7 +1604,10 @@ $res_create_content .='
                   </a>
                 </li>
               </ul>
-            </div>
+            </div>';
+            
+}
+$res_create_content.='
         </div>
           <!-- /.card-header -->
           <!-- form start -->

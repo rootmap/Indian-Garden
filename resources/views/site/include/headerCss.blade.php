@@ -13,3 +13,4 @@
 <script type="text/javascript" src="{{url('site/js/ie.js')}}"></script>
 <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js')}}"></script>
 <![endif]-->
+<link rel="stylesheet" href="{{url('site/css/jquery.timepicker.css')}}">

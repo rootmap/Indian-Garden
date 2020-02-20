@@ -1,5 +1,5 @@
 <footer style="background: url({{ url('site/img/custom/footer.jpg') }}) no-repeat center center fixed;background-size: cover; height: auto;">
-   <div class="footer-top">
+   <div class="footer-top control-overlay">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3">
@@ -25,20 +25,32 @@
         <div class="col-xs-12 col-sm-6 col-md-3">
           <h3 class="footer-title">opening hour</h3>
           <div class="open-time opening-time">
-           <p class="clock-time"><strong>monday :</strong> closed</p>
-           <p><strong>tue-fri :</strong> 8am - 12am</p>
-           <p><strong>sat-sun :</strong> 7am - 1am</p>
-           <p><strong>holydays :</strong> 12pm-12am</p>
+            @if(!empty($OpeningHour))
+            @foreach($OpeningHour as $opening)
+
+            <?php 
+              if($opening->day_status=="Closed"){
+                $class ='class="clock-time"';
+              }
+              else{
+                $class ='';
+              }
+            ?>
+             <p <?= $class?>>
+               <strong>{{$opening->day_name}} :</strong> {{$opening->opening_and_closing_hour}}
+             </p>
+             @endforeach
+           @endif
          </div>
        </div>
        
        <div class="col-xs-12 col-sm-6 col-md-3">
          <h3 class="footer-title">contacts</h3>
          <div class="address">
-           <p class="icon-map"><i class="fa fa-map-marker"></i><strong>address :</strong>  4578 Marmora </p>
-           <p class="road-details">Road,1422 1st St. Napa.</p>
-           <p><i class="fa fa-phone"></i><strong>phone :</strong> <a href="tel:7072550211">(707) 255-0211</a></p>
-           <p><i class="fa fa-envelope"></i><strong>email :</strong><a href="mailto:admin@urbanwine.com"> admin@urbanwine.com</a></p>
+           <p class="icon-map"><i class="fa fa-map-marker"></i><strong>address :</strong>  {{ $setting[0]->address }} </p>
+           {{-- <p class="road-details">Road,1422 1st St. Napa.</p> --}}
+           <p><i class="fa fa-phone"></i><strong>phone :</strong> <a href="tel:{{ $setting[0]->phone }}">{{ $setting[0]->phone }}</a></p>
+           <p><i class="fa fa-envelope"></i><strong>email :</strong><a href="mailto:{{ $setting[0]->email_address }}"> {{ $setting[0]->email_address }}</a></p>
          </div>
          <ul class="list-inline footer-social-list">
           <li><a href="#"><i class="flaticon-twitter1"></i></a></li>
@@ -58,7 +70,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="copy-right pull-left">
-          <p>Copyright-2020 Indian graden Theme by <a href="#" target="_blank">bhuyianhost.com</a></p>
+          <p>Copyright-{{date('Y')}} Indian graden design & develop by <a href="#" target="_blank">bhuyianhost.com</a></p>
         </div>
         
         <div class="back-top pull-right">

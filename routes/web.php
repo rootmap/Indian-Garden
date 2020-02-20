@@ -25,8 +25,142 @@ Route::get("index","IndexController@index");
 Route::get("our-history","IndexController@ourHistory");
 Route::get("menu","IndexController@menu");
 Route::get("events","IndexController@event");
-Route::get("gallery","IndexController@gallery");
+Route::get("gallerys","IndexController@gallery");
 Route::get("reservation","IndexController@reservation");
+Route::post('/reservation/request','IndexController@reservationStore');
+
+//======================== Sitesettings Route Start ===============================//
+Route::get('/sitesettings/list','SitesettingsController@show');
+Route::get('/sitesettings/create','SitesettingsController@create');
+Route::get('/sitesettings/edit/{id}','SitesettingsController@edit');
+Route::get('/sitesettings/delete/{id}','SitesettingsController@destroy');
+Route::get('/sitesettings','SitesettingsController@index');
+Route::get('/sitesettings/export/excel','SitesettingsController@ExportExcel');
+Route::get('/sitesettings/export/pdf','SitesettingsController@ExportPDF');
+Route::post('/sitesettings','SitesettingsController@store');
+Route::post('/sitesettings/ajax','SitesettingsController@ajaxSave');
+Route::post('/sitesettings/datatable/ajax','SitesettingsController@datatable');
+Route::post('/sitesettings/update/{id}','SitesettingsController@update');
+//======================== Sitesettings Route End ===============================//
+
+//======================== Slider Route Start ===============================//
+Route::get('/slider/list','SliderController@show');
+Route::get('/slider/create','SliderController@create');
+Route::get('/slider/edit/{id}','SliderController@edit');
+Route::get('/slider/delete/{id}','SliderController@destroy');
+Route::get('/slider','SliderController@index');
+Route::get('/slider/export/excel','SliderController@ExportExcel');
+Route::get('/slider/export/pdf','SliderController@ExportPDF');
+Route::post('/slider','SliderController@store');
+Route::post('/slider/ajax','SliderController@ajaxSave');
+Route::post('/slider/datatable/ajax','SliderController@datatable');
+Route::post('/slider/update/{id}','SliderController@update');
+//======================== Slider Route End ===============================//
+//======================== Weareopen Route Start ===============================//
+Route::get('/weareopen/list','WeareopenController@show');
+Route::get('/weareopen/create','WeareopenController@create');
+Route::get('/weareopen/edit/{id}','WeareopenController@edit');
+Route::get('/weareopen/delete/{id}','WeareopenController@destroy');
+Route::get('/weareopen','WeareopenController@index');
+Route::get('/weareopen/export/excel','WeareopenController@ExportExcel');
+Route::get('/weareopen/export/pdf','WeareopenController@ExportPDF');
+Route::post('/weareopen','WeareopenController@store');
+Route::post('/weareopen/ajax','WeareopenController@ajaxSave');
+Route::post('/weareopen/datatable/ajax','WeareopenController@datatable');
+Route::post('/weareopen/update/{id}','WeareopenController@update');
+//======================== Weareopen Route End ===============================//
+//======================== Homepagevideo Route Start ===============================//
+Route::get('/homepagevideo/list','HomepagevideoController@show');
+Route::get('/homepagevideo/create','HomepagevideoController@create');
+Route::get('/homepagevideo/edit/{id}','HomepagevideoController@edit');
+Route::get('/homepagevideo/delete/{id}','HomepagevideoController@destroy');
+Route::get('/homepagevideo','HomepagevideoController@index');
+Route::get('/homepagevideo/export/excel','HomepagevideoController@ExportExcel');
+Route::get('/homepagevideo/export/pdf','HomepagevideoController@ExportPDF');
+Route::post('/homepagevideo','HomepagevideoController@store');
+Route::post('/homepagevideo/ajax','HomepagevideoController@ajaxSave');
+Route::post('/homepagevideo/datatable/ajax','HomepagevideoController@datatable');
+Route::post('/homepagevideo/update/{id}','HomepagevideoController@update');
+//======================== Homepagevideo Route End ===============================//
+//======================== Homeorderdelivery Route Start ===============================//
+Route::get('/homeorderdelivery/list','HomeorderdeliveryController@show');
+Route::get('/homeorderdelivery/create','HomeorderdeliveryController@create');
+Route::get('/homeorderdelivery/edit/{id}','HomeorderdeliveryController@edit');
+Route::get('/homeorderdelivery/delete/{id}','HomeorderdeliveryController@destroy');
+Route::get('/homeorderdelivery','HomeorderdeliveryController@index');
+Route::get('/homeorderdelivery/export/excel','HomeorderdeliveryController@ExportExcel');
+Route::get('/homeorderdelivery/export/pdf','HomeorderdeliveryController@ExportPDF');
+Route::post('/homeorderdelivery','HomeorderdeliveryController@store');
+Route::post('/homeorderdelivery/ajax','HomeorderdeliveryController@ajaxSave');
+Route::post('/homeorderdelivery/datatable/ajax','HomeorderdeliveryController@datatable');
+Route::post('/homeorderdelivery/update/{id}','HomeorderdeliveryController@update');
+//======================== Homeorderdelivery Route End ===============================//
+//======================== Homedelivery Route Start ===============================//
+Route::get('/homedelivery/list','HomedeliveryController@show');
+Route::get('/homedelivery/create','HomedeliveryController@create');
+Route::get('/homedelivery/edit/{id}','HomedeliveryController@edit');
+Route::get('/homedelivery/delete/{id}','HomedeliveryController@destroy');
+Route::get('/homedelivery','HomedeliveryController@index');
+Route::get('/homedelivery/export/excel','HomedeliveryController@ExportExcel');
+Route::get('/homedelivery/export/pdf','HomedeliveryController@ExportPDF');
+Route::post('/homedelivery','HomedeliveryController@store');
+Route::post('/homedelivery/ajax','HomedeliveryController@ajaxSave');
+Route::post('/homedelivery/datatable/ajax','HomedeliveryController@datatable');
+Route::post('/homedelivery/update/{id}','HomedeliveryController@update');
+//======================== Homedelivery Route End ===============================//
+//======================== Openinghour Route Start ===============================//
+Route::get('/openinghour/list','OpeninghourController@show');
+Route::get('/openinghour/create','OpeninghourController@create');
+Route::get('/openinghour/edit/{id}','OpeninghourController@edit');
+Route::get('/openinghour/delete/{id}','OpeninghourController@destroy');
+Route::get('/openinghour','OpeninghourController@index');
+Route::get('/openinghour/export/excel','OpeninghourController@ExportExcel');
+Route::get('/openinghour/export/pdf','OpeninghourController@ExportPDF');
+Route::post('/openinghour','OpeninghourController@store');
+Route::post('/openinghour/ajax','OpeninghourController@ajaxSave');
+Route::post('/openinghour/datatable/ajax','OpeninghourController@datatable');
+Route::post('/openinghour/update/{id}','OpeninghourController@update');
+//======================== Openinghour Route End ===============================//
+//======================== Ourhistorypageinfo Route Start ===============================//
+Route::get('/ourhistorypageinfo/list','OurhistorypageinfoController@show');
+Route::get('/ourhistorypageinfo/create','OurhistorypageinfoController@create');
+Route::get('/ourhistorypageinfo/edit/{id}','OurhistorypageinfoController@edit');
+Route::get('/ourhistorypageinfo/delete/{id}','OurhistorypageinfoController@destroy');
+Route::get('/ourhistorypageinfo','OurhistorypageinfoController@index');
+Route::get('/ourhistorypageinfo/export/excel','OurhistorypageinfoController@ExportExcel');
+Route::get('/ourhistorypageinfo/export/pdf','OurhistorypageinfoController@ExportPDF');
+Route::post('/ourhistorypageinfo','OurhistorypageinfoController@store');
+Route::post('/ourhistorypageinfo/ajax','OurhistorypageinfoController@ajaxSave');
+Route::post('/ourhistorypageinfo/datatable/ajax','OurhistorypageinfoController@datatable');
+Route::post('/ourhistorypageinfo/update/{id}','OurhistorypageinfoController@update');
+//======================== Ourhistorypageinfo Route End ===============================//
+//======================== Ourhistory Route Start ===============================//
+Route::get('/ourhistory/list','OurhistoryController@show');
+Route::get('/ourhistory/create','OurhistoryController@create');
+Route::get('/ourhistory/edit/{id}','OurhistoryController@edit');
+Route::get('/ourhistory/delete/{id}','OurhistoryController@destroy');
+Route::get('/ourhistory','OurhistoryController@index');
+Route::get('/ourhistory/export/excel','OurhistoryController@ExportExcel');
+Route::get('/ourhistory/export/pdf','OurhistoryController@ExportPDF');
+Route::post('/ourhistory','OurhistoryController@store');
+Route::post('/ourhistory/ajax','OurhistoryController@ajaxSave');
+Route::post('/ourhistory/datatable/ajax','OurhistoryController@datatable');
+Route::post('/ourhistory/update/{id}','OurhistoryController@update');
+//======================== Ourhistory Route End ===============================//
+//======================== Menupageinfo Route Start ===============================//
+Route::get('/menupageinfo/list','MenupageinfoController@show');
+Route::get('/menupageinfo/create','MenupageinfoController@create');
+Route::get('/menupageinfo/edit/{id}','MenupageinfoController@edit');
+Route::get('/menupageinfo/delete/{id}','MenupageinfoController@destroy');
+Route::get('/menupageinfo','MenupageinfoController@index');
+Route::get('/menupageinfo/export/excel','MenupageinfoController@ExportExcel');
+Route::get('/menupageinfo/export/pdf','MenupageinfoController@ExportPDF');
+Route::post('/menupageinfo','MenupageinfoController@store');
+Route::post('/menupageinfo/ajax','MenupageinfoController@ajaxSave');
+Route::post('/menupageinfo/datatable/ajax','MenupageinfoController@datatable');
+Route::post('/menupageinfo/update/{id}','MenupageinfoController@update');
+//======================== Menupageinfo Route End ===============================//
+
 //======================== Category Route Start ===============================//
 Route::get('/category/list','CategoryController@show');
 Route::get('/category/create','CategoryController@create');
@@ -40,185 +174,107 @@ Route::post('/category/ajax','CategoryController@ajaxSave');
 Route::post('/category/datatable/ajax','CategoryController@datatable');
 Route::post('/category/update/{id}','CategoryController@update');
 //======================== Category Route End ===============================//
-//======================== Category Route Start ===============================//
-Route::get('/category/list','CategoryController@show');
-Route::get('/category/create','CategoryController@create');
-Route::get('/category/edit/{id}','CategoryController@edit');
-Route::get('/category/delete/{id}','CategoryController@destroy');
-Route::get('/category','CategoryController@index');
-Route::get('/category/export/excel','CategoryController@ExportExcel');
-Route::get('/category/export/pdf','CategoryController@ExportPDF');
-Route::post('/category','CategoryController@store');
-Route::post('/category/ajax','CategoryController@ajaxSave');
-Route::post('/category/datatable/ajax','CategoryController@datatable');
-Route::post('/category/update/{id}','CategoryController@update');
-//======================== Category Route End ===============================//
-//======================== Test Route Start ===============================//
-Route::get('/test/list','TestController@show');
-Route::get('/test/create','TestController@create');
-Route::get('/test/edit/{id}','TestController@edit');
-Route::get('/test/delete/{id}','TestController@destroy');
-Route::get('/test','TestController@index');
-Route::get('/test/export/excel','TestController@ExportExcel');
-Route::get('/test/export/pdf','TestController@ExportPDF');
-Route::post('/test','TestController@store');
-Route::post('/test/ajax','TestController@ajaxSave');
-Route::post('/test/datatable/ajax','TestController@datatable');
-Route::post('/test/update/{id}','TestController@update');
-//======================== Test Route End ===============================//
-//======================== Testfile Route Start ===============================//
-Route::get('/testfile/list','TestfileController@show');
-Route::get('/testfile/create','TestfileController@create');
-Route::get('/testfile/edit/{id}','TestfileController@edit');
-Route::get('/testfile/delete/{id}','TestfileController@destroy');
-Route::get('/testfile','TestfileController@index');
-Route::get('/testfile/export/excel','TestfileController@ExportExcel');
-Route::get('/testfile/export/pdf','TestfileController@ExportPDF');
-Route::post('/testfile','TestfileController@store');
-Route::post('/testfile/ajax','TestfileController@ajaxSave');
-Route::post('/testfile/datatable/ajax','TestfileController@datatable');
-Route::post('/testfile/update/{id}','TestfileController@update');
-//======================== Testfile Route End ===============================//
-//======================== Testfile Route Start ===============================//
-Route::get('/testfile/list','TestfileController@show');
-Route::get('/testfile/create','TestfileController@create');
-Route::get('/testfile/edit/{id}','TestfileController@edit');
-Route::get('/testfile/delete/{id}','TestfileController@destroy');
-Route::get('/testfile','TestfileController@index');
-Route::get('/testfile/export/excel','TestfileController@ExportExcel');
-Route::get('/testfile/export/pdf','TestfileController@ExportPDF');
-Route::post('/testfile','TestfileController@store');
-Route::post('/testfile/ajax','TestfileController@ajaxSave');
-Route::post('/testfile/datatable/ajax','TestfileController@datatable');
-Route::post('/testfile/update/{id}','TestfileController@update');
-//======================== Testfile Route End ===============================//
-//======================== Testtwo Route Start ===============================//
-Route::get('/testtwo/list','TesttwoController@show');
-Route::get('/testtwo/create','TesttwoController@create');
-Route::get('/testtwo/edit/{id}','TesttwoController@edit');
-Route::get('/testtwo/delete/{id}','TesttwoController@destroy');
-Route::get('/testtwo','TesttwoController@index');
-Route::get('/testtwo/export/excel','TesttwoController@ExportExcel');
-Route::get('/testtwo/export/pdf','TesttwoController@ExportPDF');
-Route::post('/testtwo','TesttwoController@store');
-Route::post('/testtwo/ajax','TesttwoController@ajaxSave');
-Route::post('/testtwo/datatable/ajax','TesttwoController@datatable');
-Route::post('/testtwo/update/{id}','TesttwoController@update');
-//======================== Testtwo Route End ===============================//
-//======================== Testthree Route Start ===============================//
-Route::get('/testthree/list','TestthreeController@show');
-Route::get('/testthree/create','TestthreeController@create');
-Route::get('/testthree/edit/{id}','TestthreeController@edit');
-Route::get('/testthree/delete/{id}','TestthreeController@destroy');
-Route::get('/testthree','TestthreeController@index');
-Route::get('/testthree/export/excel','TestthreeController@ExportExcel');
-Route::get('/testthree/export/pdf','TestthreeController@ExportPDF');
-Route::post('/testthree','TestthreeController@store');
-Route::post('/testthree/ajax','TestthreeController@ajaxSave');
-Route::post('/testthree/datatable/ajax','TestthreeController@datatable');
-Route::post('/testthree/update/{id}','TestthreeController@update');
-//======================== Testthree Route End ===============================//
-//======================== Name Route Start ===============================//
-Route::get('/name/list','NameController@show');
-Route::get('/name/create','NameController@create');
-Route::get('/name/edit/{id}','NameController@edit');
-Route::get('/name/delete/{id}','NameController@destroy');
-Route::get('/name','NameController@index');
-Route::get('/name/export/excel','NameController@ExportExcel');
-Route::get('/name/export/pdf','NameController@ExportPDF');
-Route::post('/name','NameController@store');
-Route::post('/name/ajax','NameController@ajaxSave');
-Route::post('/name/datatable/ajax','NameController@datatable');
-Route::post('/name/update/{id}','NameController@update');
-//======================== Name Route End ===============================//
-//======================== Testfour Route Start ===============================//
-Route::get('/testfour/list','TestfourController@show');
-Route::get('/testfour/create','TestfourController@create');
-Route::get('/testfour/edit/{id}','TestfourController@edit');
-Route::get('/testfour/delete/{id}','TestfourController@destroy');
-Route::get('/testfour','TestfourController@index');
-Route::get('/testfour/export/excel','TestfourController@ExportExcel');
-Route::get('/testfour/export/pdf','TestfourController@ExportPDF');
-Route::post('/testfour','TestfourController@store');
-Route::post('/testfour/ajax','TestfourController@ajaxSave');
-Route::post('/testfour/datatable/ajax','TestfourController@datatable');
-Route::post('/testfour/update/{id}','TestfourController@update');
-//======================== Testfour Route End ===============================//
-//======================== Testfive Route Start ===============================//
-Route::get('/testfive/list','TestfiveController@show');
-Route::get('/testfive/create','TestfiveController@create');
-Route::get('/testfive/edit/{id}','TestfiveController@edit');
-Route::get('/testfive/delete/{id}','TestfiveController@destroy');
-Route::get('/testfive','TestfiveController@index');
-Route::get('/testfive/export/excel','TestfiveController@ExportExcel');
-Route::get('/testfive/export/pdf','TestfiveController@ExportPDF');
-Route::post('/testfive','TestfiveController@store');
-Route::post('/testfive/ajax','TestfiveController@ajaxSave');
-Route::post('/testfive/datatable/ajax','TestfiveController@datatable');
-Route::post('/testfive/update/{id}','TestfiveController@update');
-//======================== Testfive Route End ===============================//
-//======================== Testsix Route Start ===============================//
-Route::get('/testsix/list','TestsixController@show');
-Route::get('/testsix/create','TestsixController@create');
-Route::get('/testsix/edit/{id}','TestsixController@edit');
-Route::get('/testsix/delete/{id}','TestsixController@destroy');
-Route::get('/testsix','TestsixController@index');
-Route::get('/testsix/export/excel','TestsixController@ExportExcel');
-Route::get('/testsix/export/pdf','TestsixController@ExportPDF');
-Route::post('/testsix','TestsixController@store');
-Route::post('/testsix/ajax','TestsixController@ajaxSave');
-Route::post('/testsix/datatable/ajax','TestsixController@datatable');
-Route::post('/testsix/update/{id}','TestsixController@update');
-//======================== Testsix Route End ===============================//
-//======================== Testseven Route Start ===============================//
-Route::get('/testseven/list','TestsevenController@show');
-Route::get('/testseven/create','TestsevenController@create');
-Route::get('/testseven/edit/{id}','TestsevenController@edit');
-Route::get('/testseven/delete/{id}','TestsevenController@destroy');
-Route::get('/testseven','TestsevenController@index');
-Route::get('/testseven/export/excel','TestsevenController@ExportExcel');
-Route::get('/testseven/export/pdf','TestsevenController@ExportPDF');
-Route::post('/testseven','TestsevenController@store');
-Route::post('/testseven/ajax','TestsevenController@ajaxSave');
-Route::post('/testseven/datatable/ajax','TestsevenController@datatable');
-Route::post('/testseven/update/{id}','TestsevenController@update');
-//======================== Testseven Route End ===============================//
-//======================== Testnine Route Start ===============================//
-Route::get('/testnine/list','TestnineController@show');
-Route::get('/testnine/create','TestnineController@create');
-Route::get('/testnine/edit/{id}','TestnineController@edit');
-Route::get('/testnine/delete/{id}','TestnineController@destroy');
-Route::get('/testnine','TestnineController@index');
-Route::get('/testnine/export/excel','TestnineController@ExportExcel');
-Route::get('/testnine/export/pdf','TestnineController@ExportPDF');
-Route::post('/testnine','TestnineController@store');
-Route::post('/testnine/ajax','TestnineController@ajaxSave');
-Route::post('/testnine/datatable/ajax','TestnineController@datatable');
-Route::post('/testnine/update/{id}','TestnineController@update');
-//======================== Testnine Route End ===============================//
-//======================== Testten Route Start ===============================//
-Route::get('/testten/list','TesttenController@show');
-Route::get('/testten/create','TesttenController@create');
-Route::get('/testten/edit/{id}','TesttenController@edit');
-Route::get('/testten/delete/{id}','TesttenController@destroy');
-Route::get('/testten','TesttenController@index');
-Route::get('/testten/export/excel','TesttenController@ExportExcel');
-Route::get('/testten/export/pdf','TesttenController@ExportPDF');
-Route::post('/testten','TesttenController@store');
-Route::post('/testten/ajax','TesttenController@ajaxSave');
-Route::post('/testten/datatable/ajax','TesttenController@datatable');
-Route::post('/testten/update/{id}','TesttenController@update');
-//======================== Testten Route End ===============================//
-//======================== Testhash Route Start ===============================//
-Route::get('/testhash/list','TesthashController@show');
-Route::get('/testhash/create','TesthashController@create');
-Route::get('/testhash/edit/{id}','TesthashController@edit');
-Route::get('/testhash/delete/{id}','TesthashController@destroy');
-Route::get('/testhash','TesthashController@index');
-Route::get('/testhash/export/excel','TesthashController@ExportExcel');
-Route::get('/testhash/export/pdf','TesthashController@ExportPDF');
-Route::post('/testhash','TesthashController@store');
-Route::post('/testhash/ajax','TesthashController@ajaxSave');
-Route::post('/testhash/datatable/ajax','TesthashController@datatable');
-Route::post('/testhash/update/{id}','TesthashController@update');
-//======================== Testhash Route End ===============================//
+//======================== Menuitem Route Start ===============================//
+Route::get('/menuitem/list','MenuitemController@show');
+Route::get('/menuitem/create','MenuitemController@create');
+Route::get('/menuitem/edit/{id}','MenuitemController@edit');
+Route::get('/menuitem/delete/{id}','MenuitemController@destroy');
+Route::get('/menuitem','MenuitemController@index');
+Route::get('/menuitem/export/excel','MenuitemController@ExportExcel');
+Route::get('/menuitem/export/pdf','MenuitemController@ExportPDF');
+Route::post('/menuitem','MenuitemController@store');
+Route::post('/menuitem/ajax','MenuitemController@ajaxSave');
+Route::post('/menuitem/datatable/ajax','MenuitemController@datatable');
+Route::post('/menuitem/update/{id}','MenuitemController@update');
+//======================== Menuitem Route End ===============================//
+//======================== Eventpageinfo Route Start ===============================//
+Route::get('/eventpageinfo/list','EventpageinfoController@show');
+Route::get('/eventpageinfo/create','EventpageinfoController@create');
+Route::get('/eventpageinfo/edit/{id}','EventpageinfoController@edit');
+Route::get('/eventpageinfo/delete/{id}','EventpageinfoController@destroy');
+Route::get('/eventpageinfo','EventpageinfoController@index');
+Route::get('/eventpageinfo/export/excel','EventpageinfoController@ExportExcel');
+Route::get('/eventpageinfo/export/pdf','EventpageinfoController@ExportPDF');
+Route::post('/eventpageinfo','EventpageinfoController@store');
+Route::post('/eventpageinfo/ajax','EventpageinfoController@ajaxSave');
+Route::post('/eventpageinfo/datatable/ajax','EventpageinfoController@datatable');
+Route::post('/eventpageinfo/update/{id}','EventpageinfoController@update');
+//======================== Eventpageinfo Route End ===============================//
+//======================== Eventinfo Route Start ===============================//
+Route::get('/eventinfo/list','EventinfoController@show');
+Route::get('/eventinfo/create','EventinfoController@create');
+Route::get('/eventinfo/edit/{id}','EventinfoController@edit');
+Route::get('/eventinfo/delete/{id}','EventinfoController@destroy');
+Route::get('/eventinfo','EventinfoController@index');
+Route::get('/eventinfo/export/excel','EventinfoController@ExportExcel');
+Route::get('/eventinfo/export/pdf','EventinfoController@ExportPDF');
+Route::post('/eventinfo','EventinfoController@store');
+Route::post('/eventinfo/ajax','EventinfoController@ajaxSave');
+Route::post('/eventinfo/datatable/ajax','EventinfoController@datatable');
+Route::post('/eventinfo/update/{id}','EventinfoController@update');
+//======================== Eventinfo Route End ===============================//
+//======================== Gallery Route Start ===============================//
+Route::get('/gallery/list','GalleryController@show');
+Route::get('/gallery/create','GalleryController@create');
+Route::get('/gallery/edit/{id}','GalleryController@edit');
+Route::get('/gallery/delete/{id}','GalleryController@destroy');
+Route::get('/gallery','GalleryController@index');
+Route::get('/gallery/export/excel','GalleryController@ExportExcel');
+Route::get('/gallery/export/pdf','GalleryController@ExportPDF');
+Route::post('/gallery','GalleryController@store');
+Route::post('/gallery/ajax','GalleryController@ajaxSave');
+Route::post('/gallery/datatable/ajax','GalleryController@datatable');
+Route::post('/gallery/update/{id}','GalleryController@update');
+//======================== Gallery Route End ===============================//
+//======================== Reservationsrequest Route Start ===============================//
+Route::get('/reservationsrequest/list','ReservationsrequestController@show');
+Route::get('/reservationsrequest/create','ReservationsrequestController@create');
+Route::get('/reservationsrequest/edit/{id}','ReservationsrequestController@edit');
+Route::get('/reservationsrequest/delete/{id}','ReservationsrequestController@destroy');
+Route::get('/reservationsrequest','ReservationsrequestController@index');
+Route::get('/reservationsrequest/export/excel','ReservationsrequestController@ExportExcel');
+Route::get('/reservationsrequest/export/pdf','ReservationsrequestController@ExportPDF');
+Route::post('/reservationsrequest','ReservationsrequestController@store');
+Route::post('/reservationsrequest/ajax','ReservationsrequestController@ajaxSave');
+Route::post('/reservationsrequest/datatable/ajax','ReservationsrequestController@datatable');
+Route::post('/reservationsrequest/update/{id}','ReservationsrequestController@update');
+//======================== Reservationsrequest Route End ===============================//
+//======================== Contactusrequest Route Start ===============================//
+Route::get('/contactusrequest/list','ContactusrequestController@show');
+Route::get('/contactusrequest/create','ContactusrequestController@create');
+Route::get('/contactusrequest/edit/{id}','ContactusrequestController@edit');
+Route::get('/contactusrequest/delete/{id}','ContactusrequestController@destroy');
+Route::get('/contactusrequest','ContactusrequestController@index');
+Route::get('/contactusrequest/export/excel','ContactusrequestController@ExportExcel');
+Route::get('/contactusrequest/export/pdf','ContactusrequestController@ExportPDF');
+Route::post('/contactusrequest','ContactusrequestController@store');
+Route::post('/contactusrequest/ajax','ContactusrequestController@ajaxSave');
+Route::post('/contactusrequest/datatable/ajax','ContactusrequestController@datatable');
+Route::post('/contactusrequest/update/{id}','ContactusrequestController@update');
+//======================== Contactusrequest Route End ===============================//
+//======================== Sociallinkmgt Route Start ===============================//
+Route::get('/sociallinkmgt/list','SociallinkmgtController@show');
+Route::get('/sociallinkmgt/create','SociallinkmgtController@create');
+Route::get('/sociallinkmgt/edit/{id}','SociallinkmgtController@edit');
+Route::get('/sociallinkmgt/delete/{id}','SociallinkmgtController@destroy');
+Route::get('/sociallinkmgt','SociallinkmgtController@index');
+Route::get('/sociallinkmgt/export/excel','SociallinkmgtController@ExportExcel');
+Route::get('/sociallinkmgt/export/pdf','SociallinkmgtController@ExportPDF');
+Route::post('/sociallinkmgt','SociallinkmgtController@store');
+Route::post('/sociallinkmgt/ajax','SociallinkmgtController@ajaxSave');
+Route::post('/sociallinkmgt/datatable/ajax','SociallinkmgtController@datatable');
+Route::post('/sociallinkmgt/update/{id}','SociallinkmgtController@update');
+//======================== Sociallinkmgt Route End ===============================//
+//======================== Websitesettings Route Start ===============================//
+Route::get('/websitesettings/list','WebsitesettingsController@show');
+Route::get('/websitesettings/create','WebsitesettingsController@create');
+Route::get('/websitesettings/edit/{id}','WebsitesettingsController@edit');
+Route::get('/websitesettings/delete/{id}','WebsitesettingsController@destroy');
+Route::get('/websitesettings','WebsitesettingsController@index');
+Route::get('/websitesettings/export/excel','WebsitesettingsController@ExportExcel');
+Route::get('/websitesettings/export/pdf','WebsitesettingsController@ExportPDF');
+Route::post('/websitesettings','WebsitesettingsController@store');
+Route::post('/websitesettings/ajax','WebsitesettingsController@ajaxSave');
+Route::post('/websitesettings/datatable/ajax','WebsitesettingsController@datatable');
+Route::post('/websitesettings/update/{id}','WebsitesettingsController@update');
+//======================== Websitesettings Route End ===============================//

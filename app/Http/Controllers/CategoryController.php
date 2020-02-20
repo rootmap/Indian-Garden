@@ -41,17 +41,35 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    private function SystemAdminLog($module_name="",$action="",$details=""){
+        $tab=new AdminLog();
+        $tab->module_name=$module_name;
+        $tab->action=$action;
+        $tab->details=$details;
+        $tab->admin_id=$this->sdc->admin_id();
+        $tab->admin_name=$this->sdc->UserName();
+        $tab->save();
+    }
+
+
     public function store(Request $request)
     {
         $this->validate($request,[
                 
                 'name'=>'required',
+                'description'=>'required',
+                'category_status'=>'required',
         ]);
+
+        $this->SystemAdminLog("Category","Save New","Create New");
 
         
         $tab=new Category();
         
         $tab->name=$request->name;
+        $tab->description=$request->description;
+        $tab->category_status=$request->category_status;
         $tab->save();
 
         return redirect('category')->with('status','Added Successfully !');
@@ -63,11 +81,15 @@ class CategoryController extends Controller
         $this->validate($request,[
                 
                 'name'=>'required',
+                'description'=>'required',
+                'category_status'=>'required',
         ]);
 
         $tab=new Category();
         
         $tab->name=$request->name;
+        $tab->description=$request->description;
+        $tab->category_status=$request->category_status;
         $tab->save();
 
         echo json_encode(array("status"=>"success","msg"=>"Added Successfully."));
@@ -88,6 +110,8 @@ class CategoryController extends Controller
                      ->when($search, function ($query) use ($search) {
                         $query->where('id','LIKE','%'.$search.'%');
                             $query->orWhere('name','LIKE','%'.$search.'%');
+                            $query->orWhere('description','LIKE','%'.$search.'%');
+                            $query->orWhere('category_status','LIKE','%'.$search.'%');
                             $query->orWhere('created_at','LIKE','%'.$search.'%');
 
                         return $query;
@@ -104,6 +128,8 @@ class CategoryController extends Controller
                      ->when($search, function ($query) use ($search) {
                         $query->where('id','LIKE','%'.$search.'%');
                             $query->orWhere('name','LIKE','%'.$search.'%');
+                            $query->orWhere('description','LIKE','%'.$search.'%');
+                            $query->orWhere('category_status','LIKE','%'.$search.'%');
                             $query->orWhere('created_at','LIKE','%'.$search.'%');
 
                         return $query;
@@ -150,12 +176,12 @@ class CategoryController extends Controller
          $dataDateTimeIns=formatDateTime(date('d-M-Y H:i:s a'));
         $data=array();
         $array_column=array(
-                                'ID','Name','Created Date');
+                                'ID','Name','Description','Category Status','Created Date');
         array_push($data, $array_column);
         $inv=$this->CategoryQuery($request);
         foreach($inv as $voi):
             $inv_arry=array(
-                                $voi->id,$voi->name,formatDate($voi->created_at));
+                                $voi->id,$voi->name,$voi->description,$voi->category_status,formatDate($voi->created_at));
             array_push($data, $inv_arry);
         endforeach;
 
@@ -179,6 +205,10 @@ class CategoryController extends Controller
                 <th class='text-center' style='font-size:12px;'>ID</th>
                             <th class='text-center' style='font-size:12px;' >Name</th>
                         
+                            <th class='text-center' style='font-size:12px;' >Description</th>
+                        
+                            <th class='text-center' style='font-size:12px;' >Category Status</th>
+                        
                 <th class='text-center' style='font-size:12px;'>Created Date</th>
                 </tr>
                 </thead>
@@ -189,7 +219,9 @@ class CategoryController extends Controller
                         $html .="<tr>
                         <td style='font-size:12px;' class='text-center'>".$voi->id."</td>
                         <td style='font-size:12px;' class='text-center'>".$voi->name."</td>
-                        <td style='font-size:12px;' class='text-right'>".formatDate($voi->created_at)."</td>
+                        <td style='font-size:12px;' class='text-center'>".$voi->description."</td>
+                        <td style='font-size:12px;' class='text-center'>".$voi->category_status."</td>
+                        <td style='font-size:12px; text-align:center;' class='text-center'>".formatDate($voi->created_at)."</td>
                         </tr>";
 
                     endforeach;
@@ -236,11 +268,18 @@ class CategoryController extends Controller
         $this->validate($request,[
                 
                 'name'=>'required',
+                'description'=>'required',
+                'category_status'=>'required',
         ]);
+
+        $this->SystemAdminLog("Category","Update","Edit / Modify");
+
         
         $tab=Category::find($id);
         
         $tab->name=$request->name;
+        $tab->description=$request->description;
+        $tab->category_status=$request->category_status;
         $tab->save();
 
         return redirect('category')->with('status','Updated Successfully !');
@@ -254,6 +293,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category,$id=0)
     {
+        $this->SystemAdminLog("Category","Destroy","Delete");
+
         $tab=Category::find($id);
         $tab->delete();
         return redirect('category')->with('status','Deleted Successfully !');}

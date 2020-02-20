@@ -32,7 +32,6 @@
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">Create New Category</h3>
-
             <div class="card-tools">
               <ul class="pagination pagination-sm float-right">
                 <li class="page-item"><a class="page-link bg-primary" href="{{url('category/list')}}"> Data <i class="fas fa-table"></i></a></li>
@@ -47,7 +46,7 @@
                   </a>
                 </li>
               </ul>
-            </div>
+            </div>            
         </div>
           <!-- /.card-header -->
           <!-- form start -->
@@ -61,11 +60,43 @@
                       <!-- text input -->
                       <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" placeholder="Please Enter Name" id="name" name="name">
+                        <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name">
                       </div>
                     </div>
                 </div>
-                       
+                
+                <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" rows="3"  placeholder="Enter Description" id="description" name="description"></textarea>
+                      </div>
+                    </div>
+                </div>
+                
+        <div class="row">
+            <div class="col-sm-12">
+              <!-- radio -->
+              <div class="form-group">
+              <label>Choose Category Status</label>
+        
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" 
+                          id="category_status_0" name="category_status" value="Active">
+                          <label class="form-check-label">Active</label>
+                        </div>
+                
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" 
+                          id="category_status_1" name="category_status" value="Inactive">
+                          <label class="form-check-label">Inactive</label>
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+                   
             </div>
             <!-- /.card-body -->
 

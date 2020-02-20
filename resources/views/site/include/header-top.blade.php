@@ -4,11 +4,7 @@
          <div class="col-xs-12 hidden-xs col-sm-6">
             <!-- Top right side content -->
             <ul class="fa-ul list-inline top-info level-one">
-               <!-- <li><a href="#"><i class="flaticon-facebook55"></i></a></li>
-                  <li><a href="#"><i class="flaticon-twitter1"></i></a></li>
-                  <li><a href="#"><i class="flaticon-socialnetwork171"></i></a></li> -->
-               <li><i class="fa fa-phone"></i> <a class="tel-no" href="tel:564351423">079056786</a></li>
-               <!-- <li><i class="fa fa-envelope"></i><a class="tel-no" href="mailto:support@digimo.com" > support@digimo.com</a></li> -->
+               <li><i class="fa fa-phone"></i> <a class="tel-no" href="tel:{{ $setting[0]->phone }}">{{ $setting[0]->phone }}</a></li>
             </ul>
          </div>
          <!-- Top right side content -->

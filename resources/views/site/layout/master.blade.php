@@ -6,6 +6,11 @@
       <title>@yield('title') | Indian Gadren</title>
       @include('site.include.headerCss')
       @yield('css')
+      <style type="text/css">
+       .control-overlay {
+           background: 0% 0% / cover rgba(0,0,0, 0.5);
+       }
+     </style>
    </head>
    <body onload="initialize()">
       <div class="loader"></div>
