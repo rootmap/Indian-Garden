@@ -194,13 +194,40 @@ img,
 .section-gallery-padding{
     padding       :40px 0;
 }
+
+
 textarea{
   resize:none;
 }
 
+.cross:hover{
+  color: #000;
+}
+
+.font-5-slider
+{
+  font: normal normal normal 48px/0.5em "LuloCleanW01-OneBold",sans-serif;
+  letter-spacing:0.11em;
+  font-size: 48px;
+  font-weight: bolder;
+  text-align: center; 
+  display: block;
+}
+    
+
 .mb-1
 {
     margin-bottom: 15px;
+}
+
+.mb-seven
+{
+    margin-bottom: 5px;
+}
+
+.mt-seven
+{
+    margin-top: 5px;
 }
     
 /*--------------------------------
@@ -699,6 +726,16 @@ label.error {
   -ms-transition:all ease 0.35s;
   transition:all ease 0.35s;
 }
+
+.top-social.level-one li.active {
+  background-color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+  letter-spacing: 1px;
+  font-size: 13px;
+  color: #c79c60 !important;
+}
+
 .top-social.level-one li.location:hover {
   cursor: pointer;
   background-color: #fff;
@@ -1092,7 +1129,7 @@ label.error {
 .dropdown dt a span {
   cursor: pointer;
   display: block;
-  color: #c79c60;
+  color: #fff;
   font-family: "Roboto",sans-serif;
 }
 .dropdown dd ul {

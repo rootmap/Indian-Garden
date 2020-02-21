@@ -73,7 +73,8 @@
         <div class="form-wrapper">
         <h2>CONTACT US</h2>
         {{-- <p>Maecenas accumsan id enim in fermentum. Duis porttitor iaculis liber itae congue. Aliquam finibus euismod arcu, a lobortis erat luctus</p> --}}
-        <form id='contact_form' name="enqueryForm" method="post" action="php/email.php">
+        <form id='contact_form' name="enqueryForm" method="post" action="{{ url('contact/request') }}">
+          {{csrf_field()}}
             <div class="row">
               <div class="col-xs-12 col-sm-12">
                 <input type="text" class="form-control" name="name" placeholder="name">
@@ -88,12 +89,8 @@
               <div class="col-xs-12 col-sm-12">
                 <textarea id="message" class="form-control" rows="4" name="message" placeholder="message"></textarea>
               </div>
-              <div class="form-group col-xs-12">
-                <div id="mail_success" class="success" style="display:none;">Your message has been sent successfully. </div>
-                <div id="mail_fail" class="error" style="display:none;"> Sorry, error occured this time sending your message. </div>
-              </div>
-              <input id="basicExample" type="text" class="time" />
-              <button id="send_message" class="btn" name="submit" type="submit">submit message</button>
+              <input type="hidden" value="Unseen" name="contact_status" />
+              <button class="btn" name="submit" type="submit">submit message</button>
             </div>
           </form>
         </div>

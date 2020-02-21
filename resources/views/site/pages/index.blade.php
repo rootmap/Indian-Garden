@@ -1,6 +1,7 @@
 @extends('site.layout.master')
 @section('title','Home')
 @section('content')
+
 <div class="container-fluid">
     <div class="row">
         <div class="slider-one">
@@ -9,17 +10,33 @@
               <div class="hero-block">
                 <figure class="hero-logo">
                   <img class="img-responsive" src="{{URL::asset('upload/slider/'.$slider[0]->slider_image) }}" alt="{{$slider[0]->slider_title}}">
+
+
                 </figure>
+
                 <div class="cd-intro">
-                  <h4 class="cd-headline clip">
-                    <span>{{$slider[0]->slider_title}}</span>
+                  <h4 class="cd-headline clip" style="height:60px; display: block;clear: both;">
+                    <span class="font-5-slider typewriter" data-id="{{$slider[0]->slider_title}}" id="typewriter" style="position: absolute; left: 0px; right: 0px;"></span>
                   </h4>
+                </div>
+                <style type="text/css">
+                  .slider_button {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 0%;
+                  }
+                </style>
+                <div class="col-md-12">
+                    <a href="#" class="hero-block-hero-nav-li-a col-md-4">See Menu</a>
+                    <a href="#" class="hero-block-hero-nav-li-a col-md-4">See Menu</a>
+                    <a href="#" class="hero-block-hero-nav-li-a col-md-4">See Menu</a>
                 </div>
                 <div class="button-block">
                   <ul class="nav hero-nav">
-                    <li><a href="{{url('menu')}}">See Menu</a></li>
-                    <li><a href="#">Order Online</a></li>
-                    <li><a href="{{url('reservation')}}">Reservations</a></li>
+                    <li class="mb-seven"><a href="{{url('menu')}}">See Menu</a></li>
+                    <li class="mb-seven"><a href="#">Order Online</a></li>
+                    <li class="mb-seven"><a href="{{url('reservation')}}">Reservations</a></li>
                   </ul>
                 </div>
                 <a href="#videos" class="down"><i class="fa fa-angle-down"></i></a>

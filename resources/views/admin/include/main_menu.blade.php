@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="{{url('dashboard')}}" class="brand-link">
       <img src="{{ url('admin/dist/img/AdminLTELogo.png') }}"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
@@ -26,7 +26,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{url('dashboard')}}" class="nav-link {{ Request::path() == 'dashboard' ? 'active' : '' }}">
               <i class="nav-icon fas fa-igloo"></i>
               <p>Dashboard</p>
             </a>
@@ -209,22 +209,23 @@
 
     {{-- ============================================ --}}
     <div class="side-bar-bottom">
-       <ul class="list-unstyled">
-          <li class="list-inline-item" data-toggle="tooltip" data-html="true" title="" data-original-title="Edit Profile"><a href="#"><i class="fas fa-cog"></i></a></li>
-          <li class="list-inline-item" data-toggle="tooltip" data-html="true" title="" data-original-title="Change Password"><a href="#"><i class="fas fa-key"></i></a></li>
-          <a href="#">
-          </a>
-          <li class="list-inline-item" data-toggle="tooltip" data-html="true" title="" data-original-title="Lockscreen"><a href="#"></a><a href="#"><i class="fas fa-unlock"></i></a></li>
-          <li class="list-inline-item" data-toggle="tooltip" data-html="true" title="" data-original-title="Logout">
-             <a href="#" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i>
-             </a>
-             <form id="logout-form" action="" method="POST" style="display: none;">
-                
-             </form>
+        <ul class="list-unstyled">
+          <li class="list-inline-item" data-toggle="tooltip" data-html="true" title="Edit Profile"><a
+              href="#"><i class="fas fa-cog"></i></a></li>
+          <li class="list-inline-item" data-toggle="tooltip" data-html="true" title="Change Password"><a
+              href="#"><i class="fas fa-key"></i></li>
+          <li class="list-inline-item" data-toggle="tooltip" data-html="true" title="Lockscreen"><a
+              href="#"><i class="fas fa-unlock"></i></a></li>
+          <li class="list-inline-item" data-toggle="tooltip" data-html="true" title="Logout">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
           </li>
-       </ul>
-    </div>
+        </ul>
+      </div><!-- End side-bar-bottom -->
   </aside>
 
   <style type="text/css">

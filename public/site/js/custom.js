@@ -175,26 +175,93 @@ $back_to_top = $('.back-top');
   );
 });
 
+ var i = 0;
+  //var txt = $(".typewriter").text();
+  var txt =$("#typewriter").attr('data-id');
+  var speed = 100;
+  function typeWriter() {
+    if (i < txt.length) {
+      document.getElementById("typewriter").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+
+  $(document).ready(function(){
+      setTimeout(typeWriter(),500);
+      //typeWriter();
+  });
+
+function newSignip(){
+    $('#loginArea').fadeOut();
+    $("#signUPArea").css("top", "0");
+    $("#signUPArea").fadeIn(500);
+}
+
+function newlogIn(){
+    $('#signUPArea').fadeOut();
+    $("#loginArea").css("top", "0");
+    $("#loginArea").fadeIn(500);
+}
+
 // Google Pop Up
 $(window).load(function(){
-    $('.popup-section').fadeOut();
+    $('#loginArea').fadeOut();
+    $('#signUPArea').fadeOut();
     var high = "";
     high=$(".booking-back").height(); 
     $(".book-table-wrapper .booking-image img").css("height", high+190);  
 });
 
+
+
 $("#login").on("click", function(){
-    $(".popup-section").css("top", "0");
-    $(".popup-section").fadeIn(500);
+    $('#signUPArea').fadeOut();
+    $("#loginArea").css("top", "0");
+    $("#loginArea").fadeIn(500);
+    $('body').css('overflow', 'hidden');  //ADD THIS
 });
+
+$("#signup").on("click", function(){
+    $('#loginArea').fadeOut();
+    $("#signUPArea").css("top", "0");
+    $("#signUPArea").fadeIn(500);
+    $('body').css('overflow', 'hidden');  //ADD THIS
+});
+
+$("#logsignupregexit").on("click", function(){
+    $('#signUPArea').fadeOut();
+});
+
+$(".newSignip").on("click", function(){
+    $('#loginArea').fadeOut();
+    $("#signUPArea").css("top", "0");
+    $("#signUPArea").fadeIn(500);
+    $('body').css('overflow', 'hidden');  //ADD THIS
+});
+
+$(".newlogIn").on("click", function(){
+    $('#signUPArea').fadeOut();
+    $("#loginArea").css("top", "0");
+    $("#loginArea").fadeIn(500);
+    $('body').css('overflow', 'hidden');  //ADD THIS
+});
+
+
 $(".cross").on("click", function(){
 
-    $(".popup-section").fadeOut(500);
+    $("#loginArea").fadeOut(500);
+    $("#signUPArea").fadeOut(500);
+    $('body').css('overflow', 'auto');  //ADD THIS
 });
 
 $(window).resize(function(){
-        $(".popup-section").css("top", "5000px");
-        $(".popup-section").fadeIn();
+        $("#loginArea").css("top", "5000px");
+        $("#loginArea").fadeIn();
+
+        $("#signUPArea").css("top", "5000px");
+        $("#signUPArea").fadeIn();
 });
 
 // Search

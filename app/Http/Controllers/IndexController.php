@@ -20,6 +20,9 @@ use App\EventPageInfo;
 use App\EventInfo;
 use App\Gallery;
 use App\ReservationsRequest;
+use App\SocialLinkMgt;
+use App\ContactUsRequest;
+use App\WebsiteSettings;
 
 
 class IndexController extends Controller
@@ -78,7 +81,9 @@ class IndexController extends Controller
         $HomeOrderDelivery      = HomeOrderDelivery::where('module_status','=','Active')->get();
         $HomeDelivery           = HomeDelivery::where('module_status','=','Active')->get();
         $OpeningHour            = OpeningHour::all();
-        //dd($setting);
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
+        //dd($SocialLinkMgt);
         return view('site.pages.index',[
             'setting'=>$setting,
             'slider'=>$slider,
@@ -86,7 +91,9 @@ class IndexController extends Controller
             'we_are_open'=>$we_are_open,
             'HomeOrderDelivery'=>$HomeOrderDelivery,
             'HomeDelivery'=>$HomeDelivery,
-            'OpeningHour'=>$OpeningHour
+            'OpeningHour'=>$OpeningHour,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
         ]);
     }
     public function ourHistory(){
@@ -94,11 +101,15 @@ class IndexController extends Controller
         $history        = OurHistoryPageInfo::where('module_status','=','Active')->get();
         $OurHistory     = OurHistory::all();
         $OpeningHour    = OpeningHour::all();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
     	return view('site.pages.our-history',[
             'setting'=>$setting,
             'history'=>$history,
             'OurHistory'=>$OurHistory,
-            'OpeningHour'=>$OpeningHour
+            'OpeningHour'=>$OpeningHour,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
         ]);
     }
     
@@ -107,6 +118,8 @@ class IndexController extends Controller
         $OpeningHour    = OpeningHour::all();
         $MenuPageInfo   = MenuPageInfo::where('module_status','=','Active')->get();
         $MenuItem       = $this->categoryParseData();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
         
         //dd($MenuItem);
     	return view('site.pages.menu',[
@@ -114,6 +127,8 @@ class IndexController extends Controller
             'OpeningHour'=>$OpeningHour,
             'MenuPageInfo'=>$MenuPageInfo,
             'MenuItem'=>$MenuItem,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
         ]);
     }
     public function event(){
@@ -121,12 +136,16 @@ class IndexController extends Controller
         $OpeningHour    = OpeningHour::all();
         $EventPageInfo  = EventPageInfo::where('module_status','=','Active')->first();
         $EventInfo    = EventInfo::where('event_expired','=','Yes')->get();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
         //dd($EventPageInfo);
     	return view('site.pages.events',[
             'setting'=>$setting,
             'OpeningHour'=>$OpeningHour,
             'EventPageInfo'=>$EventPageInfo,
             'EventInfo'=>$EventInfo,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
         ]);
     }
     public function gallery(){
@@ -134,19 +153,27 @@ class IndexController extends Controller
         $OpeningHour    = OpeningHour::all();
         $gallery        = Gallery::all();
         $category        = Category::where('category_status','Active')->get();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
     	return view('site.pages.gallery',[
             'setting'=>$setting,
             'OpeningHour'=>$OpeningHour,
             'gallery'=>$gallery,
             'category'=>$category,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
         ]);
     }
     public function reservation(){
         $setting        = Sitesettings::all();
         $OpeningHour    = OpeningHour::all();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
     	return view('site.pages.reservation',[
             'setting'=>$setting,
-            'OpeningHour'=>$OpeningHour
+            'OpeningHour'=>$OpeningHour,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
         ]);
     }
     public function reservationStore(Request $request)
@@ -171,12 +198,48 @@ class IndexController extends Controller
         $tab->save();
 
         
+        return redirect()->back()->with('success', 'Your Booking has been sent successfully.');
+
+    }
+    public function contactStore(Request $request)
+    {
+        $this->validate($request,[
+                
+                'name'=>'required',
+                'email'=>'required',
+                'subject'=>'required',
+                'message'=>'required',
+                'contact_status'=>'required',
+        ]);
+
+        
+        $tab=new ContactUsRequest();
+        
+        $tab->name=$request->name;
+        $tab->email=$request->email;
+        $tab->subject=$request->subject;
+        $tab->message=$request->message;
+        $tab->contact_status=$request->contact_status;
+        $tab->save();
+
         return redirect()->back()->with('success', 'Your message has been sent successfully.');
 
     }
 
-
     public function dashboard(){
         return view('admin.pages.dashboard.index');
+    }
+    public function userProfile(){
+        $setting        = Sitesettings::all();
+        $OpeningHour    = OpeningHour::all();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
+        return view('site.pages.user_dashboard.profile',[
+            'setting'=>$setting,
+            'OpeningHour'=>$OpeningHour,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
+        ]);
+        
     }
 }

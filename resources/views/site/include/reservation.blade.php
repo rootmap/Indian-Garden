@@ -1,7 +1,7 @@
 <!--===| Right Fixed Booking Form Start|=== id="sidebar_form" name="sidebarForm" id="send-message-sidebar" --> 
 
   <div class="book-now-wrapper">
-    <p class="toggle">book a table now</p>
+    <p class="toggle">{{ $WebsiteSettings->book_table_button_content }}</p>
     <div class="book-now ">  
       <div class="book-form">
         <p>free & instant online restaurant reservations</p>

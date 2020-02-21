@@ -1,4 +1,4 @@
-<footer style="background: url({{ url('site/img/custom/footer.jpg') }}) no-repeat center center fixed;background-size: cover; height: auto;">
+<footer style="background: url({{URL::asset('upload/websitesettings/'.$WebsiteSettings->footer_image) }}) no-repeat center center fixed;background-size: cover; height: auto;">
    <div class="footer-top control-overlay">
     <div class="container">
       <div class="row">
@@ -53,11 +53,11 @@
            <p><i class="fa fa-envelope"></i><strong>email :</strong><a href="mailto:{{ $setting[0]->email_address }}"> {{ $setting[0]->email_address }}</a></p>
          </div>
          <ul class="list-inline footer-social-list">
-          <li><a href="#"><i class="flaticon-twitter1"></i></a></li>
-          <li><a href="#"><i class="flaticon-facebook55"></i></a></li>
-          <li><a href="#"><i class="flaticon-linkedin11"></i></a></li>
-          <li><a href="#"><i class="flaticon-google116"></i></a></li>
-          <li><a href="#"><i class="flaticon-pinterest34"></i></a></li>
+          <li><a href="{{ $WebsiteSettings->twitter }}"><i class="flaticon-twitter1"></i></a></li>
+          <li><a href="{{ $WebsiteSettings->facebook }}"><i class="flaticon-facebook55"></i></a></li>
+          <li><a href="{{ $WebsiteSettings->linkin }}"><i class="flaticon-linkedin11"></i></a></li>
+          <li><a href="{{ $WebsiteSettings->google_plus }}"><i class="flaticon-google116"></i></a></li>
+          <li><a href="{{ $WebsiteSettings->pinterest }}"><i class="flaticon-pinterest34"></i></a></li>
         </ul>
       </div>
 
@@ -74,7 +74,7 @@
         </div>
         
         <div class="back-top pull-right">
-          <i class="fa fa-angle-up "></i>
+          <i class="fa {{ $WebsiteSettings->bottom_icon }} "></i>
         </div>
       </div>
     </div>

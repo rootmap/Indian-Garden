@@ -20,6 +20,14 @@
 <!--===| Menu Page First Block Start |===-->
 <section class="menus">
   <div class="container">
+    <div class="gallery-trigger text-center">
+      <ul id="filter">
+         <li><a class="active" href="#" data-group="total">all</a></li> 
+         <li><a href="#" data-group="appetizer">appetizer</a></li> 
+         <li><a href="#" data-group="main-course">main-course</a></li> 
+         <li><a href="#" data-group="desserts">desserts</a></li> 
+      </ul> 
+    </div>
     @if(!empty($MenuItem))
     @foreach($MenuItem as $ca)
     <div class="row mb-40">

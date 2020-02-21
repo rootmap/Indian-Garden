@@ -97,18 +97,10 @@
                                   <select class="form-control select2" style="width: 100%;"  id="overlay" name="overlay">
                                     
         <option value="">Please select</option>
-            <option 
-            value="0.01">0.01</option>
-            <option 
-            value="0.02">0.02</option>
-            <option 
-            value="0.03">0.03</option>
-            <option 
-            value="0.04">0.04</option>
-            <option 
-            value="0.05">0.05</option>
-            <option 
-            value="0.06">0.06</option>
+        @for($i=1; $i<=99; $i++)
+            <option value="0.{{ strlen($i)=2?$i:'0'.$i }}">0.{{ strlen($i)=2?$i:'0'.$i }}</option>
+        @endfor
+        
                                   </select>
                                 </div>
                             </div>

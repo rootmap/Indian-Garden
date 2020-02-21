@@ -1,5 +1,5 @@
 @extends('site.layout.master')
-@section('title','Menu')
+@section('title','Events')
 @section('content')
 <section class="our-story cl-block">
   <div class="container">

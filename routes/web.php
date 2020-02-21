@@ -13,7 +13,7 @@
 
 Auth::routes();
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
-
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 Route::get("form","IndexController@adminIndex");
@@ -27,6 +27,8 @@ Route::get("events","IndexController@event");
 Route::get("gallery","IndexController@gallery");
 Route::get("reservation","IndexController@reservation");
 Route::post('/reservation/request','IndexController@reservationStore');
+Route::post('/contact/request','IndexController@contactStore');
+Route::get('/user/profile','IndexController@userProfile');
 
 Route::group(['middleware' => 'auth'], function () { 
 
