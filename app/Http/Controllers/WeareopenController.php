@@ -372,6 +372,13 @@ class WeAreOpenController extends Controller
 
         $this->SystemAdminLog("We Are Open","Update","Edit / Modify");
 
+        $filename=$request->ex_backdroung_image;
+        if ($request->hasFile('background_image')) {
+            $img = $request->file('background_image');
+            $upload = 'upload/weareopen';
+            $filename = time() . '.' . $img->getClientOriginalExtension();
+            $img->move($upload, $filename);
+        }
         
         $tab=WeAreOpen::find($id);
         
@@ -386,6 +393,7 @@ class WeAreOpenController extends Controller
         $tab->third_box_icon=$request->third_box_icon;
         $tab->third_box_heading=$request->third_box_heading;
         $tab->third_box_sub_heading=$request->third_box_sub_heading;
+        $tab->background_image=$filename;
         $tab->save();
 
         return redirect('weareopen')->with('status','Updated Successfully !');

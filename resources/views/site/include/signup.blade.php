@@ -65,13 +65,13 @@
 
             <div class="col-md-8  col-md-offset-2">
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                     <a class="btn btn-info" style="background-color: #3b5998;">
+                     <a href="{{url('login/facebook')}}" class="btn btn-info" style="background-color: #3b5998;">
                         <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook 
                       </a>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     
-                    <a class="btn btn-info" style="background-color: #4285f4;">
+                    <a href="{{url('login/google')}}" class="btn btn-info" style="background-color: #4285f4;">
                       <i class="fa fa-google-plus-square" aria-hidden="true"></i> Google
                     </a>
 

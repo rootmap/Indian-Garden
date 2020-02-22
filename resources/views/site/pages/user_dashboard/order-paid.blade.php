@@ -1,5 +1,5 @@
 @extends('site.layout.master')
-@section('title','Update User Info')
+@section('title','Paid Order')
 @section('content')
 <div id="contentWrapper" style="min-height: 135px;">
 
@@ -26,53 +26,34 @@
 						</li>
 					</ul>							
 				</aside>
-				<div class="col-md-7">
-					<form action="#" method="POST">
-						
-						<table>
+				<div class="col-md-9">
+					<h3 class="widget-head">
+						{{-- <span style="color: #09f; font-weight: bolder;">
+							Paid Order [ 0 ]
+						</span> --}}
+					</h3>
+					<div class="table-responsive" style="background: #fff;">
+						<table class="table-style2">
 							<thead>
 								<tr>
-									<th colspan="2" style="text-align: center;" >Update Your Information</th>
+									<th>SL</th>
+									<th>Order ID</th>
+									<th>Invoice Date</th>
+									<th>Order Status</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>First Name </td>
-									<td>
-										<div class="input-box">
-											<input style="width: 100%;" type="text" name="fname" class="txt-box">
-										</div>
-									</td>
+									<td>1</td>
+									<td>1000</td>
+									<td>02/23/2020</td>
+									<td>Paid</td>
+									<td>02/23/2020</td>
 								</tr>
-								<tr>
-									<td>Last Name </td>
-									<td>
-										<div class="input-box">
-											<input style="width: 100%;" type="text" name="lname" class="txt-box">
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>Email</td>
-									<td>
-
-										<div class="input-box">
-											<input style="width: 100%;" type="email" name="email" class="txt-box" readonly="">
-										</div>
-									</td>
-								</tr>
-
-
 							</tbody>
-							<tfoot>
-								<tr>
-									<th colspan="2">
-										<button type="submit" class="btn btn-success" style="padding: 10px; width: 33%">Update </button> 
-									</th>
-								</tr>
-							</tfoot>
 						</table>
-					</form>
+					</div>
 				</div>
 			</div>
 			<div class="clearfix"></div>

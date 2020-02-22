@@ -20,6 +20,7 @@
       <!--===| Pop Up Google Map Start |===-->
       @include('site.include.login')
       @include('site.include.signup')
+      @include('site.include.reset')
       <!--===| Pop Up Google Map End |===-->
       <!--===| Header Top Start |===-->
       <div id="offcanvas-container" class="wrapper offcanvas-container">
@@ -39,8 +40,80 @@
       </div>
       <!-- .wrapper -->
       @include('site.include.footerJs')
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <!-- <script src="{{url('parallax/parallax.js')}}"></script>
+      <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.2.0/dist/simpleParallax.min.js"></script> -->
+      <script src="{{url('rellax/rellax.min.js')}}"></script>
+      <script>
+        // Accepts any class name
+        var rellax = new Rellax('.rellax');
+      </script>
       @yield('js')
       <script type="text/javascript">
+
+
+
+          $(document).ready(function(){
+
+             $("#loadvideos").click(function(){
+                $("#videos").css("padding-top","149px");
+                $('html, body').animate({
+                    scrollTop: $("#videos").offset().top
+                }, 1000);
+             });
+
+             var sliderShowArea=$(window).height()-102;
+             $('#slider-container-area').css('height',sliderShowArea);
+             $("#loginsubmit").click(function(){
+
+                  var email_login=$("input[name=email_login]").val();
+                  var password_login=$("input[name=password_login]").val();
+
+                  if(email_login.length==0)
+                  {
+                      swal({
+                        title: "Warning",
+                        text: "Email address required!",
+                        icon: "error",
+                        button: "Ok",
+                      });
+
+                      return false;
+                  }
+
+                  if(password_login.length==0)
+                  {
+                      swal({
+                        title: "Warning",
+                        text: "Password required!",
+                        icon: "error",
+                        button: "Ok",
+                      });
+
+                      return false;
+                  }
+
+                  $(this).html('<i class="fa fa-unlock" aria-hidden="true"></i> Login <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+
+                  var logincustomer="{{url('customer/login')}}";
+
+                  $.ajax({
+                      'async': false,
+                      'type': "POST",
+                      'global': false,
+                      'dataType': 'json',
+                      'url': logincustomer,
+                      'data':{'email':email_login,'password':password_login,'_token':'{{csrf_token()}}'},
+                      'success': function (data) {
+                          $("#cartMessageProShow").html(successMessage("Product Added To Cart Successfully.")); 
+                      }
+                  });
+
+
+                  return false;
+              });
+          });
+
           var isMobile = {
               Android: function() {
                   return navigator.userAgent.match(/Android/i);
@@ -100,6 +173,11 @@
           s1.setAttribute('crossorigin','*');
           s0.parentNode.insertBefore(s1,s0);
           })();
+
+ /*         .theme-background-color {
+    background-color: #03a84e;
+}*/
+
       });
       
       </script>

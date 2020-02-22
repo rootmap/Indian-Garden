@@ -28,7 +28,17 @@ Route::get("gallery","IndexController@gallery");
 Route::get("reservation","IndexController@reservation");
 Route::post('/reservation/request','IndexController@reservationStore');
 Route::post('/contact/request','IndexController@contactStore');
+Route::get('/user/dashboard','IndexController@userDashboard');
+Route::get('/user/change-password','IndexController@changePassword');
+Route::get('/user/order/paid','IndexController@orderPaid');
 Route::get('/user/profile','IndexController@userProfile');
+
+Route::post('customer/login', 'CustomerController@login');
+Route::get('login/facebook', 'SocialController@redirectToProviderFacebook');
+Route::get('callback/login/facebook', 'SocialController@handleProviderCallbackFacebook');
+
+Route::get('login/google', 'SocialController@redirectToProviderGoogle');
+Route::get('callback/login/google', 'SocialController@handleProviderCallbackGoogle');
 
 Route::group(['middleware' => 'auth'], function () { 
 

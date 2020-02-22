@@ -3,7 +3,7 @@
 @section('content')
 
 <!--===| Gallery Banner Start|===-->
-  <section class="gallery-banner" style="background-image: url({{ url('site/img/custom/our-story-hero.jpg') }});">
+  {{-- <section class="gallery-banner" style="background-image: url({{ url('site/img/custom/our-story-hero.jpg') }});">
     <div class="control-overlay">
       <div class="banner-wrapper control-overlay">
           <div class="container">
@@ -16,7 +16,14 @@
           </div>
       </div>
     </div>
-  </section>
+  </section> --}}
+  <div class="container">
+    <div class="row justify-content-center cl-block">
+      <div class="common_layout_title">
+        <h2>Gallery</h2>
+      </div>
+    </div>
+  </div>
   <!--===| Gallery Us Banner End|===-->
 
    <!--====| Shuffle Gallery Style Sta rt|====--> 

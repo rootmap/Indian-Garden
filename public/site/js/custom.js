@@ -175,8 +175,7 @@ $back_to_top = $('.back-top');
   );
 });
 
- var i = 0;
-  //var txt = $(".typewriter").text();
+/* var i = 0;
   var txt =$("#typewriter").attr('data-id');
   var speed = 100;
   function typeWriter() {
@@ -190,8 +189,7 @@ $back_to_top = $('.back-top');
 
   $(document).ready(function(){
       setTimeout(typeWriter(),500);
-      //typeWriter();
-  });
+  });*/
 
 function newSignip(){
     $('#loginArea').fadeOut();
@@ -205,10 +203,24 @@ function newlogIn(){
     $("#loginArea").fadeIn(500);
 }
 
+function newReset(){
+    $('#loginArea').fadeOut();
+    $('#signUPArea').fadeOut();
+    $("#resetArea").css("top", "0");
+    $("#resetArea").fadeIn(500);
+}
+
+$('.catloadpro').click(function(){
+    var getAttrClCat=$(this).attr('data-group');
+    $(".total").fadeOut('slow');
+    $("."+getAttrClCat).fadeIn('slow');
+});
+
 // Google Pop Up
 $(window).load(function(){
     $('#loginArea').fadeOut();
     $('#signUPArea').fadeOut();
+    $('#resetArea').fadeOut();
     var high = "";
     high=$(".booking-back").height(); 
     $(".book-table-wrapper .booking-image img").css("height", high+190);  
@@ -216,8 +228,18 @@ $(window).load(function(){
 
 
 
+$(".reset").on("click", function(){
+    $('#signUPArea').fadeOut();
+    $('#loginArea').fadeOut();
+   
+    $("#resetArea").css("top", "0");
+    $("#resetArea").fadeIn(500);
+    $('body').css('overflow', 'hidden');  //ADD THIS
+});
+
 $("#login").on("click", function(){
     $('#signUPArea').fadeOut();
+    $('#resetArea').fadeOut();
     $("#loginArea").css("top", "0");
     $("#loginArea").fadeIn(500);
     $('body').css('overflow', 'hidden');  //ADD THIS
@@ -225,6 +247,7 @@ $("#login").on("click", function(){
 
 $("#signup").on("click", function(){
     $('#loginArea').fadeOut();
+    $('#resetArea').fadeOut();
     $("#signUPArea").css("top", "0");
     $("#signUPArea").fadeIn(500);
     $('body').css('overflow', 'hidden');  //ADD THIS
@@ -236,6 +259,7 @@ $("#logsignupregexit").on("click", function(){
 
 $(".newSignip").on("click", function(){
     $('#loginArea').fadeOut();
+    $('#resetArea').fadeOut();
     $("#signUPArea").css("top", "0");
     $("#signUPArea").fadeIn(500);
     $('body').css('overflow', 'hidden');  //ADD THIS
@@ -243,6 +267,7 @@ $(".newSignip").on("click", function(){
 
 $(".newlogIn").on("click", function(){
     $('#signUPArea').fadeOut();
+    $('#resetArea').fadeOut();
     $("#loginArea").css("top", "0");
     $("#loginArea").fadeIn(500);
     $('body').css('overflow', 'hidden');  //ADD THIS
@@ -253,12 +278,16 @@ $(".cross").on("click", function(){
 
     $("#loginArea").fadeOut(500);
     $("#signUPArea").fadeOut(500);
+    $("#resetArea").fadeOut(500);
     $('body').css('overflow', 'auto');  //ADD THIS
 });
 
 $(window).resize(function(){
         $("#loginArea").css("top", "5000px");
         $("#loginArea").fadeIn();
+
+        $("#resetArea").css("top", "5000px");
+        $("#resetArea").fadeIn();
 
         $("#signUPArea").css("top", "5000px");
         $("#signUPArea").fadeIn();

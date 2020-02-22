@@ -1,5 +1,5 @@
 @extends('site.layout.master')
-@section('title','Update User Info')
+@section('title','User Password Change')
 @section('content')
 <div id="contentWrapper" style="min-height: 135px;">
 
@@ -32,32 +32,32 @@
 						<table>
 							<thead>
 								<tr>
-									<th colspan="2" style="text-align: center;" >Update Your Information</th>
+									<th colspan="2" style="text-align: center;" >Update Your Password</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>First Name </td>
+									<td>Old Password </td>
 									<td>
 										<div class="input-box">
-											<input style="width: 100%;" type="text" name="fname" class="txt-box">
+											<input style="width: 100%;" type="password" name="old_password" class="txt-box">
+										</div>
+									</td>
+								</tr>
+								<tr class="even">
+									<td>New Password</td>
+									<td>
+										<div class="input-box">
+											<input style="width: 100%;" type="password" name="password" class="txt-box">
 										</div>
 									</td>
 								</tr>
 								<tr>
-									<td>Last Name </td>
-									<td>
-										<div class="input-box">
-											<input style="width: 100%;" type="text" name="lname" class="txt-box">
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>Email</td>
+									<td>Re-Type Password</td>
 									<td>
 
 										<div class="input-box">
-											<input style="width: 100%;" type="email" name="email" class="txt-box" readonly="">
+											<input style="width: 100%;" type="password" name="retype_password" class="txt-box">
 										</div>
 									</td>
 								</tr>
@@ -67,7 +67,7 @@
 							<tfoot>
 								<tr>
 									<th colspan="2">
-										<button type="submit" class="btn btn-success" style="padding: 10px; width: 33%">Update </button> 
+										<button type="submit" class="btn btn-success" style="padding: 10px; width: 33%">Update Password</button> 
 									</th>
 								</tr>
 							</tfoot>
@@ -117,7 +117,7 @@
 	input, .btn {
 		padding: 5px;
 		border: 1px solid #ddd;
-		border-radius: none;
+    	border-radius: none;
 	}
 </style>
 @endsection

@@ -4,6 +4,7 @@
 .text-divider:before{ content: " "; display: block; border-top: 1px solid #a87f41; border-bottom: 1px solid #a87f41;}
 </style>
 <div class="popup-section" id="loginArea" style="background-color: rgb(255,255,255,0.95); position: fixed;">
+  <form action="{{url('customer/login')}}" method="POST">
     <div class="row">
       <div class="col-md-12">
         <a href="javascript:void(0);"  
@@ -40,7 +41,7 @@
 
             <div class="col-md-8 col-md-offset-2">
                 <div class="col-md-12">
-                     <a style="text-decoration: none; color: #a87f41; font-weight:500; display: block; text-align: right;" href="#">
+                     <a style="text-decoration: none; color: #a87f41; font-weight:500; display: block; text-align: right;" href="javascript:void(0);" class="reset">
                         I Forgot My password. Reset Now?
                       </a>
                 </div>
@@ -48,7 +49,7 @@
 
             <div class="col-md-8 mb-1 col-md-offset-2">
                 <div class="col-md-12">
-                     <button class="btn btn-info" type="button">
+                     <button id="loginsubmit" class="btn btn-info" type="submit">
                         <i class="fa fa-unlock" aria-hidden="true"></i> Login 
                       </button>
                 </div>
@@ -62,13 +63,13 @@
 
             <div class="col-md-8  col-md-offset-2">
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                     <a class="btn btn-info" style="background-color: #3b5998;">
+                     <a href="{{url('login/facebook')}}" class="btn btn-info" style="background-color: #3b5998;">
                         <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook 
                       </a>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     
-                    <a class="btn btn-info" style="background-color: #4285f4;">
+                    <a href="{{url('login/google')}}" class="btn btn-info" style="background-color: #4285f4;">
                       <i class="fa fa-google-plus-square" aria-hidden="true"></i> Google
                     </a>
 
@@ -80,4 +81,5 @@
         </div>
       </div>
     </div>
+  </form>
 </div>

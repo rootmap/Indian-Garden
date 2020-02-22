@@ -243,7 +243,26 @@
                       </div>
                     </div>
                 </div>
-                       
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label>Choose Backgroung Image</label>
+                          <!-- <label for="customFile">Choose Footer Image</label> -->
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input"  id="background_image" name="background_image">
+                            <input type="hidden" value="{{$dataRow->background_image}}" name="ex_backdroung_image" />
+                            <label class="custom-file-label" for="customFile">Choose Backgroung Image</label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      @if(isset($dataRow->background_image))
+                          @if(!empty($dataRow->background_image))
+                              <img class="img-thumbnail" src="{{url('upload/weareopen/'.$dataRow->background_image)}}" width="150">
+                          @endif
+                      @endif
+                  </div>
+                </div>   
             </div>
             <!-- /.card-body -->
 

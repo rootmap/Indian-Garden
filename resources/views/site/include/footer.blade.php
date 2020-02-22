@@ -1,7 +1,7 @@
-<footer style="background: url({{URL::asset('upload/websitesettings/'.$WebsiteSettings->footer_image) }}) no-repeat center center fixed;background-size: cover; height: auto;">
+<footer class="" style="background: url({{URL::asset('upload/websitesettings/'.$WebsiteSettings->footer_image)}}); background-size: cover;">
    <div class="footer-top control-overlay">
     <div class="container">
-      <div class="row">
+      <div class="row rellax" data-rellax-speed="0">
         <div class="col-xs-12 col-sm-6 col-md-3">
           <h3 class="footer-title">MY ACCOUNT</h3>
           <ul class="list-unstyled">

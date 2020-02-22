@@ -2,44 +2,47 @@
 @section('title','Home')
 @section('content')
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="slider-one">
-          <div style="height: auto; background-image: url({{URL::asset('upload/slider/'.$slider[0]->background_image) }}); background-size: cover;background-repeat: no-repeat;">
-            <div class="hero">
+<div class="container-fluid" id="slider-container-area" style="clear: both; display: block; height:842px; overflow: hidden;">
+    <div class="row rellax" style="background:url({{URL::asset('upload/slider/'.$slider[0]->background_image) }});" data-rellax-speed="-4">
+        <div class="slider-one  control-overlay">
+          <div>
+            <div class="hero" style="margin: 0px !important;">
               <div class="hero-block">
                 <figure class="hero-logo">
-                  <img class="img-responsive" src="{{URL::asset('upload/slider/'.$slider[0]->slider_image) }}" alt="{{$slider[0]->slider_title}}">
+                  <img class="img-responsive"  data-rellax-speed="-2" src="{{URL::asset('upload/slider/'.$slider[0]->slider_image) }}" alt="{{$slider[0]->slider_title}}">
 
 
                 </figure>
 
-                <div class="cd-intro">
+                <!-- <br> -->
+
+<!--                 <div class="cd-intro" style="display: none;">
                   <h4 class="cd-headline clip" style="height:60px; display: block;clear: both;">
                     <span class="font-5-slider typewriter" data-id="{{$slider[0]->slider_title}}" id="typewriter" style="position: absolute; left: 0px; right: 0px;"></span>
                   </h4>
+                </div> -->
+       
+                <div class="col-md-12 rellax"  data-rellax-speed="1" style="clear: both; margin-top: 60px; display: block;">
+                  <div class="row">
+                    <div class="col-md-4 col-xs-12 col-sm-12 mb-1">
+                        <a  href="{{url('menu')}}" class="hero-block-hero-nav-li-a">See Menu</a>
+                    </div>
+                    <div class="col-md-4 col-xs-12 col-sm-12 mb-1">
+                        <a href="{{url('gallery')}}" class="hero-block-hero-nav-li-a">Gallery</a>
+                    </div>
+                    <div class="col-md-4 col-xs-12 col-sm-12 mb-1">
+                        <a href="{{url('reservation')}}" class="hero-block-hero-nav-li-a">Reservations</a>
+                    </div>
+                  </div>
                 </div>
-                <style type="text/css">
-                  .slider_button {
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 0%;
-                  }
-                </style>
-                <div class="col-md-12">
-                    <a href="#" class="hero-block-hero-nav-li-a col-md-4">See Menu</a>
-                    <a href="#" class="hero-block-hero-nav-li-a col-md-4">See Menu</a>
-                    <a href="#" class="hero-block-hero-nav-li-a col-md-4">See Menu</a>
-                </div>
-                <div class="button-block">
+                <!-- <div class="button-block">
                   <ul class="nav hero-nav">
-                    <li class="mb-seven"><a href="{{url('menu')}}">See Menu</a></li>
+                    <li class="mb-seven"><a>See Menu</a></li>
                     <li class="mb-seven"><a href="#">Order Online</a></li>
-                    <li class="mb-seven"><a href="{{url('reservation')}}">Reservations</a></li>
+                    <li class="mb-seven"><a >Reservations</a></li>
                   </ul>
-                </div>
-                <a href="#videos" class="down"><i class="fa fa-angle-down"></i></a>
+                </div> -->
+                <a href="#videos" id="loadvideos" data-rellax-speed="1" class="down rellax"><i class="fa fa-angle-down"></i></a>
               </div>
             </div>
             
@@ -50,7 +53,7 @@
 <!--slider One -->
 
 <!-- Video -->
-<section class="home_video" id="videos">
+<section class="home_video" id="videos" style="clear: both; display: block;">
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -72,11 +75,10 @@
 <!-- /Video -->
 
 <!--===| Service Start ===|-->
-<section class="services" style="background: url({{ url('site/img/custom/contact.jpg') }}) no-repeat center center fixed;background-size: cover;">
-   <div class="services-overlay">
+<section class="services rellax" data-rellax-speed="-2" data-rellax-wrapper="null"  data-rellax-center="true" style="background: url({{URL::asset('upload/weareopen/'.$we_are_open[0]->background_image)}}); padding-top:220px; padding-bottom: 150px;">
+         <div class="row  rellax" data-rellax-speed="0" data-rellax-wrapper="null"  data-rellax-center="true" >
       <div class="container-fluid">
-         <div class="row">
-            <div class="col-xs-12 col-md-10 col-md-offset-1 text-center ">
+            <div class="col-xs-12 col-md-10 col-md-offset-1 text-center rellax" data-rellax-speed="1" data-rellax-wrapper="null"  data-rellax-center="true" >
                <h1>{{ $we_are_open[0]->heading }}</h1>
                <p class="slogan">{{ $we_are_open[0]->sub_heading }} </p>
                <div class="col-lg-4">
@@ -109,15 +111,15 @@
             </div>
          </div>
       </div>
-   </div>
 </section>
 <!--===| Service End ===|-->
 <!--===| Food Menu Start ===|-->
+@if($HomeOrderDelivery->module_status=='Active')
 <section class="section-padding-50 food-menu-wrapper">
    <div class="container">
       <div class="row">
          <div class="col-md-12 col-sm-12 commontop text-center">
-            <h1>{{ $HomeOrderDelivery[0]->heading }}</h1>
+            <h1>{{ $HomeOrderDelivery->heading }}</h1>
             <!-- <strong class="slogan">Fresh and Healthy Food Availale  </strong> -->
             <hr>
            <div class="col-md-8 order col-md-offset-3">
@@ -125,15 +127,15 @@
             <ul class="list-inline text-center">
               <li>
                 <i class="fa {{ $HomeOrderDelivery[0]->first_icon }}"></i>
-                <p>{{ $HomeOrderDelivery[0]->first_icon_text }}</p>
+                <p>{{ $HomeOrderDelivery->first_icon_text }}</p>
               </li>
               <li>
                 <i class="fa {{ $HomeOrderDelivery[0]->second_icon }}"></i>
-                <p>{{ $HomeOrderDelivery[0]->second_icon_text }}</p>
+                <p>{{ $HomeOrderDelivery->second_icon_text }}</p>
               </li>
               <li>
                 <i class="fa {{ $HomeOrderDelivery[0]->third_icon }}"></i>
-                <p>{{ $HomeOrderDelivery[0]->third_icon_text }}</p>
+                <p>{{ $HomeOrderDelivery->third_icon_text }}</p>
               </li>
               
             </ul>
@@ -142,22 +144,23 @@
          </div>
       </div>
 </section>
+@endif
 
-<section class="home_delivery" style="background: url({{ url('site/img/custom/contact.jpg') }}) no-repeat center center fixed;background-size: cover;">
+<section class="home_delivery"  style="background:#fff; width: 100%;" data-parallax="scroll" data-image-src="{{ url('site/img/custom/contact.jpg') }}">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="title">
-          <h2>{{ $HomeDelivery[0]->heading }}</h2>
+          <h2>{{ $HomeDelivery->heading }}</h2>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-4">
-        <a href="{{ $HomeDelivery[0]->first_logo_link }}">
+        <a href="{{ $HomeDelivery->first_logo_link }}">
           <div class="delviery-icon">
             <figure>
-              <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery[0]->first_logo) }}" alt="Foodora">
+              <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery->first_logo) }}" alt="Foodora">
             </figure>
             <div class="icon-hover">
               <i class="fa fa-share fa-4x"></i>
@@ -166,10 +169,10 @@
         </a>
       </div>
       <div class="col-lg-4">
-        <a href="{{ $HomeDelivery[0]->second_logo_link }}">
+        <a href="{{ $HomeDelivery->second_logo_link }}">
           <div class="delviery-icon">
             <figure>
-              <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery[0]->second_logo) }}" alt="Uber Eats">
+              <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery->second_logo) }}" alt="Uber Eats">
             </figure>
             <div class="icon-hover">
               <i class="fa fa-share fa-4x"></i>
@@ -178,10 +181,10 @@
         </a>
       </div>
       <div class="col-lg-4">
-        <a href="{{ $HomeDelivery[0]->third_logo_link }}">
+        <a href="{{ $HomeDelivery->third_logo_link }}">
           <div class="delviery-icon">
             <figure>
-              <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery[0]->third_logo) }}" alt="Wolt">
+              <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery->third_logo) }}" alt="Wolt">
             </figure>
             <div class="icon-hover">
               <i class="fa fa-share fa-4x"></i>

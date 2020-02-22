@@ -167,6 +167,11 @@ ul,ol{
     list-style-type : none;
 }
 
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
+
 a,
 a:active,
 a:focus,
@@ -311,8 +316,9 @@ ul.nav.navbar-nav li a {
   text-transform: capitalize;
   color: #fff;
   font-weight: 400;
-  font-size: 12px;
-  letter-spacing: 1.4px;
+  /*font-size: 12px;*/
+  font-size: 14px;
+  letter-spacing: 1.2px;
   padding: 0 12px;
   line-height: 10px;
   margin-top: 0px;
@@ -321,11 +327,21 @@ ul.nav.navbar-nav li a {
  ul.nav.navbar-nav li a i.fa.fa-angle-down {
   line-height: 9px;
 }
-ul.nav.navbar-nav li { 
+/*ul.nav.navbar-nav li { 
   line-height: 11px;
   padding-bottom: 22px;
   border-bottom: 2px solid transparent;
+
+
+}*/
+
+ul.nav.navbar-nav li {
+    line-height: 11px;
+    margin-top: 13px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent;
 }
+
 ul.nav.navbar-nav li:hover { 
    /*border-bottom: 2px solid #a87f41;*/
 }
@@ -1590,7 +1606,7 @@ label.error {
 }
 /*Services Tab*/
 .services {
-    background: url('../img/take-look.jpg') no-repeat center center fixed;
+    /*background: url('../img/take-look.jpg') no-repeat center center fixed;*/
     background-size: cover;  
 }
 .services .services-overlay{
@@ -2184,7 +2200,34 @@ label.error {
   border-right: 2px solid #c57676;
   opacity: 1;
 }
-.book-now-wrapper  .toggle{
+
+.book-now-wrapper .toggle {
+    font-size: 9px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing:1px;
+    width:127px;
+    opacity: 1;
+    -webkit-transition: all ease 0.35s;
+    -o-transition: all ease 0.35s;
+    transition: all ease 0.35s;
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    padding: 3px 0;
+    text-transform: uppercase;
+    background: #907F47;
+    box-shadow: 0 -2px 3px rgba(0,0,0,0.3);
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    left: -74px;
+    top: 35%;
+    height: 31px;
+    cursor: pointer;
+}
+
+/*.book-now-wrapper  .toggle{
     font-size       : 14px;
     color           : #ffffff;
     font-weight: 500;
@@ -2194,8 +2237,8 @@ label.error {
     -webkit-transition: all ease 0.35s;
     -o-transition: all ease 0.35s;
     transition: all ease 0.35s;
-    -ms-transform: rotate(270deg); /* IE 9 */
-    -webkit-transform: rotate(270deg); /* Safari */
+    -ms-transform: rotate(270deg); 
+    -webkit-transform: rotate(270deg); 
     transform: rotate(270deg);
     padding: 10px 0;
     text-transform: uppercase;
@@ -2207,7 +2250,7 @@ label.error {
     left: -121px;
     top: 35%;
     cursor: pointer;
-}
+}*/
 .book-now-wrapper .book-form p{
     font-size       : 15px;
     color           : #000000;
@@ -2554,7 +2597,7 @@ footer .footer-text{
                     LOADER
 **************************************************************************/
 .loader {
-    background: url("../img/page-loader.gif") no-repeat scroll 50% 50% rgb(249, 249, 249);
+    background: url("../../animation.gif") no-repeat scroll 50% 50% rgb(249, 249, 249);
     height: 100%;
     left: 0;
     position: fixed;

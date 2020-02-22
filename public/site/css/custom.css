@@ -18,7 +18,7 @@
     content: "";
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    /*background-color: rgba(0, 0, 0, 0.5);*/
     position: absolute;
     top: 0;
     left: 0;
@@ -114,7 +114,6 @@ img {
     color: #fff;
     height: 51px;
     border: 2px solid #fff;
-    margin: 0 12px;
     font-family: "Roboto",sans-serif;
     font-weight: 500;
     font-style: italic;
@@ -125,11 +124,17 @@ img {
     align-items: center;
 }
 
+.hero-block-hero-nav-li-a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
 .hero .hero-block .hero-nav li a:hover{
    color: #a87f41
 }
 .home_video {
-    padding: 60px 0 100px;
+    padding: 60px 0 0px;
+    /*padding: 60px 0 100px;*/
     text-align: center;
     position: relative;
     display: block;
@@ -247,15 +252,15 @@ img {
     margin-bottom: 70px;
 }
 .home_delivery .title h2{
-    color: #fff;
+    color: #000;
 }
 .delviery-icon img{
 	border-radius: 10%;
     padding: 2px;
-    border: 2px solid #ececec;
+    /*border: 2px solid #ececec;*/
     width: 100%;
     /* margin-bottom: 15px; */
-    background: #eded;
+    /*background: #eded;*/
 }
 .list-unstyled {
     padding-left: 0;

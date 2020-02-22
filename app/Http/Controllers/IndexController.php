@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Sitesettings;
+use App\SiteSettings;
 use App\Slider;
 use App\WeAreOpen;
 use App\HomePageVideo;
@@ -78,8 +78,8 @@ class IndexController extends Controller
         $slider                 = Slider::all();
         $HomePageVideo          = HomePageVideo::all();
         $we_are_open            = WeAreOpen::all();
-        $HomeOrderDelivery      = HomeOrderDelivery::where('module_status','=','Active')->get();
-        $HomeDelivery           = HomeDelivery::where('module_status','=','Active')->get();
+        $HomeOrderDelivery      = HomeOrderDelivery::first();
+        $HomeDelivery           = HomeDelivery::first();
         $OpeningHour            = OpeningHour::all();
         $WebsiteSettings        = WebsiteSettings::first();
         $SocialLinkMgt          = SocialLinkMgt::first();
@@ -120,6 +120,7 @@ class IndexController extends Controller
         $MenuItem       = $this->categoryParseData();
         $WebsiteSettings        = WebsiteSettings::first();
         $SocialLinkMgt          = SocialLinkMgt::first();
+        $category        = Category::where('category_status','Active')->get();
         
         //dd($MenuItem);
     	return view('site.pages.menu',[
@@ -128,7 +129,8 @@ class IndexController extends Controller
             'MenuPageInfo'=>$MenuPageInfo,
             'MenuItem'=>$MenuItem,
             'WebsiteSettings'=>$WebsiteSettings,
-            'SocialLinkMgt'=>$SocialLinkMgt
+            'SocialLinkMgt'=>$SocialLinkMgt,
+            'category'=>$category,
         ]);
     }
     public function event(){
@@ -229,12 +231,51 @@ class IndexController extends Controller
     public function dashboard(){
         return view('admin.pages.dashboard.index');
     }
+    public function userDashboard(){
+        $setting        = Sitesettings::all();
+        $OpeningHour    = OpeningHour::all();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
+        return view('site.pages.user_dashboard.index',[
+            'setting'=>$setting,
+            'OpeningHour'=>$OpeningHour,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
+        ]);
+        
+    }
     public function userProfile(){
         $setting        = Sitesettings::all();
         $OpeningHour    = OpeningHour::all();
         $WebsiteSettings        = WebsiteSettings::first();
         $SocialLinkMgt          = SocialLinkMgt::first();
         return view('site.pages.user_dashboard.profile',[
+            'setting'=>$setting,
+            'OpeningHour'=>$OpeningHour,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
+        ]);
+        
+    }
+    public function changePassword(){
+        $setting        = Sitesettings::all();
+        $OpeningHour    = OpeningHour::all();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
+        return view('site.pages.user_dashboard.change-password',[
+            'setting'=>$setting,
+            'OpeningHour'=>$OpeningHour,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt
+        ]);
+        
+    }
+    public function orderPaid(){
+        $setting        = Sitesettings::all();
+        $OpeningHour    = OpeningHour::all();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
+        return view('site.pages.user_dashboard.order-paid',[
             'setting'=>$setting,
             'OpeningHour'=>$OpeningHour,
             'WebsiteSettings'=>$WebsiteSettings,
