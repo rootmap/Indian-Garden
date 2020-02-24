@@ -13,7 +13,7 @@
   <div class="cl-hero" data-parallax="scroll" style="background-image: url({{URL::asset('upload/ourhistorypageinfo/'.$history[0]->background_image) }});">
     <div class="container">
       <div class="row">
-        <div class="col-md-5 col-md-offset-6">
+        <div class="col-md-5 col-md-offset-6 block-ded-padd">
           <div class="hero-inner-block">
             <h2><?= html_entity_decode($history[0]->content_heading)?></h2>
             <p>

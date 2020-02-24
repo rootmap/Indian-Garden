@@ -68,7 +68,7 @@
             //site/img/chili.png
             elseif ($sca['spicy']=='Yes') {
               $class = 'class="starreds"';
-              $img = "<img src='".URL::asset('site/img/chili.png')."'>";
+              $img = "<img src='".URL::asset('images/chili-small.png')."'>";
               //echo $img;
             }
           ?>
@@ -79,7 +79,7 @@
             <h4>{{$sca['name']}}</h4>
             <p class="sub-title">{{$sca['description']}}</p>
               {{-- <p class="ingradients1">Price : {{$sca['price']}} kr </p> --}}
-              <p class="ingradients1">Price : {{$sca['price']}} kr <?= $img ?></p>
+              <p class="ingradients1">Price : {{$sca['price']}} kr <?= $img ?><?= $img ?><?= $img ?></p>
           </div>
         </div>
       </div>

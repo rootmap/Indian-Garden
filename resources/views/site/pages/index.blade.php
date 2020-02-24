@@ -62,7 +62,8 @@
           <p>{{ $HomePageVideo[0]->sub_heading }}</p>
         </div>
         <div style="padding:56.25% 0 0 0;position:relative; top: 15px;">
-          <iframe src="{{ $HomePageVideo[0]->vimeo_video_url }}"
+          <div  id="playVidemomo" style=" background: url({{url('images/1.jpg')}}); position: absolute; z-index: 9999999; height:422px; background-size: cover; width: 750px; margin-top: -422px; cursor: pointer;"></div>
+          <iframe id="ifvemo" src="{{ $HomePageVideo[0]->vimeo_video_url }}"
             style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0"
             allow="autoplay; fullscreen" allowfullscreen>
           </iframe>

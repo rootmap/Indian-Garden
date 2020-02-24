@@ -44,6 +44,7 @@
       <!-- <script src="{{url('parallax/parallax.js')}}"></script>
       <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.2.0/dist/simpleParallax.min.js"></script> -->
       <script src="{{url('rellax/rellax.min.js')}}"></script>
+      <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
       <script>
         // Accepts any class name
         var rellax = new Rellax('.rellax');
@@ -55,12 +56,41 @@
 
           $(document).ready(function(){
 
+
+            $("#playVidemomo").css("height",$('#ifvemo').height());
+            $("#playVidemomo").css("margin-top",-$('#ifvemo').height());
+            $("#playVidemomo").css("width",$('#ifvemo').width());
+              
+
              $("#loadvideos").click(function(){
                 $("#videos").css("padding-top","149px");
                 $('html, body').animate({
                     scrollTop: $("#videos").offset().top
                 }, 1000);
              });
+
+             $("#playVidemomo").click(function(){
+                $("#playVidemomo").hide();
+
+              var iframe = $('#ifvemo')[0];
+
+              
+
+              var player = $f(iframe);
+
+              //$('#stop').click(function() {
+                //  alert('stoped');
+               //   player.api('pause');
+              //});
+
+
+              //$('#play').click(function(){
+                  //alert('play');
+                  player.api('play');
+              //})
+             });
+
+
 
              var sliderShowArea=$(window).height()-102;
              $('#slider-container-area').css('height',sliderShowArea);

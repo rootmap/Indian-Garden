@@ -10,6 +10,12 @@
 	font-weight: normal;
 	font-style: normal
 }
+
+.block-ded-padd
+{
+    padding-left: 0px !important; padding-right: 0px !important;
+}
+
 .hero {
     padding: 100px 0;
     position: relative;
@@ -400,9 +406,23 @@ footer .list-unstyled li a, footer .list-unstyled li {
     padding: 2px;
 }*/
 .menus .menus-block {
-    border: 3px solid #a29160;
-    padding: 2px;
+    /*border: 3px solid #a29160;*/
+    background: #fff;
+    /*padding: 2px;*/
+
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
 }
+
+.menus .menus-block .starred img{
+    border: 3px solid #a29160;
+}
+
+.menus .menus-block .starreds img{
+    border: 3px solid #a29160;
+}
+
 .menus .menus-block .starred::after {
     content: "\f005";
     font-family: "FontAwesome";
@@ -419,19 +439,23 @@ footer .list-unstyled li a, footer .list-unstyled li {
 .menus .menus-block .inner-text h4 {
     font-family: "Sunset",sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size:18px;
     color: #a29160;
     position: relative;
     margin-top: 20px;
-    color: #fff;
+    color: #000;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .menus .menus-block .inner-text .sub-title {
     font-family: "Sunset",sans-serif;
     font-weight: 500;
     font-size: 15px;
-    color: #fff;
+    color: #000;
     margin-top: 10px;
     margin-bottom: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 /*.menus .menus-block .starreds img {
     border: 3px solid #a29160;
@@ -439,7 +463,10 @@ footer .list-unstyled li a, footer .list-unstyled li {
 }*/
 .menus .menus-block .inner-text .ingradients1 {
     font-size: 14px;
-    color: #fff;
+    color: #000;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 600;
 }
 
 .menus .menus-block .inner-text .ingradients1 img{

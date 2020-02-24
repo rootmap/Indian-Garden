@@ -2597,7 +2597,7 @@ footer .footer-text{
                     LOADER
 **************************************************************************/
 .loader {
-    background: url("../../animation.gif") no-repeat scroll 50% 50% rgb(249, 249, 249);
+    background: url("../../images/logo.png") no-repeat scroll 50% 50% rgb(249, 249, 249);
     height: 100%;
     left: 0;
     position: fixed;
