@@ -4,7 +4,7 @@
   <h2>Sidebar Menu</h2>
   <ul>
    <li><a href="{{url('index')}}">Home</a></li>
-   <li ><a href="{{ url('our-history') }}">Our History</a></li>
+   <li ><a href="{{ url('our-story') }}">Our Story</a></li>
    <li ><a href="{{ url('menu') }}">Menu</a></li>
    <li><a href="{{ url('events') }}">Events </a></li>
    <li><a href="{{ url('gallery') }}">Gallery </a></li>

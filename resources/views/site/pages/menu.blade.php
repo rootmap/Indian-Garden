@@ -20,7 +20,7 @@
       </div>
     </div>
   </section> --}}
-  <div class="container">
+  <div class="container header-block">
     <div class="row justify-content-center cl-block">
       <div class="common_layout_title">
         <h2>{{$MenuPageInfo[0]->heading}}</h2>
@@ -49,44 +49,79 @@
         
         <div class="top-icon text-center">
           <!-- <img src="{{url('site/img/custom/menu/pesto_goat_cheese_sun_dried_tomato_polenta.jpg')}}" alt="Appetizer"> -->
-        <h1>{{$ca['name']}}</h1>
+        <h1><span>{{$ca['name']}}</span></h1>
         <p>{{$ca['description']}}</p>
         </div>
         
       </div>
       <div class="clearfix"></div><br><br>
-      <?php $i = 1; ?>
-      @foreach($ca['scat'] as $sca)
+      <?php $i = 1; 
+      $k=1;
+
      
+      ?>
+      @foreach($ca['scat'] as $sca)
+     <?php 
+      if($k==1)
+      {
+          ?>
+          <div class="row mb-1">
+          <?php 
+      }
+     ?>
       <div class="col-md-3 mb-1">
         <div class="menus-block">
           <?php
-            if($sca['special']=='Yes'){
-              $class = 'class="starred"';
-              $img ='';
+            
+            $img ='';
+            $class='class="starreds"';
+            if(!empty($sca['special']))
+            {
+              if($sca['special']=='Yes'){
+                $class = 'class="starred"';
+                
+              }
             }
             //site/img/chili.png
-            elseif ($sca['spicy']=='Yes') {
-              $class = 'class="starreds"';
-              $img = "<img src='".URL::asset('images/chili-small.png')."'>";
-              //echo $img;
+            if (!empty($sca['spicy'])) {
+              if ($sca['spicy']=='Yes') {
+                $class = 'class="starreds"';
+                $img = "<img src='".URL::asset('images/chili-small.png')."'>";
+                //echo $img;
+              }
             }
           ?>
           <figure <?= $class ?>>
-            <img style="height:230px;" src="{{URL::asset('upload/menuitem/'.$sca['menu_item_image']) }}" alt="{{$sca['name']}}">
+            <img style="height:262px; " src="{{URL::asset('upload/menuitem/'.$sca['menu_item_image']) }}" alt="{{$sca['name']}}">
           </figure>
           <div class="inner-text">
             <h4>{{$sca['name']}}</h4>
             <p class="sub-title">{{$sca['description']}}</p>
               {{-- <p class="ingradients1">Price : {{$sca['price']}} kr </p> --}}
-              <p class="ingradients1">Price : {{$sca['price']}} kr <?= $img ?><?= $img ?><?= $img ?></p>
+              <p class="ingradients1 pt-20">{{$sca['price']}} kr</p>
+              <p class="ingradients1 pt-20"><?= $img ?><?= $img ?><?= $img ?></p>
           </div>
         </div>
       </div>
 
 
       
-      <?php  $i++; ?>
+      <?php  
+      if($k==4 && $i!=count($ca['scat']))
+      {
+        $k=0;
+          ?>
+          </div>
+          <?php 
+      }
+      elseif($i==count($ca['scat']))
+      {
+          ?>
+          </div>
+          <?php 
+      }
+      $k++;
+      $i++; ?>
       @endforeach
         
     </div>

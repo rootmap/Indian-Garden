@@ -3,7 +3,7 @@
 .text-divider span{background-color: #fff; padding:8px; }
 .text-divider:before{ content: " "; display: block; border-top: 1px solid #a87f41; border-bottom: 1px solid #a87f41;}
 </style>
-<div class="popup-section" id="loginArea" style="background-color: rgb(255,255,255,0.95); position: fixed;">
+<div class="popup-section" id="loginArea" style="background:url({{url('images/bgtffive.png')}}) repeat; background: rgb(255,255,255,0.95); position: fixed;">
   <form action="{{url('customer/login')}}" method="POST">
     <div class="row">
       <div class="col-md-12">

@@ -3,6 +3,7 @@
    <head>
       <!-- Basic -->
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      
       <title>@yield('title') | Indian Gadren</title>
       @include('site.include.headerCss')
       @yield('css')
@@ -11,6 +12,7 @@
            background: 0% 0% / cover rgba(0,0,0, 0.5);
        }
      </style>
+
    </head>
    <body onload="initialize()">
       <div class="loader"></div>
@@ -90,10 +92,98 @@
               //})
              });
 
+             $('.hero').css('padding-top','3em');
 
 
              var sliderShowArea=$(window).height()-102;
              $('#slider-container-area').css('height',sliderShowArea);
+
+             if(sliderShowArea>=1000)
+               {
+                  $('#buttonRea').css('padding-top','10em');
+                  $('#logoarearea').css('padding-top','6em');
+               } 
+               else if(sliderShowArea>=900)
+               {
+                  $('#buttonRea').css('padding-top','9.5em');
+                  $('#logoarearea').css('padding-top','5em');
+               }
+               else if(sliderShowArea>=800)
+               {
+                  $('#buttonRea').css('padding-top','8em');
+                  $('#logoarearea').css('padding-top','4em');
+               }
+               else if(sliderShowArea>=700)
+               {
+                  $('#buttonRea').css('padding-top','7em');
+                  $('#logoarearea').css('padding-top','3.5em');
+               }
+               else if(sliderShowArea>=600)
+               {
+                  $('#buttonRea').css('padding-top','6em');
+                  $('#logoarearea').css('padding-top','3em');
+               }
+               else if(sliderShowArea>=500)
+               {
+                  $('#buttonRea').css('padding-top','3em');
+                  $('#logoarearea').css('padding-top','1.5em');
+               }
+               else
+               {
+                  $('#buttonRea').css('padding-top','3em');
+                  $('#logoarearea').css('padding-top','1.5em');
+               }
+             
+
+             $(document).scroll(function(){
+                console.log($(window).height());
+             });
+
+             $( window ).resize(function() {
+                var sliderShowArea=$(window).height()-102;
+                $('#slider-container-area').css('height',sliderShowArea);
+                console.log($(window).height()-102);
+
+               if(sliderShowArea>=1000)
+               {
+                  $('#buttonRea').css('padding-top','10em');
+                  $('#logoarearea').css('padding-top','6em');
+                  
+               } 
+               else if(sliderShowArea>=900)
+               {
+                  $('#buttonRea').css('padding-top','9.5em');
+                  $('#logoarearea').css('padding-top','5em');
+               }
+               else if(sliderShowArea>=800)
+               {
+                  $('#buttonRea').css('padding-top','8em');
+                  $('#logoarearea').css('padding-top','4em');
+               }
+               else if(sliderShowArea>=700)
+               {
+                  $('#buttonRea').css('padding-top','7em');
+                  $('#logoarearea').css('padding-top','3.5em');
+               }
+               else if(sliderShowArea>=600)
+               {
+                  $('#buttonRea').css('padding-top','6em');
+                  $('#logoarearea').css('padding-top','3em');
+               }
+               else if(sliderShowArea>=500)
+               {
+                  $('#buttonRea').css('padding-top','3em');
+                  $('#logoarearea').css('padding-top','1.5em');
+               }
+               else
+               {
+                  $('#buttonRea').css('padding-top','3em');
+                  $('#logoarearea').css('padding-top','1.5em');
+               }
+
+
+            });
+
              $("#loginsubmit").click(function(){
 
                   var email_login=$("input[name=email_login]").val();

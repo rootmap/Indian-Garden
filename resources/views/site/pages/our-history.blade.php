@@ -1,8 +1,8 @@
 @extends('site.layout.master')
-@section('title','Our History')
+@section('title','Our Story')
 @section('content')
 <section class="our-story cl-block">
-  <div class="container">
+  <div class="container  header-block">
     <div class="row justify-content-center">
       <div class="common_layout_title">
         <h2>{{$history[0]->page_heading}}</h2>
@@ -40,10 +40,10 @@
 
       if($oe_style=='odd'){
       ?>
-      <div class="row">
+      <div class="row newhisAr">
         <div class="col-lg-5 col-lg-offset-1 nopadd">
-          <figure>
-            <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" alt="{{ $his->heading }}" class="img-fit" style="height: 416px;">
+          <figure class="dtrFig">
+            <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" alt="{{ $his->heading }}" class="img-fit">
           </figure>
         </div>
         <div class="col-lg-5  nopadd">
@@ -56,10 +56,11 @@
         </div>
       </div>
       <?php 
-        }
-        else{
-          ?>
-          <div class="row">
+      }
+      else
+      {
+      ?>
+          <div class="row newhisAr">
             <div class="col-lg-5 col-lg-offset-1 nopadd">
               <div class="body-inner-block">
                 <h2>{{ $his->heading }}<br>{{ $his->sub_heading }}</h2>
@@ -69,8 +70,8 @@
               </div>
             </div>
             <div class="col-lg-5 nopadd">
-              <figure>
-                <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" alt="{{ $his->heading }}" class="img-fit" style="height: 416px;">
+              <figure class="dtrFig">
+                <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" alt="{{ $his->heading }}" class="img-fit">
               </figure>
             </div>
           </div>
@@ -84,4 +85,14 @@
   </div>
   <!-- /Common Layout Body -->
 </section>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.newhisAr').each(function(){
+            $(this).find('.body-inner-block').css('height',$(this).find('.dtrFig').children('img').height());
+        });
+    });
+</script>
 @endsection

@@ -21,7 +21,8 @@ Route::get("table","IndexController@adminTable");
 
 Route::get("/","IndexController@index");
 Route::get("index","IndexController@index");
-Route::get("our-history","IndexController@ourHistory");
+Route::get("home","IndexController@index");
+Route::get("our-story","IndexController@ourHistory");
 Route::get("menu","IndexController@menu");
 Route::get("events","IndexController@event");
 Route::get("gallery","IndexController@gallery");
@@ -32,6 +33,8 @@ Route::get('/user/dashboard','IndexController@userDashboard');
 Route::get('/user/change-password','IndexController@changePassword');
 Route::get('/user/order/paid','IndexController@orderPaid');
 Route::get('/user/profile','IndexController@userProfile');
+Route::get('/blog','IndexController@blog');
+Route::get('/blog-detail','IndexController@blogDetail');
 
 Route::post('customer/login', 'CustomerController@login');
 Route::get('login/facebook', 'SocialController@redirectToProviderFacebook');

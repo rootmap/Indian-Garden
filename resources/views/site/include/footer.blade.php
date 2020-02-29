@@ -70,7 +70,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="copy-right pull-left">
-          <p>Copyright-{{date('Y')}} Indian graden design & develop by <a href="#" target="_blank">bhuyianhost.com</a></p>
+          <p>Copyright-{{date('Y')}} Indian graden</p>
         </div>
         
         <div class="back-top pull-right">

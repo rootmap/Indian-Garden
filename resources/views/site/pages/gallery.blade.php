@@ -17,7 +17,7 @@
       </div>
     </div>
   </section> --}}
-  <div class="container">
+  <div class="container header-block">
     <div class="row justify-content-center cl-block">
       <div class="common_layout_title">
         <h2>Gallery</h2>
@@ -45,17 +45,17 @@
       <!-- portfolio-item -->
           @if(count($gallery)>0)
               @foreach($gallery as $g)
-                  <div class="portfolio-item col-xs-12 col-sm-6 col-md-3" data-groups='["total", "{{ $g->category_name }}"]'>
+                  <div class="portfolio-item col-xs-12 col-sm-6 col-md-3 fancybox" data-groups='["total", "{{ $g->category_name }}"]'  href="{{url('upload/gallery/'.$g->gallery_image)}}" data-fancybox-group="gallery">
                     <div class="portfolio grid">
                     <figure class="effect-cheff gallary-image">
-                      <img src="{{url('upload/gallery/'.$g->gallery_image)}}" alt="Gallery 01"/>
-                      <figcaption>
+                      <img src="{{url('upload/gallery/'.$g->gallery_image)}}" class="img-responsive" style="height: 300px;" alt="Gallery 01"/>
+                      <!-- <figcaption>
                         <div class="gallary-hover-text">
                           <a class="yellow-bar fancybox" href="{{url('upload/gallery/'.$g->gallery_image)}}" data-fancybox-group="gallery"><i class="fa fa-search-plus"></i></a>
                           <p>{{ $g->gallery_content }}</p>
                         </div>
                       </figcaption>     
-                    </figure>
+                    </figure> -->
                   </div>      
                 </div><!-- col-xs-12 -->
             @endforeach

@@ -1,4 +1,4 @@
-<div class="popup-section"  id="resetArea" style="background-color: rgb(255,255,255,0.95); position: fixed;">
+<div class="popup-section"  id="resetArea" style="background:url({{url('images/bgtffive.png')}}) repeat; background: rgb(255,255,255,0.95); position: fixed;">
     <div class="row">
       <div class="col-md-12">
         <a href="javascript:void(0);"  

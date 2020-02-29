@@ -23,10 +23,11 @@
                <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
                      <!-- <li class="active"><a href="index.php">Home</a></li> -->
-                     <li class="{{ Request::path() == 'our-history' ? 'active' : '' }}"><a href="{{ url('our-history') }}">Our History</a></li>
+                     <li class="{{ Request::path() == 'our-story' ? 'active' : '' }}"><a href="{{ url('our-story') }}">Our Story</a></li>
                      <li class="{{ Request::path() == 'menu' ? 'active' : '' }}"><a href="{{ url('menu') }}">Menu</a></li>
                      <li class="{{ Request::path() == 'events' ? 'active' : '' }}"><a href="{{ url('events') }}">Events </a></li>
                      <li class="{{ Request::path() == 'gallery' ? 'active' : '' }}"><a href="{{ url('gallery') }}">Gallery </a></li>
+                     {{-- <li class="{{ Request::path() == 'blog' ? 'active' : '' }}"><a href="{{ url('blog') }}">Blog </a></li> --}}
                      <li class="{{ Request::path() == 'reservation' ? 'active' : '' }}"><a href="{{ url('gallery') }}"><a href="{{ url('reservation') }}">Reservation & Contact</a></li>
                   </ul>
                   <!-- .navbar-nav -->

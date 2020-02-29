@@ -34,7 +34,7 @@ class CoreCustomController extends Facade {
 
     public static function storeName() 
     {
-        return "CoreCMS";
+        return "Indian Garden";
     }
 
     public static function UserID() 
@@ -144,14 +144,14 @@ class CoreCustomController extends Facade {
           try {
               $mail->SMTPDebug = $debug;
               $mail->isSMTP(); 
-              $mail->Host = 'mail.simpleretailpos.com';
+              $mail->Host = 'mail.bhuyianhost.com';
               $mail->SMTPAuth = true;
-              $mail->Username = 'automail@simpleretailpos.com';
-              $mail->Password = 'automail';
+              $mail->Username = 'indiangarden@bhuyianhost.com';
+              $mail->Password = 'F.[bmS2l3-Zx';
               $mail->SMTPSecure = 'tls';
               $mail->Port = 587;
 
-              $mail->setFrom('no-reply@nucleuspos.com', self::storeName());
+              $mail->setFrom('indiangarden@bhuyianhost.com', self::storeName());
 
               //$mail->addAddress($to, 'Fahad Bhuyian');
               $mail->addAddress($to);               // Name is optional

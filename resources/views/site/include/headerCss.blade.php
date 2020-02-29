@@ -5,8 +5,14 @@
 <meta name="keywords" content="{{ $WebsiteSettings->website_meta_data }}">
 <!-- <link rel="icon" type="image/png" href="{{ url('site/img/favicon.ico') }}"> -->
 
+<meta property="og:url"                content="{{url('index')}}" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="Indian Gadren" />
+<meta property="og:description"        content="{{ $WebsiteSettings->website_meta_description }}" />
+<meta property="og:image"              content="{{url('images/logo.png')}}" />
 
-<link rel="apple-touch-icon" sizes="57x57" href="{{ url('site/favicon/apple-icon-57x57.png')}}">
+
+<!-- <link rel="apple-touch-icon" sizes="57x57" href="{{ url('site/favicon/apple-icon-57x57.png')}}">
 <link rel="apple-touch-icon" sizes="60x60" href="{{ url('site/favicon/apple-icon-60x60.png')}}">
 <link rel="apple-touch-icon" sizes="72x72" href="{{ url('site/favicon/apple-icon-72x72.png')}}">
 <link rel="apple-touch-icon" sizes="76x76" href="{{ url('site/favicon/apple-icon-76x76.png')}}">
@@ -22,8 +28,8 @@
 <link rel="manifest" href="{{ url('site/favicon/manifest.json')}}">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="{{ url('site/favicon/ms-icon-144x144.png')}}">
-<meta name="theme-color" content="#ffffff">
-
+<meta name="theme-color" content="#ffffff"> -->
+<link rel="icon" image="image/x-icon" href="{{url('images/favicon.ico')}}">
 
 <!-- Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,100italic,100,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>

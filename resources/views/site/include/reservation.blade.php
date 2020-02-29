@@ -17,7 +17,16 @@
             <input id="datepicker-sidebar" class="form-control" type="text" name="reservations_date"  placeholder="date">
           </div>
           <div class="col-xs-12 col-sm-12">
-            <input id="timepicker2" class="form-control" type="text" name="reservations_time"  placeholder="Time">
+                <select name="reservations_time" class="form-control form-control-lg">
+                  <option value="">Select Time</option>
+                  @for($i=0; $i<=23; $i++)
+                      <option value="{{strlen($i)==1?'0'.$i:$i}}:00">{{strlen($i)==1?'0'.$i:$i}}:00</option>
+                      <option value="{{strlen($i)==1?'0'.$i:$i}}:15">{{strlen($i)==1?'0'.$i:$i}}:15</option>
+                      <option value="{{strlen($i)==1?'0'.$i:$i}}:30">{{strlen($i)==1?'0'.$i:$i}}:30</option>
+                      <option value="{{strlen($i)==1?'0'.$i:$i}}:45">{{strlen($i)==1?'0'.$i:$i}}:45</option>
+                  @endfor
+                </select>
+          
           </div>
           <div class="col-xs-12 col-sm-12">
             {{-- <input class="form-control" type="text" name="person-no" placeholder="number of person"> --}}

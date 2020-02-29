@@ -2,7 +2,7 @@
 @section('title','Events')
 @section('content')
 <section class="our-story cl-block">
-  <div class="container">
+  <div class="container  header-block">
     <div class="row justify-content-center">
       <div class="common_layout_title">
         <h2>{{ $EventPageInfo->page_heading }}</h2>
@@ -40,7 +40,7 @@
 
       if($oe_style=='odd'){
       ?>
-        <div class="row">
+        <div class="row newhisAr">
           <div class="col-lg-5 col-md-offset-1 nopadd">
             <div class="body-inner-block">
               <h2>{{ $evn->heading }}<br>{{ $evn->sub_heading }}</h2>
@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="col-lg-5  nopadd">
-            <figure>
+            <figure class="dtrFig">
               <img src="{{URL::asset('upload/eventinfo/'.$evn->content_image) }}" alt="Venue" class="img-fluid" style="max-height: 453px">
             </figure>
           </div>
@@ -60,9 +60,9 @@
         }
         else{
           ?>
-        <div class="row">
+        <div class="row newhisAr">
          <div class="col-lg-5 col-md-offset-1 nopadd">
-            <figure>
+            <figure class="dtrFig">
               <img src="{{URL::asset('upload/eventinfo/'.$evn->content_image) }}" alt="Venue" class="img-fluid" style="max-height: 453px">
             </figure>
           </div>
@@ -85,4 +85,15 @@
   </div>
   <!-- /Common Layout Body -->
 </section>
+@endsection
+
+
+@section('js')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.newhisAr').each(function(){
+            $(this).find('.body-inner-block').css('height',$(this).find('.dtrFig').children('img').height());
+        });
+    });
+</script>
 @endsection

@@ -2,7 +2,7 @@
 @section('title','Reservation')
 @section('content')
 <section class="events cl-block">
-    <div class="container">
+    <div class="container  header-block">
       <div class="row justify-content-center">
         <div class="common_layout_title">
           <h2>CONTACT US</h2>
@@ -41,7 +41,15 @@
                   <input id="datepicker" class="form-control form-control-lg" name="reservations_date" type="text" placeholder="Select Date">
                 </div>
                 <div class="form-group">
-                  <input class="form-control form-control-lg" id="timepicker" type="text" name="reservations_time" type="text" placeholder="Enter Time">
+                  <select name="reservations_time" class="form-control form-control-lg">
+                    <option value="">Select Time</option>
+                    @for($i=0; $i<=23; $i++)
+                        <option value="{{strlen($i)==1?'0'.$i:$i}}:00">{{strlen($i)==1?'0'.$i:$i}}:00</option>
+                        <option value="{{strlen($i)==1?'0'.$i:$i}}:15">{{strlen($i)==1?'0'.$i:$i}}:15</option>
+                        <option value="{{strlen($i)==1?'0'.$i:$i}}:30">{{strlen($i)==1?'0'.$i:$i}}:30</option>
+                        <option value="{{strlen($i)==1?'0'.$i:$i}}:45">{{strlen($i)==1?'0'.$i:$i}}:45</option>
+                    @endfor
+                  </select>
                 </div>
                 <input type="hidden" name="reservations_status" value="Pending">
                 <div class="form-group">
@@ -89,15 +97,18 @@
               <div class="col-xs-12 col-sm-12">
                 <textarea id="message" class="form-control" rows="4" name="message" placeholder="message"></textarea>
               </div>
-              <input type="hidden" value="Unseen" name="contact_status" />
-              <button class="btn" name="submit" type="submit">submit message</button>
+              
+              <div class="col-xs-12 col-sm-12">
+                <button class="btn" name="submit" type="submit">submit message</button>
+                <input type="hidden" value="Unseen" name="contact_status" />
+              </div>
             </div>
           </form>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12769.804844878257!2d174.82424697894464!3d-36.855617228992664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d49c3a989ec83%3A0x500ef6143a2e4f0!2zTWlzc2lvbiBCYXksIOCmheCmleCmsuCnjeCmr-CmvuCmqOCnjeCmoSwg4Kao4Ka_4KaJ4Kac4Ka_4Kay4KeN4Kav4Ka-4Kao4KeN4Kah!5e0!3m2!1sbn!2sbd!4v1580984859690!5m2!1sbn!2sbd"
+            src="{{$setting[0]->contact_map_source_url}}"
             width="100%" height="470" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
       </div>
     </div>

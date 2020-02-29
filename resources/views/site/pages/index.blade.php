@@ -2,28 +2,23 @@
 @section('title','Home')
 @section('content')
 
-<div class="container-fluid" id="slider-container-area" style="clear: both; display: block; height:842px; overflow: hidden;">
-    <div class="row rellax" style="background:url({{URL::asset('upload/slider/'.$slider[0]->background_image) }});" data-rellax-speed="-4">
-        <div class="slider-one  control-overlay">
-          <div>
+<div class="container-fluid" style="clear: both; display: block; height:100%; overflow: hidden;  "  >
+<div class="row rellax" style="background:url({{URL::asset('upload/slider/'.$slider[0]->background_image) }}); background-size: cover;" data-rellax-speed="-5">
+  <div class="row control-overlay"  id="slider-container-area" style="height: 100%;">
+  <div class="container">
+        <div class="slider-one">
             <div class="hero" style="margin: 0px !important;">
               <div class="hero-block">
-                <figure class="hero-logo">
-                  <img class="img-responsive"  data-rellax-speed="-2" src="{{URL::asset('upload/slider/'.$slider[0]->slider_image) }}" alt="{{$slider[0]->slider_title}}">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="logoarearea">
+                  <figure class="hero-logo rellax" data-rellax-speed="0.4">
+                    <img class="img-responsive" src="{{URL::asset('upload/slider/'.$slider[0]->slider_image) }}" alt="{{$slider[0]->slider_title}}">
 
 
-                </figure>
-
-                <!-- <br> -->
-
-<!--                 <div class="cd-intro" style="display: none;">
-                  <h4 class="cd-headline clip" style="height:60px; display: block;clear: both;">
-                    <span class="font-5-slider typewriter" data-id="{{$slider[0]->slider_title}}" id="typewriter" style="position: absolute; left: 0px; right: 0px;"></span>
-                  </h4>
-                </div> -->
+                  </figure>
+                </div>
        
-                <div class="col-md-12 rellax"  data-rellax-speed="1" style="clear: both; margin-top: 60px; display: block;">
-                  <div class="row">
+                <div id="buttonRea" class="col-md-12" style="clear: both;  display: block;">
+                  <div class="row rellax"  data-rellax-speed="2">
                     <div class="col-md-4 col-xs-12 col-sm-12 mb-1">
                         <a  href="{{url('menu')}}" class="hero-block-hero-nav-li-a">See Menu</a>
                     </div>
@@ -35,21 +30,22 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="button-block">
-                  <ul class="nav hero-nav">
-                    <li class="mb-seven"><a>See Menu</a></li>
-                    <li class="mb-seven"><a href="#">Order Online</a></li>
-                    <li class="mb-seven"><a >Reservations</a></li>
-                  </ul>
-                </div> -->
-                <a href="#videos" id="loadvideos" data-rellax-speed="1" class="down rellax"><i class="fa fa-angle-down"></i></a>
+                
               </div>
             </div>
-            
-          </div>
         </div>
+        
      </div>
+     <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 hidden-xs rellax" style="text-align: center; position: absolute;
+bottom: 16px;" data-rellax-speed="3.6">
+            <span id="loadvideos" class="down" style="cursor: pointer; ">
+              <img style="height:50px; width:50px; margin:0 auto;" src="{{URL::asset('images/scroll_white.gif') }}" alt="{{$slider[0]->slider_title}}">
+            </span>
+        </div>
   </div>
+</div>
+
+</div>
 <!--slider One -->
 
 <!-- Video -->
@@ -62,7 +58,13 @@
           <p>{{ $HomePageVideo[0]->sub_heading }}</p>
         </div>
         <div style="padding:56.25% 0 0 0;position:relative; top: 15px;">
-          <div  id="playVidemomo" style=" background: url({{url('images/1.jpg')}}); position: absolute; z-index: 9999999; height:422px; background-size: cover; width: 750px; margin-top: -422px; cursor: pointer;"></div>
+          <div  id="playVidemomo" style=" background: url({{url('images/vemo.jpg')}}); background-color: rgba(0,0,0,0.9); position: absolute; z-index: 9; height:422px; background-size: cover; width: 750px; margin-top: -422px; cursor: pointer; -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.65);
+-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.65);
+box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.65); text-align: center; line-height: 100%;">
+  <div class="control-overlay" style="height: 100%;">
+    <img src="{{url('images/play.png')}}" style="margin-top:175px;">
+  </div>
+</div>
           <iframe id="ifvemo" src="{{ $HomePageVideo[0]->vimeo_video_url }}"
             style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0"
             allow="autoplay; fullscreen" allowfullscreen>
@@ -157,7 +159,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 mb-1">
         <a href="{{ $HomeDelivery->first_logo_link }}">
           <div class="delviery-icon">
             <figure>
@@ -169,7 +171,7 @@
           </div>
         </a>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 mb-1">
         <a href="{{ $HomeDelivery->second_logo_link }}">
           <div class="delviery-icon">
             <figure>
@@ -181,7 +183,7 @@
           </div>
         </a>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 mb-1">
         <a href="{{ $HomeDelivery->third_logo_link }}">
           <div class="delviery-icon">
             <figure>
