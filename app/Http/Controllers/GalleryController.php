@@ -56,13 +56,67 @@ class GalleryController extends Controller
     }
 
 
+    private function resize_crop_image($max_width, $max_height, $source_file, $dst_dir, $quality = 80){
+        $imgsize = getimagesize($source_file);
+        $width = $imgsize[0];
+        $height = $imgsize[1];
+        $mime = $imgsize['mime'];
+
+        switch($mime){
+            case 'image/gif':
+                $image_create = "imagecreatefromgif";
+                $image = "imagegif";
+                break;
+
+            case 'image/png':
+                $image_create = "imagecreatefrompng";
+                $image = "imagepng";
+                $quality = 7;
+                break;
+
+            case 'image/jpeg':
+                $image_create = "imagecreatefromjpeg";
+                $image = "imagejpeg";
+                $quality = 80;
+                break;
+
+            default:
+                return false;
+                break;
+        }
+
+        $dst_img = imagecreatetruecolor($max_width, $max_height);
+        $src_img = $image_create($source_file);
+
+        $width_new = $height * $max_width / $max_height;
+        $height_new = $width * $max_height / $max_width;
+        //if the new width is greater than the actual width of the image, then the height is too large and the rest cut off, or vice versa
+        if($width_new > $width){
+            //cut point by height
+            $h_point = (($height - $height_new) / 2);
+            //copy image
+            imagecopyresampled($dst_img, $src_img, 0, 0, 0, $h_point, $max_width, $max_height, $width, $height_new);
+        }else{
+            //cut point by width
+            $w_point = (($width - $width_new) / 2);
+            imagecopyresampled($dst_img, $src_img, 0, 0, $w_point, 0, $max_width, $max_height, $width_new, $height);
+        }
+
+        $image($dst_img, $dst_dir, $quality);
+
+        if($dst_img)imagedestroy($dst_img);
+        if($src_img)imagedestroy($src_img);
+    }
+    //usage example
+    //resize_crop_image(100, 100, "test.jpg", "test.jpg");
+
     public function store(Request $request)
     {
         $this->validate($request,[
                 
                 'category'=>'required',
                 'gallery_content'=>'required',
-                'gallery_image'=>'required',
+                'gallery_image'=>'required|mimes:jpeg,bmp,png|max:1000',
         ]);
 
         $this->SystemAdminLog("Gallery","Save New","Create New");
@@ -73,11 +127,21 @@ class GalleryController extends Controller
 
         $filename_gallery_2='';
         if ($request->hasFile('gallery_image')) {
+
+
+            
+
             $img_gallery = $request->file('gallery_image');
             $upload_gallery = 'upload/gallery';
             $filename_gallery_2 = time() . '.' . $img_gallery->getClientOriginalExtension();
             $img_gallery->move($upload_gallery, $filename_gallery_2);
+
+            $this->resize_crop_image(345, 345, $upload_gallery.'/'.$filename_gallery_2, $upload_gallery.'/small/'.$filename_gallery_2);
+
+            //echo url($upload_gallery.'/small/'.$filename_gallery_2); 
         }
+
+       //die();
 
                 
         $tab=new Gallery();
@@ -297,10 +361,20 @@ class GalleryController extends Controller
 
         $filename_gallery_2=$request->ex_gallery_image;
         if ($request->hasFile('gallery_image')) {
+
+
+
+            $this->validate($request,[
+                    'gallery_image'=>'required|mimes:jpeg,bmp,png|max:1000',
+            ]);
+
+
             $img_gallery = $request->file('gallery_image');
             $upload_gallery = 'upload/gallery';
             $filename_gallery_2 = time() . '.' . $img_gallery->getClientOriginalExtension();
             $img_gallery->move($upload_gallery, $filename_gallery_2);
+
+            $this->resize_crop_image(345, 345, $upload_gallery.'/'.$filename_gallery_2, $upload_gallery.'/small/'.$filename_gallery_2);
         }
 
                 

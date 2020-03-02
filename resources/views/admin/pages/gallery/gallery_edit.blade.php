@@ -62,7 +62,7 @@
         </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="{{url('gallery/update/'.$dataRow->id)}}" method="post" enctype="multipart/form-data">
+          <form action="{{url('galleryphoto/update/'.$dataRow->id)}}" method="post" enctype="multipart/form-data">
           {{csrf_field()}}
           
             <div class="card-body">
@@ -125,7 +125,7 @@
                     <div class="col-md-6">
                         @if(isset($dataRow->gallery_image))
                             @if(!empty($dataRow->gallery_image))
-                                <img class="img-thumbnail" src="{{url('upload/gallery/'.$dataRow->gallery_image)}}" width="150">
+                                <img class="img-thumbnail" src="{{url('upload/gallery/small/'.$dataRow->gallery_image)}}" width="150">
                             @endif
                         @endif
                     </div>
@@ -171,10 +171,16 @@
 
     <script src="{{url('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
     <script>
+
+
+
+      
     $(document).ready(function(){
         bsCustomFileInput.init();
     });
     </script>
+
+
 
 @endsection
         

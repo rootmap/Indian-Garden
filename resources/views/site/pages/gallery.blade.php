@@ -48,7 +48,7 @@
                   <div class="portfolio-item col-xs-12 col-sm-6 col-md-3 fancybox" data-groups='["total", "{{ $g->category_name }}"]'  href="{{url('upload/gallery/'.$g->gallery_image)}}" data-fancybox-group="gallery">
                     <div class="portfolio grid">
                     <figure class="effect-cheff gallary-image">
-                      <img src="{{url('upload/gallery/'.$g->gallery_image)}}" class="img-responsive" style="height: 300px;" alt="Gallery 01"/>
+                      <img src="{{url('upload/gallery/small/'.$g->gallery_image)}}" class="img-responsive" style="height: 300px;" alt="Gallery 01"/>
                       <!-- <figcaption>
                         <div class="gallary-hover-text">
                           <a class="yellow-bar fancybox" href="{{url('upload/gallery/'.$g->gallery_image)}}" data-fancybox-group="gallery"><i class="fa fa-search-plus"></i></a>
