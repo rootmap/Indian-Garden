@@ -97,6 +97,28 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Choose Lunch Menu</label>
+                                    <!-- <label for="customFile">Choose Header Image</label> -->
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input"  id="download_lunch_menu" name="download_lunch_menu">
+                                      <input type="hidden" value="{{$dataRow->download_lunch_menu}}" name="ex_download_lunch_menu" />
+                                      <label class="custom-file-label" for="customFile">Choose Lunch Menu</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @if(isset($dataRow->download_lunch_menu))
+                                    @if(!empty($dataRow->download_lunch_menu))
+                                        <a class="btn btn-primary" href="{{url('upload/menupageinfo/'.$dataRow->download_lunch_menu)}}">Download</a>
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+
         <div class="row">
             <div class="col-sm-12">
               <!-- radio -->

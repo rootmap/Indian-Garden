@@ -17,7 +17,7 @@
                 <div class="col-md-12">
                      <div class="form-group">
                       <label style="font-weight: 600;">Full Name</label>
-                      <input  style="border-radius: 0px;" id="fullname_login" name="fullname_login" class="form-control form-control-lg" type="text" placeholder="Enter Full Name">
+                      <input  style="border-radius: 0px;" id="fullname_signup" name="fullname_signup" class="form-control form-control-lg" type="text" placeholder="Enter Full Name">
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="col-md-12">
                      <div class="form-group">
                       <label style="font-weight: 600;">Email Address</label>
-                      <input style="border-radius: 0px;" id="email_login" name="email_login" class="form-control form-control-lg" type="text" placeholder="Enter Email Address">
+                      <input style="border-radius: 0px;" id="email_signup" name="email_signup" class="form-control form-control-lg" type="text" placeholder="Enter Email Address">
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="col-md-12">
                      <div class="form-group">
                       <label style="font-weight: 600;">Password</label>
-                      <input  style="border-radius: 0px;" id="password_login" name="password_login" class="form-control form-control-lg" type="password" placeholder="Enter Password">
+                      <input  style="border-radius: 0px;" id="password_signup" name="password_signup" class="form-control form-control-lg" type="password" placeholder="Enter Password">
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 
             <div class="col-md-8 mb-1 col-md-offset-2">
                 <div class="col-md-12">
-                     <button class="btn btn-info" type="button">
+                     <button class="btn btn-info registerc" type="button">
                         <i class="fa fa-unlock" aria-hidden="true"></i> Register 
                       </button>
                 </div>

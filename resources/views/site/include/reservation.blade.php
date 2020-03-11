@@ -1,7 +1,6 @@
-<!--===| Right Fixed Booking Form Start|=== id="sidebar_form" name="sidebarForm" id="send-message-sidebar" --> 
 
   <div class="book-now-wrapper">
-    <p class="toggle">{{ $WebsiteSettings->book_table_button_content }}</p>
+    <p class="toggle">{{ $social->book_table_button_content }}</p>
     <div class="book-now ">  
       <div class="book-form">
         <p>free & instant online restaurant reservations</p>
@@ -14,22 +13,23 @@
             <input id="email-sidebar" class="form-control" type="email" name="mail" placeholder="E-mail">
           </div>
           <div class="col-xs-12 col-sm-12">
+            <input id="phone-sidebar" class="form-control" type="text" name="phone" placeholder="Phone Number">
+          </div>
+          <div class="col-xs-12 col-sm-12">
             <input id="datepicker-sidebar" class="form-control" type="text" name="reservations_date"  placeholder="date">
           </div>
           <div class="col-xs-12 col-sm-12">
                 <select name="reservations_time" class="form-control form-control-lg">
-                  <option value="">Select Time</option>
-                  @for($i=0; $i<=23; $i++)
-                      <option value="{{strlen($i)==1?'0'.$i:$i}}:00">{{strlen($i)==1?'0'.$i:$i}}:00</option>
-                      <option value="{{strlen($i)==1?'0'.$i:$i}}:15">{{strlen($i)==1?'0'.$i:$i}}:15</option>
-                      <option value="{{strlen($i)==1?'0'.$i:$i}}:30">{{strlen($i)==1?'0'.$i:$i}}:30</option>
-                      <option value="{{strlen($i)==1?'0'.$i:$i}}:45">{{strlen($i)==1?'0'.$i:$i}}:45</option>
-                  @endfor
+                  <option value="">Select Date First</option>
                 </select>
           
           </div>
+          <div class="col-xs-3 col-sm-3"><button type="button" class="form-control btn btn-block minusMorePerson"><i style="color: #000;" class="fa fa-minus"></i></button></div>
+          <div class="col-xs-6 col-sm-6"><input class="form-control"  type="number" id="personPopAreaIn" name="person" placeholder="0 Person"></div>
+          <div class="col-xs-3 col-sm-3"><button type="button" class="form-control btn btn-block addMorePerson"><i style="color: #000;" class="fa fa-plus"></i></button></div>
           <div class="col-xs-12 col-sm-12">
-            {{-- <input class="form-control" type="text" name="person-no" placeholder="number of person"> --}}
+
+           <!-- <input class="form-control" type="text" name="person-no" placeholder="number of person"> 
             <select name="person" class="form-control form-control-lg">
                     <option value="">Select person</option>
                     <option value="1 person">1 person</option>
@@ -38,7 +38,7 @@
                     <option value="4 person">4 person</option>
                     <option value="5 person">5 person</option>
                     <option value="6 person">6 person</option>
-                  </select>
+                  </select> -->
           </div>
           <input type="hidden" name="reservations_status" value="Pending">
           <div class="col-xs-12 col-sm-12">
@@ -55,4 +55,4 @@
       </div>
     </div>
   </div>
-  <!--===| Right Fixed Booking Form End|===-->
+  <!--===| Right Fixed Booking Form End|===

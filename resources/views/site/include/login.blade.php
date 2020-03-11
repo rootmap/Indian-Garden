@@ -4,7 +4,7 @@
 .text-divider:before{ content: " "; display: block; border-top: 1px solid #a87f41; border-bottom: 1px solid #a87f41;}
 </style>
 <div class="popup-section" id="loginArea" style="background:url({{url('images/bgtffive.png')}}) repeat; background: rgb(255,255,255,0.95); position: fixed;">
-  <form action="{{url('customer/login')}}" method="POST">
+  <form action="javascript:void(0);" method="POST">
     <div class="row">
       <div class="col-md-12">
         <a href="javascript:void(0);"  
@@ -49,7 +49,7 @@
 
             <div class="col-md-8 mb-1 col-md-offset-2">
                 <div class="col-md-12">
-                     <button id="loginsubmit" class="btn btn-info" type="submit">
+                     <button id="loginsubmit" class="btn btn-info" type="button">
                         <i class="fa fa-unlock" aria-hidden="true"></i> Login 
                       </button>
                 </div>

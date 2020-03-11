@@ -40,19 +40,24 @@
 
       if($oe_style=='odd'){
       ?>
-      <div class="row newhisAr">
-        <div class="col-lg-5 col-lg-offset-1 nopadd">
-          <figure class="dtrFig">
-            <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" alt="{{ $his->heading }}" class="img-fit">
+      <div class="row parent newhisAr">
+        <div class="col-lg-5 col-lg-offset-1 visible-sm visible-xs hidden-md hidden-lg nopadd">
+          <figure class="dtrFig" style="height: 100%;">
+            <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" style="height: 100%;" alt="{{ $his->heading }}" class="img-fit">
           </figure>
         </div>
-        <div class="col-lg-5  nopadd">
-          <div class="body-inner-block">
+        <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 nopadd">
+          <div class="body-inner-block" style="height: 100%;  display: block;">
             <h2>{{ $his->heading }}<br>{{ $his->sub_heading }}</h2>
             <p class="mb-40">
               {{ $his->content_detail }}
             </p>
           </div>
+        </div>
+        <div class="col-lg-5 hidden-sm hidden-xs nopadd">
+          <figure class="dtrFig" style="height: 100%;">
+            <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" style="height: 100%;" alt="{{ $his->heading }}" class="img-fit">
+          </figure>
         </div>
       </div>
       <?php 
@@ -60,20 +65,21 @@
       else
       {
       ?>
-          <div class="row newhisAr">
-            <div class="col-lg-5 col-lg-offset-1 nopadd">
-              <div class="body-inner-block">
+          <div class="row parent newhisAr">
+            <div class="col-lg-5 col-md-offset-1 nopadd">
+              <figure class="dtrFig" style="height: 100%;">
+                <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" style="height: 100%;" alt="{{ $his->heading }}" class="img-fit">
+              </figure>
+            </div>
+            <div class="col-lg-5 nopadd">
+              <div class="body-inner-block" style="height: 100%;  display: block;">
                 <h2>{{ $his->heading }}<br>{{ $his->sub_heading }}</h2>
             <p class="mb-40">
               {{ $his->content_detail }}
             </p>
               </div>
             </div>
-            <div class="col-lg-5 nopadd">
-              <figure class="dtrFig">
-                <img src="{{URL::asset('upload/ourhistory/'.$his->content_image) }}" alt="{{ $his->heading }}" class="img-fit">
-              </figure>
-            </div>
+            
           </div>
       <?php
         }
@@ -87,12 +93,52 @@
 </section>
 @endsection
 
+@section('css')
+<style type="text/css">
+  .parent {
+    display: flex;
+}
+
+</style>
+@endsection
+
 @section('js')
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('.newhisAr').each(function(){
-            $(this).find('.body-inner-block').css('height',$(this).find('.dtrFig').children('img').height());
-        });
-    });
+
+  var isMobile = {
+              Android: function() {
+                  return navigator.userAgent.match(/Android/i);
+              },
+              BlackBerry: function() {
+                  return navigator.userAgent.match(/BlackBerry/i);
+              },
+              iOS: function() {
+                  return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+              },
+              Opera: function() {
+                  return navigator.userAgent.match(/Opera Mini/i);
+              },
+              Windows: function() {
+                  return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+              },
+              any: function() {
+                  return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+              }
+          };
+
+          if( isMobile.any() )
+          { 
+            $('.newhisAr').removeClass('parent');
+          }
+          else
+          {
+            $('.newhisAr').addClass('parent');
+
+            $('.newhisAr').each(function(){
+                //$(this).find('.body-inner-block').css('height',$(this).find('.dtrFig').children('img').height());
+            });
+          }
+
+        
 </script>
 @endsection

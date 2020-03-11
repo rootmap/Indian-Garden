@@ -1,14 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="robots" content="index" />
-<meta name="description" content="{{ $WebsiteSettings->website_meta_description }}">
-<meta name="keywords" content="{{ $WebsiteSettings->website_meta_data }}">
+<meta name="description" content="{{ $social->website_meta_description }}">
+<meta name="keywords" content="{{ $social->website_meta_data }}">
 <!-- <link rel="icon" type="image/png" href="{{ url('site/img/favicon.ico') }}"> -->
 
 <meta property="og:url"                content="{{url('index')}}" />
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="Indian Gadren" />
-<meta property="og:description"        content="{{ $WebsiteSettings->website_meta_description }}" />
+<meta property="og:description"        content="{{ $social->website_meta_description }}" />
 <meta property="og:image"              content="{{url('images/logo.png')}}" />
 
 

@@ -153,12 +153,32 @@
               <p>Gallery</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{url('reservationsrequest')}}" class="nav-link {{ Request::path() == 'reservationsrequest' ? 'active' : '' }}">
-              <i class="nav-icon fas fa-envelope-open"></i>
-              <p>Reservation & Contact</p>
+
+          <li class="nav-item has-treeview {{ in_array(Request::path(),array('reservationsrequest','reservation-contact'))?'menu-open':'' }}">
+            <a href="#" class="nav-link {{ in_array(Request::path(),array('reservationsrequest','reservation-contact'))?'active':'' }}">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Reservation & Contact
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
-          </li>  
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('reservation-contact')}}" class="nav-link {{ Request::path() == 'reservation-contact' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reservation Page Settings</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('reservationsrequest')}}" class="nav-link {{ Request::path() == 'reservationsrequest' ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reservation Request</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="{{url('contactusrequest')}}" class="nav-link {{ Request::path() == 'contactusrequest' ? 'active' : '' }}">
               <i class="nav-icon fas fa-phone-square-alt"></i>
@@ -167,7 +187,7 @@
           </li>
           <li class="nav-item has-treeview {{ in_array(Request::path(),array('sitesettings','openinghour','sociallinkmgt/create','websitesettings/create'))?'menu-open':'' }}">
             <a href="#" class="nav-link {{ in_array(Request::path(),array('sitesettings','openinghour','sociallinkmgt/create','websitesettings/create'))?'active':'' }}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-cogs"></i>
               <p>
                 Setting
                 <i class="right fas fa-angle-left"></i>

@@ -35,13 +35,19 @@ Route::get('/user/order/paid','IndexController@orderPaid');
 Route::get('/user/profile','IndexController@userProfile');
 Route::get('/blog','IndexController@blog');
 Route::get('/blog-detail','IndexController@blogDetail');
+Route::get('/career','IndexController@career');
+Route::post('/career/request','IndexController@careerStore');
+
 
 Route::post('customer/login', 'CustomerController@login');
+Route::post('customer/register', 'CustomerController@register');
 Route::get('login/facebook', 'SocialController@redirectToProviderFacebook');
 Route::get('callback/login/facebook', 'SocialController@handleProviderCallbackFacebook');
 
 Route::get('login/google', 'SocialController@redirectToProviderGoogle');
 Route::get('callback/login/google', 'SocialController@handleProviderCallbackGoogle');
+
+Route::post('/daywiseopeninghour/loaddate','DaywiseopeninghourController@loadDate');
 
 Route::group(['middleware' => 'auth'], function () { 
 
@@ -299,4 +305,74 @@ Route::group(['middleware' => 'auth'], function () {
 	//======================== Websitesettings Route End ===============================//
 
 	Route::get('/dashboard','IndexController@dashboard');
+
+
+	//======================== Careerinfo Route Start ===============================//
+	Route::get('/careerinfo/list','CareerinfoController@show');
+	Route::get('/careerinfo/create','CareerinfoController@create');
+	Route::get('/careerinfo/edit/{id}','CareerinfoController@edit');
+	Route::get('/careerinfo/delete/{id}','CareerinfoController@destroy');
+	Route::get('/careerinfo','CareerinfoController@index');
+	Route::get('/careerinfo/export/excel','CareerinfoController@ExportExcel');
+	Route::get('/careerinfo/export/pdf','CareerinfoController@ExportPDF');
+	Route::post('/careerinfo','CareerinfoController@store');
+	Route::post('/careerinfo/ajax','CareerinfoController@ajaxSave');
+	Route::post('/careerinfo/datatable/ajax','CareerinfoController@datatable');
+	Route::post('/careerinfo/update/{id}','CareerinfoController@update');
+	//======================== Careerinfo Route End ===============================//
+	//======================== Careerrequest Route Start ===============================//
+	Route::get('/careerrequest/list','CareerrequestController@show');
+	Route::get('/careerrequest/create','CareerrequestController@create');
+	Route::get('/careerrequest/edit/{id}','CareerrequestController@edit');
+	Route::get('/careerrequest/delete/{id}','CareerrequestController@destroy');
+	Route::get('/careerrequest','CareerrequestController@index');
+	Route::get('/careerrequest/export/excel','CareerrequestController@ExportExcel');
+	Route::get('/careerrequest/export/pdf','CareerrequestController@ExportPDF');
+	Route::post('/careerrequest','CareerrequestController@store');
+	Route::post('/careerrequest/ajax','CareerrequestController@ajaxSave');
+	Route::post('/careerrequest/datatable/ajax','CareerrequestController@datatable');
+	Route::post('/careerrequest/update/{id}','CareerrequestController@update');
+	//======================== Careerrequest Route End ===============================//
+	//======================== Reservation Route Start ===============================//
+	Route::get('/reservation-contact/list','ReservationController@show');
+	Route::get('/reservation-contact/create','ReservationController@create');
+	Route::get('/reservation-contact/edit/{id}','ReservationController@edit');
+	Route::get('/reservation-contact/delete/{id}','ReservationController@destroy');
+	Route::get('/reservation-contact','ReservationController@index');
+	Route::get('/reservation-contact/export/excel','ReservationController@ExportExcel');
+	Route::get('/reservation-contact/export/pdf','ReservationController@ExportPDF');
+	Route::post('/reservation-contact','ReservationController@store');
+	Route::post('/reservation-contact/ajax','ReservationController@ajaxSave');
+	Route::post('/reservation-contact/datatable/ajax','ReservationController@datatable');
+	Route::post('/reservation-contact/update/{id}','ReservationController@update');
+	//======================== Reservation Route End ===============================//
+
+	//======================== Daywiseopeninghour Route Start ===============================//
+	Route::get('/daywiseopeninghour/list','DaywiseopeninghourController@show');
+	Route::get('/daywiseopeninghour/create','DaywiseopeninghourController@create');
+	Route::get('/daywiseopeninghour/edit/{id}','DaywiseopeninghourController@edit');
+	Route::get('/daywiseopeninghour/delete/{id}','DaywiseopeninghourController@destroy');
+	Route::get('/daywiseopeninghour','DaywiseopeninghourController@index');
+	Route::get('/daywiseopeninghour/export/excel','DaywiseopeninghourController@ExportExcel');
+	Route::get('/daywiseopeninghour/export/pdf','DaywiseopeninghourController@ExportPDF');
+	Route::post('/daywiseopeninghour','DaywiseopeninghourController@store');
+	Route::post('/daywiseopeninghour/ajax','DaywiseopeninghourController@ajaxSave');
+	Route::post('/daywiseopeninghour/datatable/ajax','DaywiseopeninghourController@datatable');
+	Route::post('/daywiseopeninghour/update/{id}','DaywiseopeninghourController@update');
+	//======================== Daywiseopeninghour Route End ===============================//
 });
+
+
+//======================== Customer Route Start ===============================//
+Route::get('/customer/list','CustomerController@show');
+Route::get('/customer/create','CustomerController@create');
+Route::get('/customer/edit/{id}','CustomerController@edit');
+Route::get('/customer/delete/{id}','CustomerController@destroy');
+Route::get('/customer','CustomerController@index');
+Route::get('/customer/export/excel','CustomerController@ExportExcel');
+Route::get('/customer/export/pdf','CustomerController@ExportPDF');
+Route::post('/customer','CustomerController@store');
+Route::post('/customer/ajax','CustomerController@ajaxSave');
+Route::post('/customer/datatable/ajax','CustomerController@datatable');
+Route::post('/customer/update/{id}','CustomerController@update');
+//======================== Customer Route End ===============================//

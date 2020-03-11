@@ -78,7 +78,7 @@ box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.65); text-align: center; line-height: 1
 <!-- /Video -->
 
 <!--===| Service Start ===|-->
-<section class="services rellax" data-rellax-speed="-2" data-rellax-wrapper="null"  data-rellax-center="true" style="background: url({{URL::asset('upload/weareopen/'.$we_are_open[0]->background_image)}}); padding-top:220px; padding-bottom: 150px;">
+<section class="services rellax" data-rellax-speed="-2" data-rellax-wrapper="null"  data-rellax-center="true" style="background: url({{URL::asset('upload/weareopen/'.$we_are_open[0]->background_image)}}); background-size: cover; padding-top:220px; padding-bottom: 150px;">
          <div class="row  rellax" data-rellax-speed="0" data-rellax-wrapper="null"  data-rellax-center="true" >
       <div class="container-fluid">
             <div class="col-xs-12 col-md-10 col-md-offset-1 text-center rellax" data-rellax-speed="1" data-rellax-wrapper="null"  data-rellax-center="true" >
@@ -160,7 +160,7 @@ box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.65); text-align: center; line-height: 1
     </div>
     <div class="row">
       <div class="col-lg-4 mb-1">
-        <a href="{{ $HomeDelivery->first_logo_link }}">
+        <a href="{{ $HomeDelivery->first_logo_link }}" target="_blank">
           <div class="delviery-icon">
             <figure>
               <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery->first_logo) }}" alt="Foodora">
@@ -172,7 +172,7 @@ box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.65); text-align: center; line-height: 1
         </a>
       </div>
       <div class="col-lg-4 mb-1">
-        <a href="{{ $HomeDelivery->second_logo_link }}">
+        <a href="{{ $HomeDelivery->second_logo_link }}" target="_blank">
           <div class="delviery-icon">
             <figure>
               <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery->second_logo) }}" alt="Uber Eats">
@@ -184,7 +184,7 @@ box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.65); text-align: center; line-height: 1
         </a>
       </div>
       <div class="col-lg-4 mb-1">
-        <a href="{{ $HomeDelivery->third_logo_link }}">
+        <a href="{{ $HomeDelivery->third_logo_link }}" target="_blank">
           <div class="delviery-icon">
             <figure>
               <img src="{{URL::asset('upload/homedelivery/'.$HomeDelivery->third_logo) }}" alt="Wolt">
@@ -198,4 +198,143 @@ box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.65); text-align: center; line-height: 1
     </div>
   </div>
 </section>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+
+$.getScript('http://a.vimeocdn.com/js/froogaloop2.min.js');
+$.getScript('https://unpkg.com/sweetalert/dist/sweetalert.min.js');
+
+$(document).ready(function(){
+
+        
+
+        $("#playVidemomo").css("height",$('#ifvemo').height());
+            $("#playVidemomo").css("margin-top",-$('#ifvemo').height());
+            $("#playVidemomo").css("width",$('#ifvemo').width());
+              
+
+             $("#loadvideos").click(function(){
+                $("#videos").css("padding-top","149px");
+                $('html, body').animate({
+                    scrollTop: $("#videos").offset().top
+                }, 1000);
+             });
+
+             $("#playVidemomo").click(function(){
+                $("#playVidemomo").hide();
+
+              var iframe = $('#ifvemo')[0];
+
+              
+
+              var player = $f(iframe);
+
+              //$('#stop').click(function() {
+                //  alert('stoped');
+               //   player.api('pause');
+              //});
+
+
+              //$('#play').click(function(){
+                  //alert('play');
+                  player.api('play');
+              //})
+             });
+
+             $('.hero').css('padding-top','3em');
+
+
+             var sliderShowArea=$(window).height()-102;
+             $('#slider-container-area').css('height',sliderShowArea);
+
+             if(sliderShowArea>=1000)
+               {
+                  $('#buttonRea').css('padding-top','10em');
+                  $('#logoarearea').css('padding-top','6em');
+               } 
+               else if(sliderShowArea>=900)
+               {
+                  $('#buttonRea').css('padding-top','9.5em');
+                  $('#logoarearea').css('padding-top','5em');
+               }
+               else if(sliderShowArea>=800)
+               {
+                  $('#buttonRea').css('padding-top','8em');
+                  $('#logoarearea').css('padding-top','4em');
+               }
+               else if(sliderShowArea>=700)
+               {
+                  $('#buttonRea').css('padding-top','7em');
+                  $('#logoarearea').css('padding-top','3.5em');
+               }
+               else if(sliderShowArea>=600)
+               {
+                  $('#buttonRea').css('padding-top','6em');
+                  $('#logoarearea').css('padding-top','3em');
+               }
+               else if(sliderShowArea>=500)
+               {
+                  $('#buttonRea').css('padding-top','3em');
+                  $('#logoarearea').css('padding-top','1.5em');
+               }
+               else
+               {
+                  $('#buttonRea').css('padding-top','3em');
+                  $('#logoarearea').css('padding-top','1.5em');
+               }
+             
+
+             $(document).scroll(function(){
+                console.log($(window).height());
+             });
+
+             $( window ).resize(function() {
+                var sliderShowArea=$(window).height()-102;
+                $('#slider-container-area').css('height',sliderShowArea);
+                console.log($(window).height()-102);
+
+               if(sliderShowArea>=1000)
+               {
+                  $('#buttonRea').css('padding-top','10em');
+                  $('#logoarearea').css('padding-top','6em');
+                  
+               } 
+               else if(sliderShowArea>=900)
+               {
+                  $('#buttonRea').css('padding-top','9.5em');
+                  $('#logoarearea').css('padding-top','5em');
+               }
+               else if(sliderShowArea>=800)
+               {
+                  $('#buttonRea').css('padding-top','8em');
+                  $('#logoarearea').css('padding-top','4em');
+               }
+               else if(sliderShowArea>=700)
+               {
+                  $('#buttonRea').css('padding-top','7em');
+                  $('#logoarearea').css('padding-top','3.5em');
+               }
+               else if(sliderShowArea>=600)
+               {
+                  $('#buttonRea').css('padding-top','6em');
+                  $('#logoarearea').css('padding-top','3em');
+               }
+               else if(sliderShowArea>=500)
+               {
+                  $('#buttonRea').css('padding-top','3em');
+                  $('#logoarearea').css('padding-top','1.5em');
+               }
+               else
+               {
+                  $('#buttonRea').css('padding-top','3em');
+                  $('#logoarearea').css('padding-top','1.5em');
+               }
+
+
+            });
+
+});
+</script>
 @endsection

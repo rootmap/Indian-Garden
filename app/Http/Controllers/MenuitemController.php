@@ -62,9 +62,7 @@ class MenuItemController extends Controller
                 
                 'category'=>'required',
                 'name'=>'required',
-                'description'=>'required',
                 'price'=>'required',
-                'menu_item_image'=>'required',
         ]);
 
         $this->SystemAdminLog("Menu Item","Save New","Create New");

@@ -231,6 +231,7 @@ return [
 
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'CoreCustomController'=>  App\Http\Controllers\CoreCustomController::class,
 
     ],
 

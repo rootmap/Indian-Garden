@@ -13,6 +13,7 @@ use PHPMailer\PHPMailer\Exception;
 use Illuminate\Support\Facades\URL;
 
 use App\PageName;
+use App\OurHistoryPageInfo;
 
 class CoreCustomController extends Facade {
 
@@ -52,7 +53,49 @@ class CoreCustomController extends Facade {
         return 'Admin';
     }    
 
+    public static function menuInfo()
+    {
 
+        $pageInfo=\DB::select('SELECT 
+(SELECT a.module_status FROM our_history_page_infos AS a LIMIT 1) AS ourstory_status,
+(SELECT a.module_status FROM reservations AS a LIMIT 1) AS reservations_status');
+        
+        return $pageInfo[0];
+
+
+    }
+
+    public static function socialLink()
+    {
+
+        $pageInfo=\DB::select('SELECT 
+                                a.id,
+                                a.facebook,
+                                a.twitter,
+                                a.twitter,
+                                a.linkin,
+                                a.google_plus,
+                                a.pinterest,
+                                a.instagram,
+                                b.site_title,
+                                b.site_logo,
+                                b.address,
+                                b.phone,
+                                b.email_address,
+                                c.website_meta_data,
+                                c.website_meta_description,
+                                c.footer_image,
+                                c.bottom_icon,
+                                c.book_table_button_content,
+                                c.overlay
+                              FROM social_link_mgts AS a
+                              LEFT JOIN site_settingses AS b ON a.id=b.id
+                              LEFT JOIN website_settingses AS c ON a.id=c.id');
+        
+        return $pageInfo[0];
+
+
+    }
 
 
     public static function getAvailableMenus(){

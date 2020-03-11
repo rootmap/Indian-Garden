@@ -23,7 +23,9 @@ use App\ReservationsRequest;
 use App\SocialLinkMgt;
 use App\ContactUsRequest;
 use App\WebsiteSettings;
-
+use App\CareerInfo;
+use App\CareerRequest;
+use App\Reservation;
 
 class IndexController extends Controller
 {
@@ -79,26 +81,20 @@ class IndexController extends Controller
     }
     
     public function index(){
-        $setting                = Sitesettings::all();
         $slider                 = Slider::all();
         $HomePageVideo          = HomePageVideo::all();
         $we_are_open            = WeAreOpen::all();
         $HomeOrderDelivery      = HomeOrderDelivery::first();
         $HomeDelivery           = HomeDelivery::first();
         $OpeningHour            = OpeningHour::all();
-        $WebsiteSettings        = WebsiteSettings::first();
-        $SocialLinkMgt          = SocialLinkMgt::first();
         //dd($SocialLinkMgt);
         return view('site.pages.index',[
-            'setting'=>$setting,
             'slider'=>$slider,
             'HomePageVideo'=>$HomePageVideo,
             'we_are_open'=>$we_are_open,
             'HomeOrderDelivery'=>$HomeOrderDelivery,
             'HomeDelivery'=>$HomeDelivery,
-            'OpeningHour'=>$OpeningHour,
-            'WebsiteSettings'=>$WebsiteSettings,
-            'SocialLinkMgt'=>$SocialLinkMgt
+            'OpeningHour'=>$OpeningHour
         ]);
     }
     public function ourHistory(){
@@ -118,11 +114,11 @@ class IndexController extends Controller
         ]);
     }
     
-    public function menu(){
+    public function menuNK(){
         $setting        = Sitesettings::all();
         $OpeningHour    = OpeningHour::all();
         $MenuPageInfo   = MenuPageInfo::where('module_status','=','Active')->get();
-        $MenuItem       = $this->categoryParseData();
+        
         $WebsiteSettings        = WebsiteSettings::first();
         $SocialLinkMgt          = SocialLinkMgt::first();
         $category        = Category::where('category_status','Active')->get();
@@ -132,12 +128,29 @@ class IndexController extends Controller
             'setting'=>$setting,
             'OpeningHour'=>$OpeningHour,
             'MenuPageInfo'=>$MenuPageInfo,
-            'MenuItem'=>$MenuItem,
             'WebsiteSettings'=>$WebsiteSettings,
             'SocialLinkMgt'=>$SocialLinkMgt,
             'category'=>$category,
         ]);
     }
+
+    public function menu(){
+        $OpeningHour    = OpeningHour::all();
+        $MenuPageInfo   = MenuPageInfo::where('module_status','=','Active')->get();
+        $MenuItem       = $this->categoryParseData();
+        $category        = Category::where('category_status','Active')->get();
+        
+        //dd($MenuItem);
+        return view('site.pages.menu',[
+            'OpeningHour'=>$OpeningHour,
+            'MenuPageInfo'=>$MenuPageInfo,
+            'MenuItem'=>$MenuItem,
+            'category'=>$category,
+        ]);
+    }
+
+
+
     public function event(){
         $setting        = Sitesettings::all();
         $OpeningHour    = OpeningHour::all();
@@ -176,11 +189,13 @@ class IndexController extends Controller
         $OpeningHour    = OpeningHour::all();
         $WebsiteSettings        = WebsiteSettings::first();
         $SocialLinkMgt          = SocialLinkMgt::first();
+        $Reservation          = Reservation::first();
     	return view('site.pages.reservation',[
             'setting'=>$setting,
             'OpeningHour'=>$OpeningHour,
             'WebsiteSettings'=>$WebsiteSettings,
-            'SocialLinkMgt'=>$SocialLinkMgt
+            'SocialLinkMgt'=>$SocialLinkMgt,
+            'reservation'=>$Reservation
         ]);
     }
     public function blog(){
@@ -207,12 +222,14 @@ class IndexController extends Controller
             'SocialLinkMgt'=>$SocialLinkMgt
         ]);
     }
+    
     public function reservationStore(Request $request)
     {
         $this->validate($request,[
                 
                 'name'=>'required',
                 'email'=>'required',
+                'phone'=>'required',
                 'reservations_date'=>'required',
                 'reservations_time'=>'required',
                 'person'=>'required',
@@ -225,7 +242,7 @@ class IndexController extends Controller
         $tab->email=$request->email;
         $tab->reservations_date=$request->reservations_date;
         $tab->reservations_time=$request->reservations_time;
-        $tab->person=$request->person;
+        $tab->person=$request->person." Person";
         $tab->reservations_status=$request->reservations_status;
         $tab->save();
 
@@ -375,6 +392,10 @@ class IndexController extends Controller
                                                         <td>'.$request->email.'</td>
                                                     </tr>
                                                     <tr>
+                                                        <td><b>Phone</b> </td>
+                                                        <td>'.$request->phone.'</td>
+                                                    </tr>
+                                                    <tr>
                                                         <td><b>Reservation Date</b> </td>
                                                         <td>'.$request->reservations_date.'</td>
                                                     </tr>
@@ -384,7 +405,7 @@ class IndexController extends Controller
                                                     </tr>
                                                     <tr>
                                                         <td><b>Reserve For</b> </td>
-                                                        <td>'.$request->person.'</td>
+                                                        <td>'.$request->person.' Person</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -721,5 +742,76 @@ class IndexController extends Controller
             'SocialLinkMgt'=>$SocialLinkMgt
         ]);
         
+    }
+    public function career(){
+        $setting        = Sitesettings::all();
+        $OpeningHour    = OpeningHour::all();
+        $CareerInfo    = CareerInfo::all();
+        $WebsiteSettings        = WebsiteSettings::first();
+        $SocialLinkMgt          = SocialLinkMgt::first();
+        return view('site.pages.career',[
+            'setting'=>$setting,
+            'OpeningHour'=>$OpeningHour,
+            'WebsiteSettings'=>$WebsiteSettings,
+            'SocialLinkMgt'=>$SocialLinkMgt,
+            'CareerInfo'=>$CareerInfo
+        ]);
+        
+    }
+    public function careerStore(Request $request)
+    {
+        $this->validate($request,[
+                
+                'job_circular_id'=>'required',
+                'job_title'=>'required',
+                'full_name'=>'required',
+                'email'=>'required',
+                'mobile_number'=>'required',
+                'expected_salary'=>'required',
+                'git_link'=>'required',
+                'linkedin_link'=>'required',
+                'applicant_photo'=>'required',
+                'applicant_cv'=>'required',
+                'present_address'=>'required',
+        ]);
+
+        
+
+        $filename_careerrequest_8='';
+        if ($request->hasFile('applicant_photo')) {
+            $img_careerrequest = $request->file('applicant_photo');
+            $upload_careerrequest = 'upload/careerrequest';
+            $filename_careerrequest_8 = time() . '.' . $img_careerrequest->getClientOriginalExtension();
+            $img_careerrequest->move($upload_careerrequest, $filename_careerrequest_8);
+        }
+
+                
+
+        $filename_careerrequest_9='';
+        if ($request->hasFile('applicant_cv')) {
+            $img_careerrequest = $request->file('applicant_cv');
+            $upload_careerrequest = 'upload/careerrequest';
+            $filename_careerrequest_9 = time() . '.' . $img_careerrequest->getClientOriginalExtension();
+            $img_careerrequest->move($upload_careerrequest, $filename_careerrequest_9);
+        }
+
+                
+        $tab=new CareerRequest();
+        
+        $tab->job_circular_id=$request->job_circular_id;
+        $tab->job_title=$request->job_title;
+        $tab->full_name=$request->full_name;
+        $tab->email=$request->email;
+        $tab->mobile_number=$request->mobile_number;
+        $tab->expected_salary=$request->expected_salary;
+        $tab->git_link=$request->git_link;
+        $tab->linkedin_link=$request->linkedin_link;
+        $tab->applicant_photo=$filename_careerrequest_8;
+        $tab->applicant_cv=$filename_careerrequest_9;
+        $tab->present_address=$request->present_address;
+        $tab->save();
+
+        return redirect('career')->with('status','You have successfully apply!');
+
     }
 }

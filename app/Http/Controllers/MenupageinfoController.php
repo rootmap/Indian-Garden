@@ -321,6 +321,14 @@ class MenuPageInfoController extends Controller
             $img_menupageinfo->move($upload_menupageinfo, $filename_menupageinfo_2);
         }
 
+        $filename_download_lunch_menu=$request->ex_download_lunch_menu;
+        if ($request->hasFile('download_lunch_menu')) {
+            $img_download_lunch_menu = $request->file('download_lunch_menu');
+            $upload_menupageinfo = 'upload/menupageinfo';
+            $filename_download_lunch_menu = time() . '.' . $img_download_lunch_menu->getClientOriginalExtension();
+            $img_download_lunch_menu->move($upload_menupageinfo, $filename_download_lunch_menu);
+        }
+
                 
         $tab=MenuPageInfo::find($id);
         
@@ -328,6 +336,7 @@ class MenuPageInfoController extends Controller
         $tab->sub_heading=$request->sub_heading;
         $tab->header_image=$filename_menupageinfo_2;
         $tab->module_status=$request->module_status;
+        $tab->download_lunch_menu=$filename_download_lunch_menu;
         $tab->save();
 
         return redirect('menupageinfo')->with('status','Updated Successfully !');

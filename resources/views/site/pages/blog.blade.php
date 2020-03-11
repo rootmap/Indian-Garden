@@ -27,173 +27,201 @@
   <!--===| Gallery Us Banner End|===-->
 
   <!--====| Shuffle Gallery Style Sta rt|====--> 
-  <section class="menus">
+  <section class="blog">
     <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="col-md-4 mb-1">
-            <a href="#">
-              <div class="blog-block">
-                <div class="blog">
-                  <img style="max-height:230px;" src="{{ url('site/img/blog/1.webp') }}" alt="MEXICAN GRILLED CORN">
+      <div class="col-sm-6 col-md-8 col-lg-8">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+              <div class="">
+                <img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="">
+                <div class="panel-body">
+                  <p class="text-muted"> <span class="fa fa-user" aria-hidden="true"></span> Lorem Ipsum | <span class="fa fa-eye" aria-hidden="true"></span> 50 | <span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+                  <h3>Images by pexels.com</h3>
+                  <p>Nulla vehicula semper tellus, eleifend convallis dolor accumsan vitae. Donec diam lorem, vulputate eget pharetra at, laoreet ac augue. Vestibulum tellus justo, faucibus quis hendrerit sit amet, rutrum non nulla[...]</p>
+                  <a href="javascript: void(0);" class="btn btn-default">Read more...</a>
                 </div>
-                <div class="blog-text">
-                  <div class="avatar_image">
-                    <div class="avatar-image">
-                     <img style="max-height:230px;" src="{{ url('site/img/blog/unnamed.jpg') }}" alt="avatar image">
-                   </div>
-                   <div class="_2wbeQ">
-                    <a href="#" class="_25KXg">
-                      <span class="_2MJF1 user-name _1Gv8s blog-post-homepage-description-color blog-post-homepage-description-font blog-post-homepage-link-hashtag-hover-color" data-hook="user-name">K.S. Fahim</span>
-                      <div aria-label="Admin" data-hook="badge" class="Cu6fU">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" class="blog-post-homepage-description-fill" style="fill-rule: evenodd;">
-                          <path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path>
-                        </svg>
-                      </div>
-                    </a>
-                    <ul class="_1ReRx blog-post-homepage-description-font blog-post-homepage-description-color _2qkGq">
-                      <li><span class="post-metadata__date time-ago" data-hook="time-ago">Feb 3</span></li>
-                      <li><div class="_2yYN5 e8kGb blog-post-homepage-description-background-color"></div></li>
-                      <li><span class="post-metadata__readTime" data-hook="time-to-read">1 min</span></li>
-                    </ul>
-                  </div>
-                </div>
-                <h3>MEXICAN GRILLED CORN</h3>
-                <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-                {{-- <a href="#" class="btn btn-info">Read more</a> --}}
-                <hr/>
-                <div class="clearfix"></div>
-                <div class="blog_icon">
-                  <i class="fa fa-eye"></i> <span>7</span> 
-                  <i class="fa fa-comments"></i> <span>1</span> 
-                  <i class="fa fa-heart" style="float: right; color: red"></i>
-                </div>
+                
               </div>
             </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-1">
-          <div class="blog-block">
-            <div class="blog">
-              <img style="height:230px;" src="{{ url('site/img/custom/menu/menus2.jpg') }}" alt="MEXICAN GRILLED CORN">
-            </div>
-            <div class="blog-text">
-              <h3>MEXICAN GRILLED CORN</h3>
-              <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-              <a href="#" class="btn btn-info">Read more</a>
-            </div>
           </div>
-        </div>
-        <div class="col-md-4 mb-1">
-          <div class="blog-block">
-            <div class="blog">
-              <img style="height:230px;" src="{{ url('site/img/custom/menu/menus3.jpg') }}" alt="MEXICAN GRILLED CORN">
-            </div>
-            <div class="blog-text">
-              <h3>MEXICAN GRILLED CORN</h3>
-              <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-              <a href="#" class="btn btn-info">Read more</a>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+              <div class="">
+                <img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="">
+                <div class="panel-body">
+                  <p class="text-muted"> <span class="fa fa-user" aria-hidden="true"></span> Lorem Ipsum | <span class="fa fa-eye" aria-hidden="true"></span> 50 | <span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+                  <h3>Images by pexels.com</h3>
+                  <p>Nulla vehicula semper tellus, eleifend convallis dolor accumsan vitae. Donec diam lorem, vulputate eget pharetra at, laoreet ac augue. Vestibulum tellus justo, faucibus quis hendrerit sit amet, rutrum non nulla[...]</p>
+                  <a href="javascript: void(0);" class="btn btn-default">Read more...</a>
+                </div>
+                
+              </div>
             </div>
           </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+              <div class="">
+                <img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="">
+                <div class="panel-body">
+                  <p class="text-muted"> <span class="fa fa-user" aria-hidden="true"></span> Lorem Ipsum | <span class="fa fa-eye" aria-hidden="true"></span> 50 | <span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+                  <h3>Images by pexels.com</h3>
+                  <p>Nulla vehicula semper tellus, eleifend convallis dolor accumsan vitae. Donec diam lorem, vulputate eget pharetra at, laoreet ac augue. Vestibulum tellus justo, faucibus quis hendrerit sit amet, rutrum non nulla[...]</p>
+                  <a href="javascript: void(0);" class="btn btn-default">Read more...</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+              <div class="">
+                <img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="">
+                <div class="panel-body">
+                  <p class="text-muted"> <span class="fa fa-user" aria-hidden="true"></span> Lorem Ipsum | <span class="fa fa-eye" aria-hidden="true"></span> 50 | <span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+                  <h3>Images by pexels.com</h3>
+                  <p>Nulla vehicula semper tellus, eleifend convallis dolor accumsan vitae. Donec diam lorem, vulputate eget pharetra at, laoreet ac augue. Vestibulum tellus justo, faucibus quis hendrerit sit amet, rutrum non nulla[...]</p>
+                  <a href="javascript: void(0);" class="btn btn-default">Read more...</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+              <div class="">
+                <img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="">
+                <div class="panel-body">
+                  <p class="text-muted"> <span class="fa fa-user" aria-hidden="true"></span> Lorem Ipsum | <span class="fa fa-eye" aria-hidden="true"></span> 50 | <span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+                  <h3>Images by pexels.com</h3>
+                  <p>Nulla vehicula semper tellus, eleifend convallis dolor accumsan vitae. Donec diam lorem, vulputate eget pharetra at, laoreet ac augue. Vestibulum tellus justo, faucibus quis hendrerit sit amet, rutrum non nulla[...]</p>
+                  <a href="javascript: void(0);" class="btn btn-default">Read more...</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="panel panel-default">
+              <div class="">
+                <img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="">
+                <div class="panel-body">
+                  <p class="text-muted"> <span class="fa fa-user" aria-hidden="true"></span> Lorem Ipsum | <span class="fa fa-eye" aria-hidden="true"></span> 50 | <span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+                  <h3>Images by pexels.com</h3>
+                  <p>Nulla vehicula semper tellus, eleifend convallis dolor accumsan vitae. Donec diam lorem, vulputate eget pharetra at, laoreet ac augue. Vestibulum tellus justo, faucibus quis hendrerit sit amet, rutrum non nulla[...]</p>
+                  <a href="javascript: void(0);" class="btn btn-default">Read more...</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <div class="col-md-4 mb-1">
-        <div class="blog-block">
-          <div class="blog">
-            <img style="height:230px;" src="{{ url('site/img/blog/1.webp') }}" alt="MEXICAN GRILLED CORN">
-          </div>
-          <div class="blog-text">
-            <h3>MEXICAN GRILLED CORN</h3>
-            <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-            <a href="#" class="btn btn-info">Read more</a>
-          </div>
+        <hr>
+        <div>
+          <nav aria-label="...">
+            <ul class="pager">
+              <li class="previous"><a href="#"><span aria-hidden="true">←</span> Older Posts</a></li>
+              <li class="next disabled"><a href="#">Newer Posts<span aria-hidden="true">→</span></a></li>
+            </ul>
+          </nav>
         </div>
+
       </div>
-      <div class="col-md-4 mb-1">
-        <div class="blog-block">
-          <div class="blog">
-            <img style="height:230px;" src="{{ url('site/img/custom/menu/menus2.jpg') }}" alt="MEXICAN GRILLED CORN">
-          </div>
-          <div class="blog-text">
-            <h3>MEXICAN GRILLED CORN</h3>
-            <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-            <a href="#" class="btn btn-info">Read more</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-1">
-        <div class="blog-block">
-          <div class="blog">
-            <img style="height:230px;" src="{{ url('site/img/custom/menu/menus3.jpg') }}" alt="MEXICAN GRILLED CORN">
-          </div>
-          <div class="blog-text">
-            <h3>MEXICAN GRILLED CORN</h3>
-            <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-            <a href="#" class="btn btn-info">Read more</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-1">
-        <div class="blog-block">
-          <div class="blog">
-            <img style="height:230px;" src="{{ url('site/img/custom/menu/menus4.jpg') }}" alt="MEXICAN GRILLED CORN">
-          </div>
-          <div class="blog-text">
-            <h3>MEXICAN GRILLED CORN</h3>
-            <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-            <a href="#" class="btn btn-info">Read more</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-1">
-        <div class="blog-block">
-          <div class="blog">
-            <img style="height:230px;" src="{{ url('site/img/custom/menu/menus5.jpg') }}" alt="MEXICAN GRILLED CORN">
-          </div>
-          <div class="blog-text">
-            <h3>MEXICAN GRILLED CORN</h3>
-            <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-            <a href="#" class="btn btn-info">Read more</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-1">
-        <div class="blog-block">
-          <div class="blog">
-            <img style="height:230px;" src="{{ url('site/img/custom/menu/menus6.jpg') }}" alt="MEXICAN GRILLED CORN">
-          </div>
-          <div class="blog-text">
-            <h3>MEXICAN GRILLED CORN</h3>
-            <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-            <a href="#" class="btn btn-info">Read more</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-1">
-        <div class="blog-block">
-          <div class="blog">
-            <img style="height:230px;" src="{{ url('site/img/custom/menu/menus7.jpg') }}" alt="MEXICAN GRILLED CORN">
-          </div>
-          <div class="blog-text">
-            <h3>MEXICAN GRILLED CORN</h3>
-            <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,....</p>
-            <a href="#" class="btn btn-info">Read more</a>
+
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            {{-- <h4 class="text-center">Search for Posts!</h4>
+            <form role="Form" method="GET" action="" accept-charset="UTF-8">
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" type="text" name="search" placeholder="Search..." required/>
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                  </span>
+                </div>
+              </div>
+            </form> --}}
+
+            
+
+            <h4 class="text-center">Popular Posts!</h4>
+            <div class="row">
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="https://images.pexels.com/photos/301930/pexels-photo-301930.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+              </div>
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <h5>Images by pexels.com</h5>
+                <p class="text-muted"><span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="https://images.pexels.com/photos/34601/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+              </div>
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <h5>Images by pexels.com</h5>
+                <p class="text-muted"><span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="https://images.pexels.com/photos/459688/pexels-photo-459688.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+              </div>
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <h5>Images by pexels.com</h5>
+                <p class="text-muted"><span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="https://images.pexels.com/photos/273222/pexels-photo-273222.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+              </div>
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <h5>Images by pexels.com</h5>
+                <p class="text-muted"><span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+              </div>
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <h5>Images by pexels.com</h5>
+                <p class="text-muted"><span class="fa fa-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+              </div>
+            </div>
+            <hr>
+
+            
           </div>
         </div>
       </div>
     </div>
-  </div><!-- row -->
-</div><!-- container -->
-</section> 
-<!--====| Shuffle Gallery Style End |====-->
-@endsection
+  </section> 
+  <!--====| Shuffle Gallery Style End |====-->
+  @endsection
+  @section('css')
+  <style type="text/css">
+    h3, .h3 {
+        font-size: 24px;
+    }
+    h4, .h4 {
+        font-size: 18px;
+    }
+    h5, .h5 {
+        font-size: 14px;
+    }
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4,h5, .h5 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    </style>
+    @endsection

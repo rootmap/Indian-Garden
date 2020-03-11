@@ -1,3 +1,8 @@
+<?php 
+   $sdc = new CoreCustomController();
+   $pageInfo=$sdc->menuInfo();
+   dd($pageInfo);
+?>
 <header class="header-wrapper">
    <div class="container">
       <div class="row">
@@ -23,7 +28,7 @@
                <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
                      <!-- <li class="active"><a href="index.php">Home</a></li> -->
-                     <li ><a href="our-story.php">Our History</a></li>
+                     {{($pageInfo->module_status=='Active')?'<li ><a href="our-story.php">Our History</a></li>':''}}
                      <li ><a href="menu.php">Menu</a></li>
                      <li><a href="events.php">Events </a></li>
                      <li><a href="gallery.php">Gallery </a></li>

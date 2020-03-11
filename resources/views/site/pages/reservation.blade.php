@@ -5,12 +5,12 @@
     <div class="container  header-block">
       <div class="row justify-content-center">
         <div class="common_layout_title">
-          <h2>CONTACT US</h2>
+          <h2>{{$reservation->page_name}}</h2>
         </div>
       </div>
     </div>
     <!-- Common Layout Hero -->
-    <div class="cl-hero" data-parallax="scroll" style="background-image: url({{ url('site/img/custom/event-hero.jpg') }});">
+    <div class="cl-hero" data-parallax="scroll" style="background-image: url({{ url('upload/reservation/'.$reservation->fore_ground_image) }}); background-size: cover;">
     <div class="container">
       <div class="row">
 
@@ -21,14 +21,14 @@
             icon: 'success',
             title: 'Your message has been sent successfully',
             showConfirmButton: false,
-            timer: 2000
+            timer: 5000
           })
         </script>
           
       @endif
         <div class="col-md-5 col-md-offset-6">
           <div class="hero-inner-block" style="padding: 35px 60px;">
-              <h2>Book A Table</h2>
+              <h2>{{$reservation->reservation_form_title}}</h2>
               <form action="{{url('reservation/request')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
@@ -38,33 +38,39 @@
                   <input id="email" name="email" class="form-control form-control-lg" type="email" placeholder="Enter your email address">
                 </div>
                 <div class="form-group">
+                  <input id="phone" name="phone" class="form-control form-control-lg" type="text" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
                   <input id="datepicker" class="form-control form-control-lg" name="reservations_date" type="text" placeholder="Select Date">
                 </div>
                 <div class="form-group">
-                  <select name="reservations_time" class="form-control form-control-lg">
-                    <option value="">Select Time</option>
-                    @for($i=0; $i<=23; $i++)
-                        <option value="{{strlen($i)==1?'0'.$i:$i}}:00">{{strlen($i)==1?'0'.$i:$i}}:00</option>
-                        <option value="{{strlen($i)==1?'0'.$i:$i}}:15">{{strlen($i)==1?'0'.$i:$i}}:15</option>
-                        <option value="{{strlen($i)==1?'0'.$i:$i}}:30">{{strlen($i)==1?'0'.$i:$i}}:30</option>
-                        <option value="{{strlen($i)==1?'0'.$i:$i}}:45">{{strlen($i)==1?'0'.$i:$i}}:45</option>
-                    @endfor
+                  <select name="reservations_time"  class="form-control form-control-lg">
+                    <option value="">Select Date First</option>
                   </select>
                 </div>
                 <input type="hidden" name="reservations_status" value="Pending">
-                <div class="form-group">
-                  <select name="person" class="form-control form-control-lg">
-                    <option value="">Select person</option>
-                    <option value="1 person">1 person</option>
-                    <option value="2 person">2 person</option>
-                    <option value="3 person">3 person</option>
-                    <option value="4 person">4 person</option>
-                    <option value="5 person">5 person</option>
-                    <option value="6 person">6 person</option>
-                  </select>
+
+                <div class="col-xs-2 col-sm-2 mb-1" style="padding-left: 0;">
+                  <button type="button" class="form-control btn btn-block minusMorePersonres" style="padding: 0;">
+                    <i  class="fa fa-minus"></i>
+                  </button>
                 </div>
+                <div class="col-xs-4 col-sm-4">
+                  <input class="form-control"  type="number" id="respersonPopAreaIn" name="person" value="1" placeholder="0">
+                </div>
+                <div class="col-xs-2 col-sm-2" style="padding-left: 0;">
+                  <button type="button" class="form-control btn btn-block addMorePersonres" style="padding: 0;">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <div class="col-xs-4 col-sm-4" style="padding-right: 0;">
+                    <input class="form-control" style="background: none;
+    border: 0px;
+    box-shadow: none;" disabled="disabled"  type="number" value="Person" placeholder="Person">
+                </div>
+                
                 <div class="form-group">
-                  <button class="btn btn-block btn-form">Book a table now</button>
+                  <button class="btn btn-block btn-form">{{$reservation->reservation_button_title}}</button>
                 </div>
               </form>
             </div>
@@ -79,8 +85,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="form-wrapper">
-        <h2>CONTACT US</h2>
-        {{-- <p>Maecenas accumsan id enim in fermentum. Duis porttitor iaculis liber itae congue. Aliquam finibus euismod arcu, a lobortis erat luctus</p> --}}
+        <h2>{{$reservation->contact_form_title}}</h2>
         <form id='contact_form' name="enqueryForm" method="post" action="{{ url('contact/request') }}">
           {{csrf_field()}}
             <div class="row">
@@ -99,7 +104,7 @@
               </div>
               
               <div class="col-xs-12 col-sm-12">
-                <button class="btn" name="submit" type="submit">submit message</button>
+                <button class="btn" name="submit" type="submit">{{$reservation->contact_button_title}}</button>
                 <input type="hidden" value="Unseen" name="contact_status" />
               </div>
             </div>
@@ -130,8 +135,7 @@
             <div class="col-xs-12 col-sm-4">
               <div class="right">
                 <h3>get directions</h3>
-                <p>From Airport 3 Minutes Taxi Distance
-                From Bus Stop 10 Minutes Walking Distance</p>  
+                <p>{{$reservation->get_directions}}</p>  
               </div>
             </div>
           </div>
@@ -143,6 +147,11 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @endsection
 @section('js')
+
+<script type="text/javascript">
+  
+  
+</script>
 
 {{-- <script type="text/javascript">
   Swal.fire({

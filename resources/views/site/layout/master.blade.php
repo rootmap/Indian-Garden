@@ -1,10 +1,15 @@
+<?php 
+   $sdc = new CoreCustomController();
+   $pageInfo=$sdc->menuInfo();
+   $social=$sdc->socialLink();
+?>
 <!DOCTYPE HTML>
 <html lang="en" class="no-js">
    <head>
       <!-- Basic -->
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
       
-      <title>@yield('title') | Indian Gadren</title>
+      <title>@yield('title') | Indian Garden</title>
       @include('site.include.headerCss')
       @yield('css')
       <style type="text/css">
@@ -37,16 +42,14 @@
             @include('site.include.footer')
             <!--==| Footer section End|==-->
          </div>
-         <!--==| .inner-wrapper |==-->
+         <!--==| .inner-wrapper |=core/indiangardenhammarbyse    digimo_indiangardenhammarbyse ,reG~o7D{DJR     digimo_frontend=-->
          @include('site.include.mobile_menu')
       </div>
       <!-- .wrapper -->
       @include('site.include.footerJs')
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <!-- <script src="{{url('parallax/parallax.js')}}"></script>
-      <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.2.0/dist/simpleParallax.min.js"></script> -->
+      
       <script src="{{url('rellax/rellax.min.js')}}"></script>
-      <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
       <script>
         // Accepts any class name
         var rellax = new Rellax('.rellax');
@@ -54,134 +57,140 @@
       @yield('js')
       <script type="text/javascript">
 
+         
+          console.log('header-wrapper=',$('.header-wrapper').height());
+          var logoFIxHeight=$('.header-wrapper').height()-3;
+          $("#logo").attr('style','height:'+logoFIxHeight+'px !important; margin-top:4px;');
 
+          $( window ).resize(function() {
+              console.log('header-wrapper=',$('.header-wrapper').height());
+              var logoFIxHeight=$('.header-wrapper').height()-3;
+              $("#logo").attr('style','height:'+logoFIxHeight+'px !important; margin-top:4px;');
+          });
+
+          $(document).ready(function(){
+              $('input[name=reservations_date]').change(function(){
+                  var reservations_date=$(this).val();
+                  
+
+                  if(reservations_date.length>0)
+                  {
+                      $("select[name=reservations_time]").html("");
+                      var selHtml='<option value="00:00">Loading...</option>';
+                      $("#res_reservations_time").html(selHtml);
+                      var loadDate="{{url('daywiseopeninghour/loaddate')}}";
+                      var selHtml='';
+                          selHtml+='<option value="">Select Time</option>';
+                           $("select[name=reservations_time]").html(selHtml);
+                      $.post(loadDate,{'dateText':reservations_date,'_token':'{{csrf_token()}}'},function(reData){
+                          
+                          $.each(reData,function(k,row){
+                              var selHtml='<option value="'+row.opeing_hour+'">'+row.opeing_hour+'</option>';
+                              console.log(row.opeing_hour);
+                              $("select[name=reservations_time]").append(selHtml);
+                          });
+                          
+                      });
+                     
+
+                      console.log('res Date',reservations_date);
+                  }
+                  else
+                  {
+                      console.log(reservations_date);
+                  }
+
+              });
+          });
 
           $(document).ready(function(){
 
+            $(".addMorePerson").click(function(){
+                var personPopAreaIn=$("#personPopAreaIn").val();
+                var personPopAreaInTOT=(personPopAreaIn-0)+(1-0);
+                $("#personPopAreaIn").val(personPopAreaInTOT)
+            });
 
-            $("#playVidemomo").css("height",$('#ifvemo').height());
-            $("#playVidemomo").css("margin-top",-$('#ifvemo').height());
-            $("#playVidemomo").css("width",$('#ifvemo').width());
-              
+            $(".minusMorePerson").click(function(){
+                var personPopAreaIn=$("#personPopAreaIn").val();
+                if(personPopAreaIn<=0)
+                {
+                  $("#personPopAreaIn").val(0);
+                }
+                else
+                {
+                    var personPopAreaInTOT=(personPopAreaIn-1);
+                    $("#personPopAreaIn").val(personPopAreaInTOT);
+                }
+                
+            });
 
-             $("#loadvideos").click(function(){
-                $("#videos").css("padding-top","149px");
-                $('html, body').animate({
-                    scrollTop: $("#videos").offset().top
-                }, 1000);
-             });
+            $("#personPopAreaIn").keyup(function(){
+                var personPopAreaIn=$("#personPopAreaIn").val();
+                if(personPopAreaIn<=0)
+                {
+                  $("#personPopAreaIn").val(0);
+                }
+                else
+                {
+                    $("#personPopAreaIn").val(personPopAreaIn);
+                }
+            });
 
-             $("#playVidemomo").click(function(){
-                $("#playVidemomo").hide();
+             $("#personPopAreaIn").change(function(){
+                var personPopAreaIn=$("#personPopAreaIn").val();
+                if(personPopAreaIn<=0)
+                {
+                  $("#personPopAreaIn").val(0);
+                }
+                else
+                {
+                    $("#personPopAreaIn").val(personPopAreaIn);
+                }
+            });
 
-              var iframe = $('#ifvemo')[0];
+             $(".addMorePersonres").click(function(){
+                var personPopAreaIn=$("#respersonPopAreaIn").val();
+                var personPopAreaInTOT=(personPopAreaIn-0)+(1-0);
+                $("#respersonPopAreaIn").val(personPopAreaInTOT)
+            });
 
-              
+            $(".minusMorePersonres").click(function(){
+                var personPopAreaIn=$("#respersonPopAreaIn").val();
+                if(personPopAreaIn<=0)
+                {
+                  $("#respersonPopAreaIn").val(0);
+                }
+                else
+                {
+                    var personPopAreaInTOT=(personPopAreaIn-1);
+                    $("#respersonPopAreaIn").val(personPopAreaInTOT);
+                }
+                
+            });
 
-              var player = $f(iframe);
+            $("#respersonPopAreaIn").keyup(function(){
+                var personPopAreaIn=$("#respersonPopAreaIn").val();
+                if(personPopAreaIn<=0)
+                {
+                  $("#respersonPopAreaIn").val(0);
+                }
+                else
+                {
+                    $("#respersonPopAreaIn").val(personPopAreaIn);
+                }
+            });
 
-              //$('#stop').click(function() {
-                //  alert('stoped');
-               //   player.api('pause');
-              //});
-
-
-              //$('#play').click(function(){
-                  //alert('play');
-                  player.api('play');
-              //})
-             });
-
-             $('.hero').css('padding-top','3em');
-
-
-             var sliderShowArea=$(window).height()-102;
-             $('#slider-container-area').css('height',sliderShowArea);
-
-             if(sliderShowArea>=1000)
-               {
-                  $('#buttonRea').css('padding-top','10em');
-                  $('#logoarearea').css('padding-top','6em');
-               } 
-               else if(sliderShowArea>=900)
-               {
-                  $('#buttonRea').css('padding-top','9.5em');
-                  $('#logoarearea').css('padding-top','5em');
-               }
-               else if(sliderShowArea>=800)
-               {
-                  $('#buttonRea').css('padding-top','8em');
-                  $('#logoarearea').css('padding-top','4em');
-               }
-               else if(sliderShowArea>=700)
-               {
-                  $('#buttonRea').css('padding-top','7em');
-                  $('#logoarearea').css('padding-top','3.5em');
-               }
-               else if(sliderShowArea>=600)
-               {
-                  $('#buttonRea').css('padding-top','6em');
-                  $('#logoarearea').css('padding-top','3em');
-               }
-               else if(sliderShowArea>=500)
-               {
-                  $('#buttonRea').css('padding-top','3em');
-                  $('#logoarearea').css('padding-top','1.5em');
-               }
-               else
-               {
-                  $('#buttonRea').css('padding-top','3em');
-                  $('#logoarearea').css('padding-top','1.5em');
-               }
-             
-
-             $(document).scroll(function(){
-                console.log($(window).height());
-             });
-
-             $( window ).resize(function() {
-                var sliderShowArea=$(window).height()-102;
-                $('#slider-container-area').css('height',sliderShowArea);
-                console.log($(window).height()-102);
-
-               if(sliderShowArea>=1000)
-               {
-                  $('#buttonRea').css('padding-top','10em');
-                  $('#logoarearea').css('padding-top','6em');
-                  
-               } 
-               else if(sliderShowArea>=900)
-               {
-                  $('#buttonRea').css('padding-top','9.5em');
-                  $('#logoarearea').css('padding-top','5em');
-               }
-               else if(sliderShowArea>=800)
-               {
-                  $('#buttonRea').css('padding-top','8em');
-                  $('#logoarearea').css('padding-top','4em');
-               }
-               else if(sliderShowArea>=700)
-               {
-                  $('#buttonRea').css('padding-top','7em');
-                  $('#logoarearea').css('padding-top','3.5em');
-               }
-               else if(sliderShowArea>=600)
-               {
-                  $('#buttonRea').css('padding-top','6em');
-                  $('#logoarearea').css('padding-top','3em');
-               }
-               else if(sliderShowArea>=500)
-               {
-                  $('#buttonRea').css('padding-top','3em');
-                  $('#logoarearea').css('padding-top','1.5em');
-               }
-               else
-               {
-                  $('#buttonRea').css('padding-top','3em');
-                  $('#logoarearea').css('padding-top','1.5em');
-               }
-
-
+             $("#respersonPopAreaIn").change(function(){
+                var personPopAreaIn=$("#respersonPopAreaIn").val();
+                if(personPopAreaIn<=0)
+                {
+                  $("#respersonPopAreaIn").val(0);
+                }
+                else
+                {
+                    $("#respersonPopAreaIn").val(personPopAreaIn);
+                }
             });
 
              $("#loginsubmit").click(function(){
@@ -225,13 +234,125 @@
                       'url': logincustomer,
                       'data':{'email':email_login,'password':password_login,'_token':'{{csrf_token()}}'},
                       'success': function (data) {
-                          $("#cartMessageProShow").html(successMessage("Product Added To Cart Successfully.")); 
+                          if(data.status==1)
+                            {
+                              Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Login complete, Redirecting please wait...',
+                                showConfirmButton: false,
+                                timer: 3500
+                              });
+                              $(".swal2-container").css('z-index',99999);
+
+                              setTimeout(function(){
+                                  window.location.href="{{url('crud')}}";
+                              },3500);
+                            } 
+                            else
+                            {
+
+                              Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: data.msg
+                              });
+                              $(".swal2-container").css('z-index',99999);
+                            }
                       }
                   });
 
 
                   return false;
               });
+
+             $(".registerc").click(function(){
+
+                  var fullname_signup=$("input[name=fullname_signup]").val();
+                  var email_signup=$("input[name=email_signup]").val();
+                  var password_signup=$("input[name=password_signup]").val();
+
+                  if(fullname_signup.length==0)
+                  {
+                      swal({
+                        title: "Warning",
+                        text: "Full Name required!",
+                        icon: "error",
+                        button: "Ok",
+                      });
+
+                      return false;
+                  }
+                  
+                  if(email_signup.length==0)
+                  {
+                      swal({
+                        title: "Warning",
+                        text: "Email address required!",
+                        icon: "error",
+                        button: "Ok",
+                      });
+
+                      return false;
+                  }
+
+                  if(password_signup.length==0)
+                  {
+                      swal({
+                        title: "Warning",
+                        text: "Password required!",
+                        icon: "error",
+                        button: "Ok",
+                      });
+
+                      return false;
+                  }
+
+                  $(this).html('<i class="fa fa-unlock" aria-hidden="true"></i> Register <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+
+                  var logincustomer="{{url('customer/register')}}";
+
+                  $.ajax({
+                      'async': true,
+                      'type': "POST",
+                      'global': true,
+                      'dataType': 'json',
+                      'url': logincustomer,
+                      'data':{'fullname':fullname_signup,'email':email_signup,'password':password_signup,'_token':'{{csrf_token()}}'},
+                      'success': function (data) {
+                            if(data.status==0)
+                            {
+                              Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Registration completed, Redirecting please wait...',
+                                showConfirmButton: false,
+                                timer: 3500
+                              });
+                              $(".swal2-container").css('z-index',99999);
+
+                              setTimeout(function(){
+                                  window.location.href="{{url('crud')}}";
+                              },3500);
+                            } 
+                            else
+                            {
+
+                              Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: data.msg
+                              });
+                              $(".swal2-container").css('z-index',99999);
+                            }
+                          
+                      }
+                  });
+
+
+                  return false;
+
+             });
           });
 
           var isMobile = {

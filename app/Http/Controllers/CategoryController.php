@@ -58,7 +58,6 @@ class CategoryController extends Controller
         $this->validate($request,[
                 
                 'name'=>'required',
-                'description'=>'required',
                 'category_status'=>'required',
         ]);
 
@@ -81,7 +80,7 @@ class CategoryController extends Controller
         $this->validate($request,[
                 
                 'name'=>'required',
-                'description'=>'required',
+
                 'category_status'=>'required',
         ]);
 
@@ -268,7 +267,6 @@ class CategoryController extends Controller
         $this->validate($request,[
                 
                 'name'=>'required',
-                'description'=>'required',
                 'category_status'=>'required',
         ]);
 
